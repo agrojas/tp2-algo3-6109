@@ -4,8 +4,9 @@ import java.util.List;
 
 public class Helipuerto extends Pista{
 
+	private int prueba;
 	public Helipuerto(List<Posicion> posicionesHelipuerto) {
-		// TODO Auto-generated constructor stub
+		//es un helipuerto
 	}
 
 }
