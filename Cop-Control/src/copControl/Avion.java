@@ -7,5 +7,5 @@ public abstract class Avion {
 	public Posicion getPosicionActual() {
 		return this.trayectoria.getPosicionActual();
 	}
-/* commit de prueba pablo */
+
 }
