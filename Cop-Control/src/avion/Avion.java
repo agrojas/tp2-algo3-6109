@@ -1,4 +1,7 @@
-package copControl;
+package avion;
+
+import copControl.Posicion;
+import copControl.Trayectoria;
 
 public abstract class Avion {
 	private Trayectoria trayectoria;

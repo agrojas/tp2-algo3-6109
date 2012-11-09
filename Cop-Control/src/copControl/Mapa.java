@@ -3,6 +3,13 @@ package copControl;
 import java.util.ArrayList;
 import java.util.List;
 
+import pista.Helipuerto;
+import pista.PistaDoble;
+import pista.PistaLarga;
+import pista.PistaSimple;
+
+import avion.Avion;
+
 public class Mapa {
 	private List<Avion> avionesEnAire;
 	
