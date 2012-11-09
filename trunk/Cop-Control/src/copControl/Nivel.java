@@ -3,6 +3,8 @@ package copControl;
 import java.util.List;
 import java.util.Iterator;
 
+import avion.Avion;
+
 public class Nivel {
 	private Mapa mapa;
 	private Dificultad dificultad;

@@ -1,5 +1,7 @@
 package copControl;
 
+import avion.Avion;
+
 /**
  * @author agu
  *

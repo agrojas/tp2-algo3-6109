@@ -1,6 +1,8 @@
-package copControl;
+package pista;
 
 import java.util.List;
+
+import copControl.Posicion;
 
 public class Helipuerto extends Pista{
 
