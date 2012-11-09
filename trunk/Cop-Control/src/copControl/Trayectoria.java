@@ -7,6 +7,11 @@ public class Trayectoria {
 	private Posicion posicionActual;
 	
 	
+	public Trayectoria(Posicion posIni, Posicion posFin) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Posicion getPosicionActual() {
 		return this.posicionActual;
 	}

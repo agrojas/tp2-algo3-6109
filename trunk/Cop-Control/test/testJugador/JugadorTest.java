@@ -3,14 +3,15 @@ package testJugador;
 import java.util.ArrayList;
 import java.util.List;
 
+import pista.Helipuerto;
+import pista.PistaDoble;
+import pista.PistaLarga;
+import pista.PistaSimple;
+
 import copControl.Dificultad;
-import copControl.Helipuerto;
 import copControl.Jugador;
 import copControl.Mapa;
 import copControl.Nivel;
-import copControl.PistaDoble;
-import copControl.PistaLarga;
-import copControl.PistaSimple;
 import copControl.Posicion;
 import junit.framework.TestCase;
 
