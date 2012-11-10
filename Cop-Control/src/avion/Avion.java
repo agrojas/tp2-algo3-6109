@@ -26,6 +26,7 @@ public abstract class Avion {
 	}
 	public void moverHacia(Posicion unaPosicion){
 		
+	/**/
 		
 	}
 }
