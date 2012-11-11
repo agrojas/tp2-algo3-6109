@@ -28,4 +28,14 @@ public class Nivel {
 		
 		return avionRecivido;
 	}
+
+	public Mapa getMapa() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void aterrizarAviones() {
+		// TODO Auto-generated method stub
+		
+	}
 }
