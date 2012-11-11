@@ -1,9 +1,11 @@
 package testJugador;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import pista.Helipuerto;
+import pista.Pista;
 import pista.PistaDoble;
 import pista.PistaLarga;
 import pista.PistaSimple;
@@ -23,6 +25,7 @@ public class JugadorTest extends TestCase {
 	private PistaDoble pistaDoble;
 	private PistaLarga pistaLarga;
 	private Helipuerto helipuerto;
+	private List<Pista> pistas;
 	private Dificultad dificultad;
 	private List<Posicion> posicionesPistaSimple= new ArrayList<Posicion>();
 	private List<Posicion> posicionesPistaDoble= new ArrayList<Posicion>();
@@ -50,7 +53,12 @@ public class JugadorTest extends TestCase {
 		pistaDoble = new PistaDoble(posicionesPistaDoble);
 		pistaLarga = new PistaLarga(posicionesPistaLarga);
 		helipuerto = new Helipuerto(posicionesHelipuerto);
-		mapa = new Mapa(pistaSimple,pistaDoble,pistaLarga,helipuerto);
+		pistas=new LinkedList<Pista>();
+		pistas.add(pistaSimple);
+		pistas.add(pistaDoble);
+		pistas.add(pistaLarga);
+		pistas.add(helipuerto);
+		mapa = new Mapa(pistas);
 		dificultad= new Dificultad(1,1,1);
 		nivel = new Nivel(mapa,dificultad);
 		jugador.setNivelActual(nivel);
