@@ -43,9 +43,9 @@ public class Mapa {
 
 	public List<Posicion> getPosicionesExtremos() {
 		
-		
-		Posicion unaPosicionExtremo= new Posicion(50,50);
-		List<Posicion> posicionesExtremos= posicionesExtremos.add(unaPosicionExtremo);
+		List<Posicion> posicionesExtremos= new ArrayList<Posicion>();
+		Posicion unaPosicionExtremo= new Posicion(50,50); // reemplazar linea de codigo por obtencion de posicion margen en random
+		posicionesExtremos.add(unaPosicionExtremo);
 		return posicionesExtremos;
 	}
 
