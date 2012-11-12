@@ -44,7 +44,7 @@ public class Juego {
 				break;
 			//caso AvionComputarizado
 			case 4:
-				
+				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0),nivelActual.getPosicionPistaNoHelipuerto());
 				break;
 			
 		}
