@@ -33,7 +33,7 @@ public class MapaTest extends TestCase {
 		avionSimple= new AvionSimple(posicionInicioAvion, posicionInicioAvion);
 	}
 	
-	public void colocarAvionSimpleEnAire(){
+	public void testColocarAvionSimpleEnAire(){
 		mapa.colocarAvionEnAire(avionSimple);
 		List<Avion> avionesEnAire= mapa.getAvionesEnAire();
 		assertTrue(avionesEnAire.contains(avionSimple));
