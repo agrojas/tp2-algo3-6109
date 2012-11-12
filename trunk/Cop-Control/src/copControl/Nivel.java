@@ -29,11 +29,6 @@ public class Nivel {
 		return avionRecivido;
 	}
 
-	/*public Mapa getMapa() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	*/
 
 	public void aterrizarAviones() {
 		// TODO Auto-generated method stub
@@ -64,12 +59,21 @@ public class Nivel {
 	public boolean huboChoque() {
 		
 		List<Avion> avionesEnAire =this.mapa.getAvionesEnAire();
-		Iterator<Avion> it= avionesEnAire.iterator();
 		boolean chocoConOtroAvion=false;
+		Avion avionActual;
 		
-		while ((it.hasNext()) && (!chocoConOtroAvion)){
-			Avion avionActual = it.next();
+		while ((!avionesEnAire.isEmpty()) && (!chocoConOtroAvion)) {
+		
+			
+			Iterator<Avion> it= avionesEnAire.iterator();
+			avionActual = it.next();
+		
+			//Defino nueva variable para almacenar resultado de metodo List.remove
+			boolean huboCambio;
+			huboCambio= avionesEnAire.remove(avionActual);
+									
 			chocoConOtroAvion = this.chocoConOtroAvion(avionActual,avionesEnAire);
+		
 		}		
 	
 		return chocoConOtroAvion;
@@ -78,18 +82,11 @@ public class Nivel {
 	private boolean chocoConOtroAvion(Avion avionActual,List<Avion> avionesEnAire) {
 		
 		boolean posicionIdentica= false;
-		@SuppressWarnings("unused")
-		boolean huboCambio;
-		//remueve de la lista avion actual.
-		huboCambio= avionesEnAire.remove(avionActual);
-		
 		Iterator<Avion> it= avionesEnAire.iterator();
-		Avion avionAComparar;
-		
-		while(it.hasNext() && !posicionIdentica ){
-			avionAComparar=it.next();
-			posicionIdentica = ((avionAComparar.getPosicionActual())== (avionActual.getPosicionActual()));
-					
+				
+		while(it.hasNext() && (!posicionIdentica)){
+			Avion avionAComparar = it.next();
+			posicionIdentica = (avionAComparar.getPosicionActual().igualA(avionActual.getPosicionActual()));
 		}
 		
 		return posicionIdentica;

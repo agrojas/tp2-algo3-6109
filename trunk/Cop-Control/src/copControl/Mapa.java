@@ -32,7 +32,7 @@ public class Mapa {
 
 
 	public boolean tieneAvionesVolando() {
-		return (avionesEnAire!=null);
+		return (!avionesEnAire.isEmpty());
 		
 	}
 
