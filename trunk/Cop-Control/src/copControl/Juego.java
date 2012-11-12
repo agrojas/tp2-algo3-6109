@@ -23,44 +23,51 @@ public class Juego {
 		return nivelActual;
 	}
 
-	// falta terminar de codear metodo
-	public void colocarAvion() {
+	private Avion crearAvionAlAzar(){
 		Integer M= 1; 
 		Integer N= 4;
 		// Valor random entre M y N, ambos incluidos.
 		Integer enteroAlAzarEntreMyN = (int) Math.floor(Math.random()*(N-M+1)+M);  
 		List<Posicion> posicionesExtremo = nivelActual.getPosicionesExtremos();
-		
-		Avion unAvion= null;
-		//meter dentro de metodo que retorne unAvion
+		Avion unAvion=null;
 		switch (enteroAlAzarEntreMyN) {
 			//caso AvionSimple
 			case 1:
 				AvionSimple unAvionSimple = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1));
-				unAvion=unAvionSimple;
-				break;
+				return unAvionSimple;
 			//caso AvionPesado
 			case 2:
 				AvionPesado unAvionPesado = new AvionPesado(posicionesExtremo.get(0),posicionesExtremo.get(1));
-				unAvion=unAvionPesado;
-				break;
+				return unAvionPesado;
 			//caso Helicoptero
 			case 3:
 				Helicoptero unHelicoptero = new Helicoptero(posicionesExtremo.get(0),posicionesExtremo.get(1));
-				unAvion= unHelicoptero;
-				break;
+				return unHelicoptero;
 			//caso AvionComputarizado
 			case 4:
 				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0),nivelActual.getPosicionPistaNoHelipuerto());
-				unAvion = unAvionComputarizado;
-				break;
+				return unAvionComputarizado;
 		}
 		
-		if (unAvion.tienePistaAdecuada()){
-			nivelActual.colocarAvionEnAire(unAvion);
-		}
+		return unAvion;
+	}
+	
+	
+	public void colocarAvion() {
+		boolean tienePistaAdecuada= false;
+		while (tienePistaAdecuada){
+			
+			Avion unAvion= this.crearAvionAlAzar();
+			if (nivelActual.tienePistaAdecuada(unAvion)){
+				nivelActual.colocarAvionEnAire(unAvion);
+				tienePistaAdecuada=true;
+			}
+			
+		}	
 		
 	}
+		
+	
 
 	/**
 	 * @return the cantidadAvionesAterrizados

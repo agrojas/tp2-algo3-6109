@@ -56,4 +56,8 @@ public class Nivel {
 	public boolean tieneAvionesVolando(){
 		return mapa.tieneAvionesVolando();
 	}
+	public boolean tienePistaAdecuada(Avion unAvion){       
+		return mapa.tienePistaAdecuada(unAvion);
+	
+	}
 }

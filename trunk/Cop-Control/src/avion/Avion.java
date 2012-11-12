@@ -64,12 +64,5 @@ public abstract class Avion {
 	 */
 	abstract public boolean puedeAterrizar(Helipuerto helipuerto);
 	
-	//poner abstract y redefinir en cada subclase
-	public boolean tienePistaAdecuada() {
-		
-		return true;
-	}
 	
-	/* commit con tortoise prueba*/
-	//Prueba Agustin
 }
