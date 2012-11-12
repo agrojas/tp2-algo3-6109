@@ -11,14 +11,15 @@ import copControl.Posicion;
 
 public class PistaSimple extends Pista{
 	
-	private List<Posicion> posiciones;
+
 	
-	public PistaSimple(List<Posicion> posicionesPistaSimple) {
-		this.posiciones= posicionesPistaSimple;
+
+	
+	public PistaSimple(List<Posicion> posicionesEntrada) {
+		super(posicionesEntrada);
+		// TODO Auto-generated constructor stub
 	}
-	public List<Posicion> getPosicionesDeEntrada(){
-		return this.posiciones;
-	}
+
 	@Override
 	public	boolean puedeAterrizar(AvionSimple avionSimple) {
 		return true;
