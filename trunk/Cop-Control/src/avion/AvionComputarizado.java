@@ -1,38 +1,33 @@
 package avion;
 
-import pista.Helipuerto;
-import pista.PistaDoble;
-import pista.PistaLarga;
-import pista.PistaSimple;
+
+import pista.Pista;
 import copControl.Posicion;
 
-public class AvionComputarizado extends Avion{
+public class AvionComputarizado extends Avion {
 
 	public AvionComputarizado(Posicion posIni, Posicion posFin) {
 		super(posIni, posFin);
 		// TODO Auto-generated constructor stub
 	}
 
-	
 	@Override
-	public boolean puedeAterrizar(PistaSimple pista) {
-		return pista.puedeAterrizar(this);
+	protected void avanzar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public boolean puedeAterrizar(PistaDoble pista) {
-		return pista.puedeAterrizar(this);
+	public void moverHacia(Posicion unaPosicion) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public boolean puedeAterrizar(PistaLarga pista) {
+	public boolean puedeAterrizar(Pista pista) {
 		return pista.puedeAterrizar(this);
 	}
 
-	@Override
-	public boolean puedeAterrizar(Helipuerto pista) {
-		return pista.puedeAterrizar(this);
-	}
 
 
 }
