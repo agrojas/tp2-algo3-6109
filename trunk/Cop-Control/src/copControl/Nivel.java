@@ -60,4 +60,38 @@ public class Nivel {
 		return mapa.tienePistaAdecuada(unAvion);
 	
 	}
+
+	public boolean huboChoque() {
+		
+		List<Avion> avionesEnAire =this.mapa.getAvionesEnAire();
+		Iterator<Avion> it= avionesEnAire.iterator();
+		boolean chocoConOtroAvion=false;
+		
+		while ((it.hasNext()) && (!chocoConOtroAvion)){
+			Avion avionActual = it.next();
+			chocoConOtroAvion = this.chocoConOtroAvion(avionActual,avionesEnAire);
+		}		
+	
+		return chocoConOtroAvion;
+	}
+
+	private boolean chocoConOtroAvion(Avion avionActual,List<Avion> avionesEnAire) {
+		
+		boolean posicionIdentica= false;
+		@SuppressWarnings("unused")
+		boolean huboCambio;
+		//remueve de la lista avion actual.
+		huboCambio= avionesEnAire.remove(avionActual);
+		
+		Iterator<Avion> it= avionesEnAire.iterator();
+		Avion avionAComparar;
+		
+		while(it.hasNext() && !posicionIdentica ){
+			avionAComparar=it.next();
+			posicionIdentica = ((avionAComparar.getPosicionActual())== (avionActual.getPosicionActual()));
+					
+		}
+		
+		return posicionIdentica;
+	}
 }

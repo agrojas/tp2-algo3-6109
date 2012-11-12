@@ -55,7 +55,7 @@ public class Juego {
 	
 	public void colocarAvion() {
 		boolean tienePistaAdecuada= false;
-		while (tienePistaAdecuada){
+		while (!tienePistaAdecuada){
 			
 			Avion unAvion= this.crearAvionAlAzar();
 			if (nivelActual.tienePistaAdecuada(unAvion)){
@@ -91,5 +91,11 @@ public class Juego {
 	}
 
 	
+	public boolean huboChoque(){
+		
+		return this.nivelActual.huboChoque();
+		
+		
+	}
 
 }
