@@ -39,13 +39,12 @@ public class MapaTest extends TestCase {
 		assertTrue(avionesEnAire.contains(avionSimple));
 	}
 	
-	//x<50  y=0
-	public void testGenerarPosicionExtremoSuperiorAlAzarConDimensionMax50(){
+	public void testGenerarPosicionExtremoAlAzarConDimensionMax(){
 		Posicion posicionExtremoAlAzar = mapa.generarPosicionExtremoAlAzar();
 		Integer posX = (posicionExtremoAlAzar.getCoordenadaX());
 		Integer posY = (posicionExtremoAlAzar.getCoordenadaY());
 		Boolean posicionDentroDeDimension=false;
-		posicionDentroDeDimension= ((posX<=50) && (posX>=0) && (posY<=50) && (posY>=0));
+		posicionDentroDeDimension= ((posX<=mapa.getDimension()) && (posX>=0) && (posY<=mapa.getDimension()) && (posY>=0));
 		
 		assertTrue(posicionDentroDeDimension);
 	}

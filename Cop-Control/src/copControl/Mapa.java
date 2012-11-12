@@ -99,6 +99,11 @@ public class Mapa {
 		
 		return true;
 	}
+
+	public Integer getDimension() {
+		
+		return this.dimension;
+	}
 	
 
 
