@@ -13,5 +13,18 @@ public class Posicion {
 	}
 	
 	
+	public int getCoordenadaX(){
+		return this.x;
+	}
+	
+	public int getCoordenadaY(){
+		return this.y;
+	}
+	
+	public boolean igualA (Posicion otraPosicion){
+		
+		return ((this.x== otraPosicion.getCoordenadaX()) && (this.y== otraPosicion.getCoordenadaY()));
+		
+	}
 
 }

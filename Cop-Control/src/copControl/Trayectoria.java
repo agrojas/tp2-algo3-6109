@@ -8,7 +8,7 @@ public class Trayectoria {
 	
 	
 	public Trayectoria(Posicion posIni, Posicion posFin) {
-		// TODO Auto-generated constructor stub
+		posicionActual=posIni;
 	}
 
 
