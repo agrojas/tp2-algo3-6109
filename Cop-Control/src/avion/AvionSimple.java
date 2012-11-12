@@ -1,9 +1,7 @@
 package avion;
 
-import pista.Helipuerto;
-import pista.PistaDoble;
-import pista.PistaLarga;
-import pista.PistaSimple;
+import pista.Pista;
+
 import copControl.Posicion;
 
 public class AvionSimple extends Avion{
@@ -24,24 +22,10 @@ public class AvionSimple extends Avion{
 	
 	}
 	@Override
-	public boolean puedeAterrizar(PistaSimple pista) {
+	public boolean puedeAterrizar(Pista pista) {
 		return pista.puedeAterrizar(this);
 	}
 
-	@Override
-	public boolean puedeAterrizar(PistaDoble pista) {
-		return pista.puedeAterrizar(this);
-	}
-
-	@Override
-	public boolean puedeAterrizar(PistaLarga pista) {
-		return pista.puedeAterrizar(this);
-	}
-
-	@Override
-	public boolean puedeAterrizar(Helipuerto pista) {
-		return pista.puedeAterrizar(this);
-	}
 
 	
 	
