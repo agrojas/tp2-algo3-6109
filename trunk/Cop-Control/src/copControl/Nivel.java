@@ -29,10 +29,11 @@ public class Nivel {
 		return avionRecivido;
 	}
 
-	public Mapa getMapa() {
+	/*public Mapa getMapa() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	*/
 
 	public void aterrizarAviones() {
 		// TODO Auto-generated method stub
@@ -51,5 +52,8 @@ public class Nivel {
 	public void colocarAvionEnAire(Avion unAvion) {
 		mapa.colocarAvionEnAire(unAvion);
 	
+	}
+	public boolean tieneAvionesVolando(){
+		return mapa.tieneAvionesVolando();
 	}
 }
