@@ -12,9 +12,11 @@ import copControl.Posicion;
 public class Helipuerto extends Pista{
 
 	private int prueba;
+	
 	public Helipuerto(List<Posicion> posicionesHelipuerto) {
 		//es un helipuerto
 	}
+	
 	@Override
 	public boolean puedeAterrizar(AvionSimple avionSimple) {
 		// TODO Auto-generated method stub

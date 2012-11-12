@@ -14,6 +14,7 @@ public abstract class Avion {
 	protected boolean estaVolando;
 
 
+		
 	/**
 	 * @return
 	 */
@@ -35,8 +36,11 @@ public abstract class Avion {
 		return this.estaVolando;		
 	}
 	
-	//saqué el método avanzar ya que de eso se ocupa trayectoria
+	//Juego le irá indicando al avion que debe avanzar. El avion delega en su trayectoria
 	
+	public void avanzar(){
+		this.trayectoria.avanzar();
+	}
 	
 	//El método MoverHacia no debe tenerlo Avión ya que Avion computarizado lo heredaría. 
 	
