@@ -31,8 +31,12 @@ public class NivelTest extends TestCase {
 	public void testUnNivelAterrizaAvionesQuePuedanAterrizar(){
 
 		nivel.aterrizarAviones();
-		assertTrue(nivel.getMapa().tieneAvionesVolando());
+		assertTrue(nivel.tieneAvionesVolando());
 	
+	}
+	public void testColocarAvionSimpleEnAire(){
+		assertTrue(nivel.tieneAvionesVolando());
+		
 	}
 	public void setUp(){
 		dificultad= new Dificultad(1, 1, 1);
