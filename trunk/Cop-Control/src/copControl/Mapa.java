@@ -57,21 +57,20 @@ public class Mapa {
 		switch (enteroAlAzarEntreMyN) {
 		//Posicion Extremo superior
 		case 1:
-			
 			posicionADevolver= new Posicion(enteroAlAzarEntreCeroYDimension,0);
-			
+			break;
 		//Posicion Extremo inferior
-		case 2: 
+		case 2:
 			posicionADevolver= new Posicion(enteroAlAzarEntreCeroYDimension,this.dimension);
-			
+			break;
 		//Posicion Extremo izquierdo
 		case 3: 
 			posicionADevolver= new Posicion(0,enteroAlAzarEntreCeroYDimension);
-			
+			break;
 		//Posicion Extremo Derecho
 		case 4:
 			posicionADevolver= new Posicion(this.dimension,enteroAlAzarEntreCeroYDimension);
-						
+			break;			
 		}
 			
 		return posicionADevolver;
