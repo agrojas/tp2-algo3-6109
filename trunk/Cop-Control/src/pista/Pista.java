@@ -1,14 +1,20 @@
 package pista;
 
+import java.util.List;
+
+import copControl.Posicion;
+
 import avion.AvionComputarizado;
 import avion.AvionPesado;
 import avion.AvionSimple;
 import avion.Helicoptero;
-import copControl.Posicion;
-import java.util.List;
 
 public abstract class Pista {
+	private List<Posicion> 	posicionesEntrada;
 	
+	public Pista(List<Posicion> posicionesEntrada) {
+		this.posicionesEntrada= posicionesEntrada;
+	}
 	
 	/**
 	 * @param avionSimple
@@ -30,6 +36,11 @@ public abstract class Pista {
 	 * @return
 	 */
 	public abstract boolean puedeAterrizar(Helicoptero helicoptero);
+	
+	public List<Posicion> getPosicionesEntrada() {
+		// TODO Auto-generated method stub
+		return this.posicionesEntrada;
+	}
 	
 
 }

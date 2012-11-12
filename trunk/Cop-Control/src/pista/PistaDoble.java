@@ -11,7 +11,10 @@ import copControl.Posicion;
 
 public class PistaDoble extends Pista {
 
-	public PistaDoble(List<Posicion> posicionesPistaDoble) {
+
+
+	public PistaDoble(List<Posicion> posicionesEntrada) {
+		super(posicionesEntrada);
 		// TODO Auto-generated constructor stub
 	}
 
