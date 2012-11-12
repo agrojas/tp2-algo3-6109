@@ -15,7 +15,13 @@ public class Juego {
 	private Jugador jugador;
 	private List<Nivel> niveles;
 
-
+	public Juego(Jugador jugador,List<Nivel> niveles){
+		this.jugador=jugador;
+		this.niveles=niveles;
+		nivelActual=niveles.get(0);
+		cantidadAvionesAterrizados=0;
+		
+	}
 	/**
 	 * @return the nivelActual
 	 */

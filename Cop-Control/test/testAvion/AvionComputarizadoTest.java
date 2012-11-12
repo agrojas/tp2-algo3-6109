@@ -27,6 +27,8 @@ public class AvionComputarizadoTest extends TestCase {
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
 		List<Posicion> posicionPista = new LinkedList<Posicion>();
+		
+		
 		posicionPista.add(posicionFinal);
 		Helipuerto helipuerto = new Helipuerto(posicionPista);
 		
