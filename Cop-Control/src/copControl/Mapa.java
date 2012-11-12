@@ -37,8 +37,8 @@ public class Mapa {
 		
 	}
 
-	
-	private Posicion generarPosicionExtremoAlAzar(){
+	//cambiar a private
+	public Posicion generarPosicionExtremoAlAzar(){
 		
 		Posicion posicionADevolver=null;
 		
@@ -72,7 +72,6 @@ public class Mapa {
 		case 4:
 			posicionADevolver= new Posicion(this.dimension,enteroAlAzarEntreCeroYDimension);
 						
-			
 		}
 			
 		return posicionADevolver;
