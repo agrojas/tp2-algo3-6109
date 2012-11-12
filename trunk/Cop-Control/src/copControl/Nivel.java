@@ -3,6 +3,10 @@ package copControl;
 import java.util.List;
 import java.util.Iterator;
 
+import org.omg.CosNaming.IstringHelper;
+
+import pista.Pista;
+
 import avion.Avion;
 
 public class Nivel {
@@ -31,9 +35,31 @@ public class Nivel {
 
 
 	public void aterrizarAviones() {
-		// TODO Auto-generated method stub
+		Iterator<Avion> itAvionesEnAire =this.mapa.getAvionesEnAire().iterator();
+		List<Pista> pistas = this.mapa.getPistas();
+		Avion avionAterrizado=null;
+		//Recorro las pistas del mapa
+		for (Pista pista : pistas) {
+			
+			while(itAvionesEnAire.hasNext()){				
+				Avion avion=itAvionesEnAire.next();
+				//Si alguna de las posiciones de entrada de la pista coincide con la posicion del avion
+				if(pista.getPosicionesEntrada().contains(avion.getPosicionActual())){
+				//Si el avion puede aterrizar en esa pista
+				if(avion.puedeAterrizar(pista)){
+					//Quito de la lista de aviones volando del mapa al avion en cuestion 
+					itAvionesEnAire.remove();
+					
+				}
+				
+				
+			}
+				
+			}
 		
+		}
 	}
+	
 
 	public List<Posicion> getPosicionesExtremos() {
 		
@@ -90,5 +116,9 @@ public class Nivel {
 		}
 		
 		return posicionIdentica;
+	}
+
+	public List<Avion> getAvionesVolando() {
+		return mapa.getAvionesEnAire();
 	}
 }
