@@ -31,7 +31,7 @@ public class NivelTest extends TestCase {
 	public void testUnNivelAterrizaAvionesQuePuedanAterrizar(){
 
 		nivel.aterrizarAviones();
-		assertTrue(nivel.tieneAvionesVolando());
+		assertFalse(nivel.tieneAvionesVolando());
 	
 	}
 	public void testColocarAvionSimpleEnAire(){
@@ -51,7 +51,6 @@ public class NivelTest extends TestCase {
 		avionSimple= new AvionSimple(posicionInicioAvion, posicionInicioAvion);
 		mapa.colocarAvionEnAire(avionSimple);
 		nivel = new Nivel(mapa, dificultad);
-		
 		
 		
 	}
