@@ -17,7 +17,7 @@ public class PistaSimple extends Pista{
 		this.posiciones= posicionesPistaSimple;
 	}
 	public List<Posicion> getPosicionesDeEntrada(){
-		return posiciones;
+		return this.posiciones;
 	}
 	@Override
 	public	boolean puedeAterrizar(AvionSimple avionSimple) {
