@@ -5,7 +5,6 @@ import java.util.List;
 
 import pista.Pista;
 import avion.Avion;
-import avion.AvionSimple;
 
 public class Mapa {
 	private List<Avion> avionesEnAire;
@@ -49,7 +48,7 @@ public class Mapa {
 	}
 
 	public Posicion getPosicionPistaNoHelipuerto() {
-		Posicion unaPosicionPistaNoHelipuerto= new Posicion(25,25); //reemplazar por codigo real
+		Posicion unaPosicionPistaNoHelipuerto= new Posicion(25,25); //reemplazar por invocacion a metodo con codigo real
 		return unaPosicionPistaNoHelipuerto;
 	}
 
