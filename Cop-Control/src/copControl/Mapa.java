@@ -51,5 +51,10 @@ public class Mapa {
 		return posicionesExtremos;
 	}
 
+	public Posicion getPosicionPistaNoHelipuerto() {
+		Posicion unaPosicionPistaNoHelipuerto= new Posicion(25,25); //reemplazar por codigo real
+		return unaPosicionPistaNoHelipuerto;
+	}
+
 
 }
