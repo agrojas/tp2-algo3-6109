@@ -76,6 +76,7 @@ public class Mapa {
 		return posicionADevolver;
 		
 	}
+	//retorna una lista de dos posiciones dentro de dimension de mapa al azar
 	public List<Posicion> getPosicionesExtremos() {
 		
 		List<Posicion> posicionesExtremos= new ArrayList<Posicion>();
