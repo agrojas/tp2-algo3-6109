@@ -5,6 +5,7 @@ import avion.AvionSimple;
 import avion.AvionPesado;
 import avion.AvionComputarizado;
 import avion.Helicoptero;
+import avion.Avion;
 
 
 public class Juego {
@@ -29,25 +30,33 @@ public class Juego {
 		// Valor random entre M y N, ambos incluidos.
 		Integer enteroAlAzarEntreMyN = (int) Math.floor(Math.random()*(N-M+1)+M);  
 		List<Posicion> posicionesExtremo = nivelActual.getPosicionesExtremos();
+		
+		Avion unAvion;
+		//meter dentro de metodo que retorne unAvion
 		switch (enteroAlAzarEntreMyN) {
 			//caso AvionSimple
 			case 1:
 				AvionSimple unAvionSimple = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1));
+				unAvion=unAvionSimple;
 				break;
 			//caso AvionPesado
 			case 2:
 				AvionPesado unAvionPesado = new AvionPesado(posicionesExtremo.get(0),posicionesExtremo.get(1));
+				unAvion=unAvionPesado;
 				break;
 			//caso Helicoptero
 			case 3:
 				Helicoptero unHelicoptero = new Helicoptero(posicionesExtremo.get(0),posicionesExtremo.get(1));
+				unAvion= unHelicoptero;
 				break;
 			//caso AvionComputarizado
 			case 4:
 				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0),nivelActual.getPosicionPistaNoHelipuerto());
+				unAvion = unAvionComputarizado;
 				break;
-			
 		}
+		
+		
 	}
 
 	/**
