@@ -10,10 +10,13 @@ import avion.AvionSimple;
 public class Mapa {
 	private List<Avion> avionesEnAire;
 	private List<Pista> pistas;
+	private Posicion posicionMaxima;
 	
 	public Mapa(List<Pista>pistas) {
 		this.avionesEnAire= new ArrayList<Avion>();
 		this.setPistas(pistas);
+		//tamaño de la "matriz" de posiciones 50x50
+		this.posicionMaxima = new Posicion(50,50);
 	}
 
 	public List<Avion> getAvionesEnAire() {
@@ -37,5 +40,14 @@ public class Mapa {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public List<Posicion> getPosicionesExtremos() {
+		
+		
+		Posicion unaPosicionExtremo= new Posicion(50,50);
+		List<Posicion> posicionesExtremos= posicionesExtremos.add(unaPosicionExtremo);
+		return posicionesExtremos;
+	}
+
 
 }

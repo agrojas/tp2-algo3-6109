@@ -27,7 +27,7 @@ public class Juego {
 		switch (enteroAlAzarEntreMyN) {
 			//caso AvionSimple
 			case 1:
-				
+				List<Posicion> posicionesExtremos = nivelActual.getPosicionesExtremos();
 				break;
 			//caso AvionPesado
 			case 2:

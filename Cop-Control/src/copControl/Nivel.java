@@ -38,4 +38,9 @@ public class Nivel {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public List<Posicion> getPosicionesExtremos() {
+		
+		return mapa.getPosicionesExtremos();
+	}
 }
