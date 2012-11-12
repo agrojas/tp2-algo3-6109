@@ -49,7 +49,7 @@ public class Nivel {
 	}
 
 	public void colocarAvionEnAire(Avion unAvion) {
-		// TODO Auto-generated method stub
-		
+		mapa.colocarAvionEnAire(unAvion);
+	
 	}
 }

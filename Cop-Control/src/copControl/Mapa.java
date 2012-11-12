@@ -31,10 +31,6 @@ public class Mapa {
 		this.pistas = pistas;
 	}
 
-	public void colocarAvionEnAire(AvionSimple avionSimple) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public boolean tieneAvionesVolando() {
 		// TODO Auto-generated method stub
@@ -54,6 +50,10 @@ public class Mapa {
 	public Posicion getPosicionPistaNoHelipuerto() {
 		Posicion unaPosicionPistaNoHelipuerto= new Posicion(25,25); //reemplazar por codigo real
 		return unaPosicionPistaNoHelipuerto;
+	}
+
+	public void colocarAvionEnAire(Avion unAvion) {
+		avionesEnAire.add(unAvion);
 	}
 
 
