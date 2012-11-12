@@ -2,12 +2,14 @@ package copControl;
 
 import java.util.List;
 
+
 public class Juego {
 	
 	private Nivel nivelActual;  	/* implementa comparable, cheque niveles dificultad creciente o hago sort para ordenar bajo exepcion  */
 	private Integer cantidadAvionesAterrizados;
 	private Jugador jugador;
 	private List<Nivel> niveles;
+
 
 	/**
 	 * @return the nivelActual
@@ -16,6 +18,32 @@ public class Juego {
 		return nivelActual;
 	}
 
+	// falta terminar de codear metodo
+	public void colocarAvion() {
+		Integer M= 1; 
+		Integer N= 4;
+		// Valor random entre M y N, ambos incluidos.
+		Integer enteroAlAzarEntreMyN = (int) Math.floor(Math.random()*(N-M+1)+M);  
+		switch (enteroAlAzarEntreMyN) {
+			//caso AvionSimple
+			case 1:
+				
+				break;
+			//caso AvionPesado
+			case 2:
+				
+				break;
+			//caso Helicoptero
+			case 3:
+				
+				break;
+			//caso AvionComputarizado
+			case 4:
+				
+				break;
+			
+		}
+	}
 
 	/**
 	 * @return the cantidadAvionesAterrizados
