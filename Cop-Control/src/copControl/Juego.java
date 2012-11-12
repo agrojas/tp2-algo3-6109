@@ -1,6 +1,10 @@
 package copControl;
 
 import java.util.List;
+import avion.AvionSimple;
+import avion.AvionPesado;
+import avion.AvionComputarizado;
+import avion.Helicoptero;
 
 
 public class Juego {
@@ -24,18 +28,19 @@ public class Juego {
 		Integer N= 4;
 		// Valor random entre M y N, ambos incluidos.
 		Integer enteroAlAzarEntreMyN = (int) Math.floor(Math.random()*(N-M+1)+M);  
+		List<Posicion> posicionesExtremo = nivelActual.getPosicionesExtremos();
 		switch (enteroAlAzarEntreMyN) {
 			//caso AvionSimple
 			case 1:
-				List<Posicion> posicionesExtremos = nivelActual.getPosicionesExtremos();
+				AvionSimple unAvionSimple = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1));
 				break;
 			//caso AvionPesado
 			case 2:
-				
+				AvionPesado unAvionPesado = new AvionPesado(posicionesExtremo.get(0),posicionesExtremo.get(1));
 				break;
 			//caso Helicoptero
 			case 3:
-				
+				Helicoptero unHelicoptero = new Helicoptero(posicionesExtremo.get(0),posicionesExtremo.get(1));
 				break;
 			//caso AvionComputarizado
 			case 4:
