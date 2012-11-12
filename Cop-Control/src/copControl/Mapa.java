@@ -9,13 +9,14 @@ import avion.Avion;
 public class Mapa {
 	private List<Avion> avionesEnAire;
 	private List<Pista> pistas;
-	private Posicion posicionMaxima;
+
+	private Integer dimension;
 	
 	public Mapa(List<Pista>pistas) {
 		this.avionesEnAire= new ArrayList<Avion>();
 		this.setPistas(pistas);
 		//tamaño de la "matriz" de posiciones 50x50
-		this.posicionMaxima = new Posicion(50,50);
+		this.dimension = 50;
 	}
 
 	public List<Avion> getAvionesEnAire() {
@@ -36,13 +37,54 @@ public class Mapa {
 		
 	}
 
+	
+	private Posicion generarPosicionExtremoAlAzar(){
+		
+		Posicion posicionADevolver=null;
+		
+		Integer M= 1; 
+		Integer N= 4;
+		// Valor random entre M y N, ambos incluidos para utilizar en el switch.
+		Integer enteroAlAzarEntreMyN = (int) Math.floor(Math.random()*(N-M+1)+M);  
+			
+		
+		Integer MinimoDimension= 0; 
+		Integer MaximoDimension= this.dimension;
+		// Valor random entre 0 y Dimension, ambos incluidos para crear Posicion Extremo.
+		Integer enteroAlAzarEntreCeroYDimension = (int) Math.floor(Math.random()*(MaximoDimension-MinimoDimension+1)+MinimoDimension);
+		
+		
+		switch (enteroAlAzarEntreMyN) {
+		//Posicion Extremo superior
+		case 1:
+			
+			posicionADevolver= new Posicion(enteroAlAzarEntreCeroYDimension,0);
+			
+		//Posicion Extremo inferior
+		case 2: 
+			posicionADevolver= new Posicion(enteroAlAzarEntreCeroYDimension,this.dimension);
+			
+		//Posicion Extremo izquierdo
+		case 3: 
+			posicionADevolver= new Posicion(0,enteroAlAzarEntreCeroYDimension);
+			
+		//Posicion Extremo Derecho
+		case 4:
+			posicionADevolver= new Posicion(this.dimension,enteroAlAzarEntreCeroYDimension);
+						
+			
+		}
+			
+		return posicionADevolver;
+		
+	}
 	public List<Posicion> getPosicionesExtremos() {
 		
 		List<Posicion> posicionesExtremos= new ArrayList<Posicion>();
-		Posicion unaPosicionExtremo= new Posicion(50,50); // reemplazar linea de codigo por obtencion de posicion margen en random
-		Posicion otraPosicionExtremo= new Posicion(0,0); // reemplazar linea de codigo por obtencion de posicion margen en random
-		posicionesExtremos.add(unaPosicionExtremo);
-		posicionesExtremos.add(otraPosicionExtremo);
+ 
+		posicionesExtremos.add(this.generarPosicionExtremoAlAzar());
+		posicionesExtremos.add(this.generarPosicionExtremoAlAzar());
+		
 		return posicionesExtremos;
 	}
 
