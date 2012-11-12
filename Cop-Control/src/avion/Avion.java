@@ -13,7 +13,7 @@ public abstract class Avion {
 	protected int velocidad;
 	protected boolean estaVolando;
 
-	
+
 	/**
 	 * @return
 	 */
@@ -34,15 +34,12 @@ public abstract class Avion {
 	public boolean getEstaVolando(){
 		return this.estaVolando;		
 	}
-	//Ver este metodo
-	/**
-	 * 
-	 */
-	abstract protected void avanzar();
-	/**
-	 * @param unaPosicion
-	 */
-	abstract public void moverHacia(Posicion unaPosicion);
+	
+	//saqué el método avanzar ya que de eso se ocupa trayectoria
+	
+	
+	//El método MoverHacia no debe tenerlo Avión ya que Avion computarizado lo heredaría. 
+	
 	/**
 	 * @param pistaSimple
 	 * @return
