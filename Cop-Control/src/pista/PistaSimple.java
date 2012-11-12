@@ -10,9 +10,11 @@ import avion.Helicoptero;
 import copControl.Posicion;
 
 public class PistaSimple extends Pista{
-
+	
+	private List<Posicion> posiciones;
+	
 	public PistaSimple(List<Posicion> posicionesPistaSimple) {
-		// TODO Auto-generated constructor stub
+		this.posiciones= posicionesPistaSimple;
 	}
 
 	@Override

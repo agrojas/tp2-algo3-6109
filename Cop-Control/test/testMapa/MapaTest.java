@@ -5,6 +5,7 @@ import java.util.List;
 
 import pista.Pista;
 import pista.PistaSimple;
+import avion.Avion;
 import avion.AvionSimple;
 import copControl.Mapa;
 import copControl.Posicion;
@@ -34,7 +35,8 @@ public class MapaTest extends TestCase {
 	
 	public void colocarAvionSimpleEnAire(){
 		mapa.colocarAvionEnAire(avionSimple);
-		assertTrue((mapa.getAvionesEnAire()).contains(avionSimple));
+		List<Avion> avionesEnAire= mapa.getAvionesEnAire();
+		assertTrue(avionesEnAire.contains(avionSimple));
 	}
 
 }
