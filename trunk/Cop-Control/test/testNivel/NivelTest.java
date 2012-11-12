@@ -1,5 +1,6 @@
 package testNivel;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,6 +31,31 @@ public class NivelTest extends TestCase {
 	private List<Posicion> posicionPista;
 	private Posicion posicionFinAvion;
 	
+	public void testUnNivelDeberiaAterrizarAvionesSiHayAlgunAvionConPosicionDePista(){
+		Posicion posicionFinal = new Posicion(1,1);
+		AvionSimple avionSimple= new AvionSimple(posicionEntradaPista,posicionFinal);
+		nivel.colocarAvionEnAire(avionSimple);
+		int cantAvionesVolandoInicialmente = nivel.getAvionesVolando().size();
+		 
+		nivel.aterrizarAviones();
+		int cantAvionesVolandoLuegoDeAterrizar =nivel.getAvionesVolando().size();
+		
+		assertFalse(cantAvionesVolandoInicialmente == cantAvionesVolandoLuegoDeAterrizar);
+		
+	}
+	
+	public void testUnNivelNoDeberiaAterrizarAvionesSiHayAlgunAvionConPosicionDePista(){
+		Posicion posicionFinal = new Posicion(1,1);
+		AvionSimple avionSimple= new AvionSimple(posicionInicioAvion,posicionFinal);
+		nivel.colocarAvionEnAire(avionSimple);
+		int cantAvionesVolandoInicialmente = nivel.getAvionesVolando().size();
+		 
+		nivel.aterrizarAviones();
+		int cantAvionesVolandoLuegoDeAterrizar =nivel.getAvionesVolando().size();
+		
+		assertTrue(cantAvionesVolandoInicialmente == cantAvionesVolandoLuegoDeAterrizar);
+		
+	}
 	
 	
 	public void testDeberiaHaberChoqueAlColocarAvionesConMismaPosicionInicial(){
@@ -126,11 +152,11 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 
 	public void setUp(){
 		dificultad= new Dificultad(1, 1, 1);
-		pistas = new LinkedList<Pista>();
+		pistas = new ArrayList<Pista>();
 		posicionEntradaPista = new Posicion(3, 3);
 		posicionInicioAvion = new Posicion(1, 1);
 		posicionFinAvion = new Posicion(2,3);
-		posicionPista = new LinkedList<Posicion>();
+		posicionPista = new ArrayList<Posicion>();
 		posicionPista.add(posicionEntradaPista);
 		pistaSimple= new PistaSimple(posicionPista);
 		pistas.add(pistaSimple);
