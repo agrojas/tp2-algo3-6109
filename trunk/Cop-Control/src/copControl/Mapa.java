@@ -13,7 +13,6 @@ public class Mapa {
 	
 	public Mapa(List<Pista>pistas) {
 		this.avionesEnAire= new ArrayList<Avion>();
-		avionesEnAire=null;
 		this.setPistas(pistas);
 		//tamaño de la "matriz" de posiciones 50x50
 		this.posicionMaxima = new Posicion(50,50);
