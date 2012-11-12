@@ -56,5 +56,10 @@ public class Mapa {
 		avionesEnAire.add(unAvion);
 	}
 
+	public boolean tienePistaAdecuada(Avion unAvion) {  // double dispatch
+		
+		return true;
+	}
+
 
 }
