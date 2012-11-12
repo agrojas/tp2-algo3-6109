@@ -4,8 +4,11 @@ import avion.AvionComputarizado;
 import avion.AvionPesado;
 import avion.AvionSimple;
 import avion.Helicoptero;
+import copControl.Posicion;
+import java.util.List;
 
 public abstract class Pista {
+	
 	
 	/**
 	 * @param avionSimple
