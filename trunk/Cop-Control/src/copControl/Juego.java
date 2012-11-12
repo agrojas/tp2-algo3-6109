@@ -56,6 +56,9 @@ public class Juego {
 				break;
 		}
 		
+		if (unAvion.tienePistaAdecuada()){
+			nivelActual.colocarAvionEnAire(unAvion);
+		}
 		
 	}
 

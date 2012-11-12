@@ -47,4 +47,9 @@ public class Nivel {
 	public Posicion getPosicionPistaNoHelipuerto() {
 		return (mapa.getPosicionPistaNoHelipuerto());
 	}
+
+	public void colocarAvionEnAire(Avion unAvion) {
+		// TODO Auto-generated method stub
+		
+	}
 }
