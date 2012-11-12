@@ -15,5 +15,16 @@ public class Trayectoria {
 	public Posicion getPosicionActual() {
 		return this.posicionActual;
 	}
+
+
+	public void avanzar() {
+		this.posicionActual= this.posicionSiguiente();		
+	}
+
+
+	//Falta diseñar el algoritmo de avance segun el nuevo destino
+	private Posicion posicionSiguiente() {
+		return null;
+	}
 	
 }

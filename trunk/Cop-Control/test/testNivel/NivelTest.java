@@ -36,8 +36,11 @@ public class NivelTest extends TestCase {
 	}
 	public void testColocarAvionSimpleEnAire(){
 		assertTrue(nivel.tieneAvionesVolando());
-		
 	}
+	
+	
+	
+
 	public void setUp(){
 		dificultad= new Dificultad(1, 1, 1);
 		pistas = new LinkedList<Pista>();
