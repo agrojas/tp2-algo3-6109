@@ -31,7 +31,7 @@ public class Juego {
 		Integer enteroAlAzarEntreMyN = (int) Math.floor(Math.random()*(N-M+1)+M);  
 		List<Posicion> posicionesExtremo = nivelActual.getPosicionesExtremos();
 		
-		Avion unAvion=null;
+		Avion unAvion= null;
 		//meter dentro de metodo que retorne unAvion
 		switch (enteroAlAzarEntreMyN) {
 			//caso AvionSimple
