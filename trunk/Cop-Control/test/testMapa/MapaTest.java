@@ -48,6 +48,27 @@ public class MapaTest extends TestCase {
 		
 		assertTrue(posicionDentroDeDimension);
 	}
+	public void testGetPosicionExtremoDevuelveListaConDosPosicionesExtremoAlAzar(){
+		List<Posicion> posicionesExtremoAlAzar = mapa.getPosicionesExtremos();
+		
+		Integer pos0X = (posicionesExtremoAlAzar.get(0).getCoordenadaX());
+		Integer pos0Y = (posicionesExtremoAlAzar.get(0).getCoordenadaY());
+		
+		Integer pos1X = (posicionesExtremoAlAzar.get(1).getCoordenadaX());
+		Integer pos1Y = (posicionesExtremoAlAzar.get(1).getCoordenadaY());
+		
+		Boolean posicion0DentroDeDimension=false;
+		posicion0DentroDeDimension= ((pos0X<=mapa.getDimension()) && (pos0X>=0) && (pos0Y<=mapa.getDimension()) && (pos0Y>=0));
+		
+		Boolean posicion1DentroDeDimension=false;
+		posicion1DentroDeDimension= ((pos1X<=mapa.getDimension()) && (pos1X>=0) && (pos1Y<=mapa.getDimension()) && (pos1Y>=0));
+		
+		assertTrue(posicion0DentroDeDimension);
+		assertTrue(posicion1DentroDeDimension);
+		
+	}
+	
+
 
 }
 	
