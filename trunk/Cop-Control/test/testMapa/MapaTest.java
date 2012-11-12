@@ -39,7 +39,7 @@ public class MapaTest extends TestCase {
 		assertTrue(avionesEnAire.contains(avionSimple));
 	}
 	
-	//x<50  y=0, OBS: ver que siempre x es 50 , posY si varia entre 0 y 50
+	//x<50  y=0
 	public void testGenerarPosicionExtremoSuperiorAlAzarConDimensionMax50(){
 		Posicion posicionExtremoAlAzar = mapa.generarPosicionExtremoAlAzar();
 		Integer posX = (posicionExtremoAlAzar.getCoordenadaX());
