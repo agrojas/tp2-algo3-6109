@@ -42,6 +42,7 @@ public abstract class Pista {
 	 */
 	public abstract boolean puedeAterrizar(Helicoptero helicoptero);
 	
+	
 	public List<Posicion> getPosicionesEntrada() {
 		// TODO Auto-generated method stub
 		return this.posicionesEntrada;

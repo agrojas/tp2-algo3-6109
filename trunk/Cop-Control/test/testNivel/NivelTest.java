@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import pista.Pista;
+import pista.PistaLarga;
 import pista.PistaSimple;
 import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
@@ -33,13 +34,20 @@ public class NivelTest extends TestCase {
 	private List<Posicion> posicionPista;
 	private Posicion posicionFinAvion;
 	
+	//BORRAR
+	private List<Posicion> posicionPistaLarga ;
+	private Posicion posicionEntradaPistaLarga;
+	private PistaLarga pistaLarga;
+	
 	public void testUnNivelDeberiaAterrizarAvionesSiHayAlgunAvionConPosicionDePista(){
 		Posicion posicionFinal = new Posicion(1,1);
 		AvionSimple avionSimple= new AvionSimple(posicionEntradaPista,posicionFinal);
 		nivel.colocarAvionEnAire(avionSimple);
+		
 		int cantAvionesVolandoInicialmente = nivel.getAvionesVolando().size();
-		 
+		
 		nivel.aterrizarAviones();
+		
 		int cantAvionesVolandoLuegoDeAterrizar =nivel.getAvionesVolando().size();
 		
 		assertFalse(cantAvionesVolandoInicialmente == cantAvionesVolandoLuegoDeAterrizar);
@@ -149,22 +157,32 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 		assertTrue(nivel.tieneAvionesVolando());
 	}
 	
+	public void testAlCrearAvionSimpleYPistaSimpleDeberiaTenerPistaAdecuada(){
+		
+		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion);
+		assertTrue(nivel.tienePistaAdecuada(avionSimple));
+		
+	}
 	
-	
-
+	public void testAlCrearAvionPesadoSinPistaLargaNoDeberiaTenerPistaAdecuada() throws PosicionesEntradaVaciaException{
+		
+		AvionPesado avionPesado= new AvionPesado(posicionInicioAvion, posicionFinAvion);
+		assertFalse(nivel.tienePistaAdecuada(avionPesado));
+		
+	}
 	public void setUp() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		dificultad= new Dificultad(1, 1, 1);
 		pistas = new ArrayList<Pista>();
-		posicionEntradaPista = new Posicion(3, 3);
 		posicionInicioAvion = new Posicion(1, 1);
 		posicionFinAvion = new Posicion(2,3);
+	
+		posicionEntradaPista = new Posicion(3, 3);
 		posicionPista = new ArrayList<Posicion>();
 		posicionPista.add(posicionEntradaPista);
+		
 		pistaSimple= new PistaSimple(posicionPista);
 		pistas.add(pistaSimple);
 		mapa = new Mapa(pistas);
-		/*avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion);
-		mapa.colocarAvionEnAire(avionSimple);*/
 		nivel = new Nivel(mapa, dificultad);
 		
 		
