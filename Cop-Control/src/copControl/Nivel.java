@@ -44,18 +44,17 @@ public class Nivel {
 			while(itAvionesEnAire.hasNext()){				
 				Avion avion=itAvionesEnAire.next();
 				//Si alguna de las posiciones de entrada de la pista coincide con la posicion del avion
+				
 				if(pista.getPosicionesEntrada().contains(avion.getPosicionActual())){
 				//Si el avion puede aterrizar en esa pista
-				if(avion.puedeAterrizar(pista)){
-					//Quito de la lista de aviones volando del mapa al avion en cuestion 
-					itAvionesEnAire.remove();
+					if(avion.puedeAterrizar(pista)){
+						//Quito de la lista de aviones volando del mapa al avion en cuestion 
+						itAvionesEnAire.remove();
 					
-				}
+					}				
+				}//if
 				
-				
-			}
-				
-			}
+			}//while
 		
 		}
 	}
