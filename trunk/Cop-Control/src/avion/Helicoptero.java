@@ -3,9 +3,10 @@ package avion;
 
 import pista.Pista;
 
+import copControl.Controlable;
 import copControl.Posicion;
 
-public class Helicoptero extends Avion{
+public class Helicoptero extends Avion implements Controlable{
 
 	public Helicoptero(Posicion posIni, Posicion posFin) {
 		super(posIni, posFin);
@@ -19,7 +20,7 @@ public class Helicoptero extends Avion{
 	}
 
 	public void moverHacia(Posicion unaPosicion) {
-		// TODO Auto-generated method stub
+		this.trayectoria.setDestino(unaPosicion);
 		
 	}
 

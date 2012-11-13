@@ -2,9 +2,10 @@ package avion;
 
 import pista.Pista;
 
+import copControl.Controlable;
 import copControl.Posicion;
 
-public class AvionSimple extends Avion{
+public class AvionSimple extends Avion implements Controlable{
 
 	public AvionSimple(Posicion posIni, Posicion posFin) {
 		super(posIni, posFin);
@@ -12,9 +13,7 @@ public class AvionSimple extends Avion{
 		}
 
 	public void moverHacia(Posicion unaPosicion){
-		//Ver si aca se avanza segun lo que diga el titiritero
-		//En principio iria un ciclo?
-		this.avanzar();
+		this.trayectoria.setDestino(unaPosicion);
 		
 	}
 	public void avanzar(){
