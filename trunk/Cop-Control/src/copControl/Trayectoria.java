@@ -30,6 +30,9 @@ public class Trayectoria {
 
 	//Falta diseñar el algoritmo de avance segun el nuevo destino
 	private Posicion posicionSiguiente() {
+		
+		
+		
 		return null;
 	}
 	
