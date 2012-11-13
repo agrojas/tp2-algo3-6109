@@ -13,8 +13,8 @@ public class Trayectoria {
 		posicionActual = posIni;
 		//seteo la posicion ini y fin como si fuesen click para calcular de la misma forma su trayectoria inicial al aparecer en mapa
 		destinos = new LinkedList<Posicion>();
-		destinos.add(posIni);
-		destinos.add(posFin);
+		this.setDestino(posIni);
+		this.setDestino(posFin);
 	}
 
 
@@ -36,6 +36,10 @@ public class Trayectoria {
 	private List<Posicion> getDestino(){
 		return destinos;
 		
+	}
+	
+	public void setDestino(Posicion unaPos){
+		destinos.add(unaPos);
 	}
 	
 }
