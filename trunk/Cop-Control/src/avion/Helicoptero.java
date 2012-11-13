@@ -18,7 +18,6 @@ public class Helicoptero extends Avion{
 		
 	}
 
-
 	public void moverHacia(Posicion unaPosicion) {
 		// TODO Auto-generated method stub
 		
