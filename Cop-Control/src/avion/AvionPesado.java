@@ -2,9 +2,10 @@ package avion;
 
 import pista.Pista;
 
+import copControl.Controlable;
 import copControl.Posicion;
 
-public class AvionPesado extends Avion{
+public class AvionPesado extends Avion implements Controlable{
 
 	public AvionPesado(Posicion posIni, Posicion posFin) {
 		super(posIni, posFin);
@@ -19,7 +20,7 @@ public class AvionPesado extends Avion{
 
 
 	public void moverHacia(Posicion unaPosicion) {
-		// TODO Auto-generated method stub
+		this.trayectoria.setDestino(unaPosicion);
 		
 	}
 

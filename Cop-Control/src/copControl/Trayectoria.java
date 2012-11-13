@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Trayectoria {
-	private List<Posicion> puntos;
+	
 	private Posicion posicionActual;
 	private List<Posicion> destinos; //al marcar con click se agrega un nuevo destino
 	
