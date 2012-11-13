@@ -1,0 +1,3 @@
+Algoritmo que encontre googleando usado en muchos juegos mas que nada antiguos como pac man, etc. Sirve para recorrer de la forma mas corta un tramo entre dos puntos.
+
+http://www.cristalab.com/tutoriales/algoritmo-a-para-encontrar-el-camino-mas-corto-en-ia-c91591l/
