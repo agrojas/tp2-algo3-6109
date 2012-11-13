@@ -43,8 +43,8 @@ public class MapaTest extends TestCase {
 	
 	public void testGenerarPosicionExtremoAlAzarConDimensionMax(){
 		Posicion posicionExtremoAlAzar = mapa.generarPosicionExtremoAlAzar();
-		Integer posX = (posicionExtremoAlAzar.getCoordenadaX());
-		Integer posY = (posicionExtremoAlAzar.getCoordenadaY());
+		Double posX = (posicionExtremoAlAzar.getCoordenadaX());
+		Double posY = (posicionExtremoAlAzar.getCoordenadaY());
 		Boolean posicionDentroDeDimension=false;
 		posicionDentroDeDimension= ((posX<=mapa.getDimension()) && (posX>=0) && (posY<=mapa.getDimension()) && (posY>=0));
 		
@@ -53,11 +53,11 @@ public class MapaTest extends TestCase {
 	public void testGetPosicionExtremoDevuelveListaConDosPosicionesExtremoAlAzar(){
 		List<Posicion> posicionesExtremoAlAzar = mapa.getPosicionesExtremos();
 		
-		Integer pos0X = (posicionesExtremoAlAzar.get(0).getCoordenadaX());
-		Integer pos0Y = (posicionesExtremoAlAzar.get(0).getCoordenadaY());
+		Double pos0X = (posicionesExtremoAlAzar.get(0).getCoordenadaX());
+		Double pos0Y = (posicionesExtremoAlAzar.get(0).getCoordenadaY());
 		
-		Integer pos1X = (posicionesExtremoAlAzar.get(1).getCoordenadaX());
-		Integer pos1Y = (posicionesExtremoAlAzar.get(1).getCoordenadaY());
+		Double pos1X = (posicionesExtremoAlAzar.get(1).getCoordenadaX());
+		Double pos1Y = (posicionesExtremoAlAzar.get(1).getCoordenadaY());
 		
 		Boolean posicion0DentroDeDimension=false;
 		posicion0DentroDeDimension= ((pos0X<=mapa.getDimension()) && (pos0X>=0) && (pos0Y<=mapa.getDimension()) && (pos0Y>=0));
