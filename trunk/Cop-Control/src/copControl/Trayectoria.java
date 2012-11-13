@@ -22,8 +22,8 @@ public class Trayectoria {
 		return this.posicionActual;
 	}
 
-
-	public void avanzar() {
+	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
+	public void avanzar() {   
 		this.posicionActual= this.posicionSiguiente();		
 	}
 
@@ -33,12 +33,12 @@ public class Trayectoria {
 		return null;
 	}
 	
-	private List<Posicion> getDestino(){
+	private List<Posicion> getDestino(){  //lista de posiciones por clicks
 		return destinos;
 		
 	}
 	
-	public void setDestino(Posicion unaPos){
+	public void setDestino(Posicion unaPos){   //usar cuando hay click
 		destinos.add(unaPos);
 	}
 	
