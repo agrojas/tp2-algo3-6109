@@ -6,6 +6,8 @@ import java.util.List;
 
 import pista.Pista;
 import pista.PistaSimple;
+import pista.PosicionesEntradaSobrantesException;
+import pista.PosicionesEntradaVaciaException;
 import avion.Avion;
 import avion.AvionSimple;
 import avion.AvionPesado;
@@ -150,7 +152,7 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 	
 	
 
-	public void setUp(){
+	public void setUp() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		dificultad= new Dificultad(1, 1, 1);
 		pistas = new ArrayList<Pista>();
 		posicionEntradaPista = new Posicion(3, 3);
