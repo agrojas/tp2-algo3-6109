@@ -25,7 +25,7 @@ public class PistaDoble extends Pista {
 	@Override
 	public boolean puedeAterrizar(AvionSimple avionSimple) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
