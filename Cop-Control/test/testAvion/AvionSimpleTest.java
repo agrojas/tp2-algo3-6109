@@ -5,6 +5,8 @@ import java.util.List;
 
 import pista.Helipuerto;
 import pista.PistaSimple;
+import pista.PosicionesEntradaSobrantesException;
+import pista.PosicionesEntradaVaciaException;
 import avion.AvionSimple;
 import copControl.Posicion;
 import junit.framework.TestCase;
@@ -15,7 +17,7 @@ public class AvionSimpleTest extends TestCase {
 	
 	}
 	
-	public void testUnAvionSimplePuedeAterrizarEnUnaPistaSimple(){
+	public void testUnAvionSimplePuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
 		List<Posicion> posicionPista = new LinkedList<Posicion>();
@@ -27,7 +29,7 @@ public class AvionSimpleTest extends TestCase {
 		assertTrue(avion.puedeAterrizar(pistaSimple));
 	}
 	
-	public void testUnAvionSimpleNoPuedeAterrizarEnUnHelipuerto(){
+	public void testUnAvionSimpleNoPuedeAterrizarEnUnHelipuerto() throws PosicionesEntradaVaciaException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
 		List<Posicion> posicionPista = new LinkedList<Posicion>();

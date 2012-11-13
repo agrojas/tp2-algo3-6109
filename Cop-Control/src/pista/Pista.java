@@ -9,11 +9,16 @@ import avion.AvionPesado;
 import avion.AvionSimple;
 import avion.Helicoptero;
 
+
 public abstract class Pista {
-	private List<Posicion> 	posicionesEntrada;
+	protected List<Posicion> 	posicionesEntrada;
 	
-	public Pista(List<Posicion> posicionesEntrada) {
-		this.posicionesEntrada= posicionesEntrada;
+	public Pista(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException {
+		
+		if (posicionesEntrada.isEmpty()){
+			throw new PosicionesEntradaVaciaException();
+		}
+			
 	}
 	
 	/**

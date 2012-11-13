@@ -12,7 +12,7 @@ import copControl.Posicion;
 public class Helipuerto extends Pista{
 
 
-	public Helipuerto(List<Posicion> posicionesEntrada) {
+	public Helipuerto(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException{
 		super(posicionesEntrada);
 		// TODO Auto-generated constructor stub
 	}

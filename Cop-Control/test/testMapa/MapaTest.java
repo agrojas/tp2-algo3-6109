@@ -5,6 +5,8 @@ import java.util.List;
 
 import pista.Pista;
 import pista.PistaSimple;
+import pista.PosicionesEntradaSobrantesException;
+import pista.PosicionesEntradaVaciaException;
 import avion.Avion;
 import avion.AvionSimple;
 import copControl.Mapa;
@@ -21,7 +23,7 @@ public class MapaTest extends TestCase {
 	private List<Pista> pistas;
 	private List<Posicion> posicionPista;
 	
-	public void setUp(){
+	public void setUp() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		pistas = new LinkedList<Pista>();
 		posicionEntradaPista = new Posicion(3, 3);
 		posicionInicioAvion = new Posicion(1, 1);
