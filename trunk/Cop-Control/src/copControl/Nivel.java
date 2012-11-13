@@ -77,8 +77,21 @@ public class Nivel {
 	public boolean tieneAvionesVolando(){
 		return mapa.tieneAvionesVolando();
 	}
+	
+	
 	public boolean tienePistaAdecuada(Avion unAvion){       
-		return mapa.tienePistaAdecuada(unAvion);
+		List<Pista> pistas=this.mapa.getPistas();
+		
+		Iterator<Pista> it= pistas.iterator();
+		boolean tienePistaAdecuada=false;
+		
+		while ((it.hasNext()) && !tienePistaAdecuada)
+		{
+			tienePistaAdecuada= unAvion.puedeAterrizar(it.next());
+		}
+		
+		
+		return tienePistaAdecuada;
 	
 	}
 
