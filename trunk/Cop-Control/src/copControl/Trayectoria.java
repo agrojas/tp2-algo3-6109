@@ -1,14 +1,20 @@
 package copControl;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Trayectoria {
 	private List<Posicion> puntos;
 	private Posicion posicionActual;
+	private List<Posicion> destinos; //al marcar con click se agrega un nuevo destino
 	
 	
 	public Trayectoria(Posicion posIni, Posicion posFin) {
-		posicionActual=posIni;
+		posicionActual = posIni;
+		//seteo la posicion ini y fin como si fuesen click para calcular de la misma forma su trayectoria inicial al aparecer en mapa
+		destinos = new LinkedList<Posicion>();
+		destinos.add(posIni);
+		destinos.add(posFin);
 	}
 
 
@@ -25,6 +31,11 @@ public class Trayectoria {
 	//Falta diseñar el algoritmo de avance segun el nuevo destino
 	private Posicion posicionSiguiente() {
 		return null;
+	}
+	
+	private List<Posicion> getDestino(){
+		return destinos;
+		
 	}
 	
 }
