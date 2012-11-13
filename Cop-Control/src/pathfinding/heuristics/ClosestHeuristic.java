@@ -4,6 +4,7 @@ import pathfinding.AStarHeuristic;
 import pathfinding.Mover;
 import pathfinding.TileBasedMap;
 
+
 /**
  * A heuristic that uses the tile that is closest to the target
  * as the next best tile.

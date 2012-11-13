@@ -5,6 +5,7 @@ import java.util.Collections;
 
 import pathfinding.heuristics.ClosestHeuristic;
 
+
 /**
  * A path finder implementation that uses the AStar heuristic based algorithm
  * to determine a path. 
