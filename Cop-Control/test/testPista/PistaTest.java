@@ -24,7 +24,6 @@ public class PistaTest extends TestCase {
 			
 			
 		}
-			
 		}
 
 }
