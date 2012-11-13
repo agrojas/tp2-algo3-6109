@@ -1,9 +1,9 @@
-package org.newdawn.slick.util.pathfinding;
+package pathfinding;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import org.newdawn.slick.util.pathfinding.heuristics.ClosestHeuristic;
+import pathfinding.heuristics.ClosestHeuristic;
 
 /**
  * A path finder implementation that uses the AStar heuristic based algorithm

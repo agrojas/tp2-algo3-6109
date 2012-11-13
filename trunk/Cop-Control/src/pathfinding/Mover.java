@@ -1,4 +1,4 @@
-package org.newdawn.slick.util.pathfinding;
+package pathfinding;
 
 /**
  * A tagging interface for an object representing the entity in the game that

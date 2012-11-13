@@ -1,4 +1,4 @@
-package org.newdawn.slick.util.pathfinding;
+package pathfinding;
 
 /**
  * The description for the data we're pathfinding over. This provides the contract

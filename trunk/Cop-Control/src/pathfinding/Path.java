@@ -1,4 +1,4 @@
-package org.newdawn.slick.util.pathfinding;
+package pathfinding;
 
 import java.util.ArrayList;
 
