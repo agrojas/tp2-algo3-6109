@@ -1,8 +1,8 @@
-package org.newdawn.slick.util.pathfinding.heuristics;
+package pathfinding.heuristics;
 
-import org.newdawn.slick.util.pathfinding.AStarHeuristic;
-import org.newdawn.slick.util.pathfinding.Mover;
-import org.newdawn.slick.util.pathfinding.TileBasedMap;
+import pathfinding.AStarHeuristic;
+import pathfinding.Mover;
+import pathfinding.TileBasedMap;
 
 /**
  * A heuristic that drives the search based on the Manhattan distance

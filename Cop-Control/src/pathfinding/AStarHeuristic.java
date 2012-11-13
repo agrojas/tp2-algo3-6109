@@ -1,4 +1,4 @@
-package org.newdawn.slick.util.pathfinding;
+package pathfinding;
 
 /**
  * The description of a class providing a cost for a given tile based

@@ -1,4 +1,4 @@
-package org.newdawn.slick.util.pathfinding;
+package pathfinding;
 
 /**
  * A description of an implementation that can find a path from one 
