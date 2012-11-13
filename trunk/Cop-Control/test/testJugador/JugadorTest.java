@@ -9,6 +9,8 @@ import pista.Pista;
 import pista.PistaDoble;
 import pista.PistaLarga;
 import pista.PistaSimple;
+import pista.PosicionesEntradaSobrantesException;
+import pista.PosicionesEntradaVaciaException;
 
 import copControl.Dificultad;
 import copControl.Jugador;
@@ -45,10 +47,14 @@ public class JugadorTest extends TestCase {
 	
 	
 	
-	public void setUp(){
+	public void setUp() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		String nombre = "Pepe";	
 		
 		jugador = new Jugador(nombre);
+		posicionesPistaSimple.add(new Posicion(1,2));
+		posicionesPistaDoble.add(new Posicion(2,3));
+		posicionesPistaLarga.add(new Posicion(3,4));
+		posicionesHelipuerto.add(new Posicion(2,1));
 		pistaSimple = new PistaSimple(posicionesPistaSimple);
 		pistaDoble = new PistaDoble(posicionesPistaDoble);
 		pistaLarga = new PistaLarga(posicionesPistaLarga);

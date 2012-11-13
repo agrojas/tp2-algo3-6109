@@ -6,13 +6,15 @@ import java.util.List;
 import pista.Helipuerto;
 import pista.PistaLarga;
 import pista.PistaSimple;
+import pista.PosicionesEntradaSobrantesException;
+import pista.PosicionesEntradaVaciaException;
 import avion.AvionPesado;
 import copControl.Posicion;
 import junit.framework.TestCase;
 
 public class AvionPesadoTest extends TestCase {
 	
-	public void testUnAvionPesadoPuedeAterrizarEnUnaPistaLarga(){
+	public void testUnAvionPesadoPuedeAterrizarEnUnaPistaLarga() throws PosicionesEntradaVaciaException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
 		List<Posicion> posicionPista = new LinkedList<Posicion>();
@@ -24,7 +26,7 @@ public class AvionPesadoTest extends TestCase {
 		assertTrue(avion.puedeAterrizar(pistaLarga));
 	}
 	
-	public void testUnAvionPesadoNoPuedeAterrizarEnUnaPistaSimple(){
+	public void testUnAvionPesadoNoPuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
 		List<Posicion> posicionPista = new LinkedList<Posicion>();
@@ -36,7 +38,7 @@ public class AvionPesadoTest extends TestCase {
 		assertFalse(avion.puedeAterrizar(pistaSimple));
 	}
 	
-	public void testUnAvionPesadoNoPuedeAterrizarEnUnHelipuerto(){
+	public void testUnAvionPesadoNoPuedeAterrizarEnUnHelipuerto() throws PosicionesEntradaVaciaException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
 		List<Posicion> posicionPista = new LinkedList<Posicion>();

@@ -8,16 +8,18 @@ import avion.AvionSimple;
 import avion.Helicoptero;
 
 import copControl.Posicion;
-
+import pista.PosicionesEntradaSobrantesException;
 public class PistaSimple extends Pista{
 	
 
 	
-
-	
-	public PistaSimple(List<Posicion> posicionesEntrada) {
-		super(posicionesEntrada);
-		// TODO Auto-generated constructor stub
+	public PistaSimple(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException {
+		super (posicionesEntrada);
+		if (posicionesEntrada.size()>1){
+			throw new PosicionesEntradaSobrantesException();			
+		}
+		this.posicionesEntrada= posicionesEntrada;		
+				
 	}
 
 	@Override

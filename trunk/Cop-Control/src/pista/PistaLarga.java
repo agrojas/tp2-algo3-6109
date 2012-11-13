@@ -13,7 +13,7 @@ public class PistaLarga extends Pista{
 
 
 
-	public PistaLarga(List<Posicion> posicionesEntrada) {
+	public PistaLarga(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException {
 		super(posicionesEntrada);
 		// TODO Auto-generated constructor stub
 	}

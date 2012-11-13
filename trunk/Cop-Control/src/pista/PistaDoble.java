@@ -13,9 +13,13 @@ public class PistaDoble extends Pista {
 
 
 
-	public PistaDoble(List<Posicion> posicionesEntrada) {
-		super(posicionesEntrada);
-		// TODO Auto-generated constructor stub
+	public PistaDoble(List<Posicion> posicionesEntrada) throws PosicionesEntradaSobrantesException, PosicionesEntradaVaciaException  {
+		super (posicionesEntrada);
+		if (posicionesEntrada.size()>2){
+			throw new PosicionesEntradaSobrantesException();			
+		}
+		this.posicionesEntrada= posicionesEntrada;		
+				
 	}
 
 	@Override
