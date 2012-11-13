@@ -35,12 +35,9 @@ public abstract class Avion {
 	/**
 	 * 
 	 */
-	abstract protected void avanzar();
-	/**
-	 * @param unaPosicion
-	 */
-	abstract public void moverHacia(Posicion unaPosicion);
+	abstract public void avanzar();
 	
+		
 	/**
 	 * @param pista
 	 * @return

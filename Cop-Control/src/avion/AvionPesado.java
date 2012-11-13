@@ -12,12 +12,12 @@ public class AvionPesado extends Avion{
 	}
 
 	@Override
-	protected void avanzar() {
+	public void avanzar() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+
 	public void moverHacia(Posicion unaPosicion) {
 		// TODO Auto-generated method stub
 		
