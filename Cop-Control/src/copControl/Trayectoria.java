@@ -2,6 +2,7 @@ package copControl;
 
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -112,6 +113,14 @@ public class Trayectoria {
 		destinos.add(unaPos);
 	}
 	
-
+	private boolean llegoAunDestino(){
+		boolean llegoAunDestino=false;
+		Iterator<Posicion> itDestinos = destinos.iterator();
+		while (itDestinos.hasNext() && !llegoAunDestino){
+			llegoAunDestino= posicionActual.igualA(itDestinos.next());
+		}
+		return llegoAunDestino;
+		
+	}
 	
 }
