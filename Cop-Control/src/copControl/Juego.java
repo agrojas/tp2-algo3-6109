@@ -104,4 +104,9 @@ public class Juego {
 		
 	}
 
+	public void chequearAterrizajes(){
+		nivelActual.aterrizarAviones();
+	}
 }
+
+
