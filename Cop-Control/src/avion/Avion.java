@@ -37,7 +37,7 @@ public abstract class Avion {
 	 */
 
 	public void avanzar(){
-		
+		trayectoria.avanzar();
 	}
 
 		
