@@ -38,23 +38,32 @@ public abstract class Avion {
 
 	public void avanzar(){
 		//borrar, esta para ver test
-		System.out.println("Avion esta en (x,y): ");
+		/*System.out.println("Avion esta en (x,y): ");
 		System.out.println((int)this.getPosicionActual().getCoordenadaX());
 		System.out.println((int)this.getPosicionActual().getCoordenadaY());
-		
+		*/
+	
+		trayectoria.actualizarProximoDestino();
 		trayectoria.avanzar();
-		
-		//borrar esta para ver test
-		System.out.println("Avion se movio a (x,y): ");
-		System.out.println((int)this.getPosicionActual().getCoordenadaX());
-		System.out.println((int)this.getPosicionActual().getCoordenadaY());
-	}
+			//borrar esta para ver test
+			System.out.println("Avion llego a a (x,y): ");
+			System.out.println((int)this.getPosicionActual().getCoordenadaX());
+			System.out.println((int)this.getPosicionActual().getCoordenadaY());
+			
+			System.out.println("Destino de Avion es (x,y): ");
+			System.out.println((int)this.getDestinoActual().getCoordenadaX());
+			System.out.println((int)this.getDestinoActual().getCoordenadaY());
+		}
+				
+	//}
 
 	public Posicion getDestinoActual(){
 		return trayectoria.getDestinoActual();
 	}
 		
-
+	public void setDestinoNuevo(Posicion nuevoDestino){
+		trayectoria.setDestino(nuevoDestino);
+	}
 		
 	/**
 	 * @param pista
