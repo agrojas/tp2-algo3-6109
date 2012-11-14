@@ -18,9 +18,8 @@ public class Trayectoria {
 	
 	public Trayectoria(Posicion posIni, Posicion posFin) {
 		posicionActual = posIni;
-		//seteo la posicion ini y fin como si fuesen click para calcular de la misma forma su trayectoria inicial al aparecer en mapa
+		//seteo la posicion fin como si fuesen click para calcular de la misma forma su trayectoria inicial al aparecer en mapa
 		destinos = new LinkedList<Posicion>();
-		this.setDestino(posIni);
 		this.setDestino(posFin);
 	}
 
@@ -45,11 +44,7 @@ public class Trayectoria {
 		
 		Posicion posicionMinima=treeMap.get(treeMap.firstKey())  ;
 		
-		
-		
 		return posicionMinima;
-		
-		
 		
 		
 	}
@@ -96,6 +91,7 @@ public class Trayectoria {
 
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
 	public void avanzar() {   
+		
 		this.posicionActual= this.getVecinoDeDistanciaMinima();		
 	}
 
@@ -113,11 +109,15 @@ public class Trayectoria {
 		destinos.add(unaPos);
 	}
 	
+	
 	private boolean llegoAunDestino(){
 		boolean llegoAunDestino=false;
 		Iterator<Posicion> itDestinos = destinos.iterator();
 		while (itDestinos.hasNext() && !llegoAunDestino){
 			llegoAunDestino= posicionActual.igualA(itDestinos.next());
+			if (llegoAunDestino){
+				itDestinos.remove();
+			}
 		}
 		return llegoAunDestino;
 		
