@@ -15,7 +15,7 @@ public class Mapa {
 	public Mapa(List<Pista>pistas) {
 		this.avionesEnAire= new ArrayList<Avion>();
 		this.setPistas(pistas);
-		//tamaño de la "matriz" de posiciones 50x50
+		//tamaï¿½o de la "matriz" de posiciones 50x50
 		this.dimension = 50;
 	}
 
