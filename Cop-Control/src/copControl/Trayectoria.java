@@ -92,9 +92,8 @@ public class Trayectoria {
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
 	public void avanzar() {   
 		
-		//this.actualizarProximoDestino();
 		this.posicionActual= this.getVecinoDeDistanciaMinima();	
-		
+		this.actualizarProximoDestino();
 	}
 
 	//retorna posicion de un destino ( click ) a la cual debe dirigirse parcialmente el avion
@@ -111,7 +110,7 @@ public class Trayectoria {
 		destinos.add(unaPos);
 	}
 	
-	
+	//para que cuando llega a un destino lo borre de la lista. Llamar siempre despues de avanzar
 	private void actualizarProximoDestino(){
 		boolean llegoAunDestino=false;
 		Iterator<Posicion> itDestinos = destinos.iterator();
