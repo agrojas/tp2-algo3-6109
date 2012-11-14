@@ -27,11 +27,12 @@ public class Trayectoria {
 	/**
 	 * @return
 	 */
+	//retorna una Posicion de un vecino con distancia minima a la Posicion de Destino Final
 	private Posicion getVecinoDeDistanciaMinima(){
 		this.calcularVecinos();
 		Map<Double, Posicion> distancias = new HashMap<Double, Posicion>();
 		double distancia=0;
-		Posicion posicionFinal = this.posicionSiguiente();
+		Posicion posicionFinal = this.getDestinoActual();
 		
 		for (Posicion posicionVecina : this.vecinos) {
 			distancia= posicionVecina.distanciaHasta(posicionFinal);
@@ -52,7 +53,7 @@ public class Trayectoria {
 		
 	}
 	/**
-	 * Llamar cuando se cambia la posicion actual, para mantener actualizada la lista de vecinos
+	 * llamar dentro de getVecinoDeDistanciaMinima para mantener actualizada la lista de vecinos
 	 */
 	private void calcularVecinos(){
 		
@@ -94,20 +95,16 @@ public class Trayectoria {
 
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
 	public void avanzar() {   
-		this.posicionActual= this.posicionSiguiente();		
+		this.posicionActual= this.getVecinoDeDistanciaMinima();		
 	}
 
-
-	//Falta dise�ar el algoritmo de avance segun el nuevo destino
-	private Posicion posicionSiguiente() {
-		
-		
-		
-		return null;
-	}
-	
-	private List<Posicion> getDestino(){  //lista de posiciones por clicks
-		return destinos;
+	//retorna posicion de un destino ( click ) a la cual debe dirigirse parcialmente el avion
+	private Posicion getDestinoActual(){  
+		Posicion destinoActual=null;
+		if(!destinos.isEmpty()){
+			destinoActual=destinos.get(0);  //el primer destino de la lista de destinos siempre debe de ser el parcial al cual quiero ir e irse borrando de la lista cuando llego a algun destino
+		}
+		return destinoActual;
 		
 	}
 	
