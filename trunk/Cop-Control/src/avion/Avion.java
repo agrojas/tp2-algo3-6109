@@ -36,7 +36,9 @@ public abstract class Avion {
 	 * 
 	 */
 
-	abstract public void avanzar();
+	public void avanzar(){
+		
+	}
 
 		
 		

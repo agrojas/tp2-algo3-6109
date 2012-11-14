@@ -13,12 +13,6 @@ public class Helicoptero extends Avion implements Controlable{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void avanzar() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public void moverHacia(Posicion unaPosicion) {
 		this.trayectoria.setDestino(unaPosicion);
 		

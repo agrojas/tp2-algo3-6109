@@ -16,10 +16,7 @@ public class AvionSimple extends Avion implements Controlable{
 		this.trayectoria.setDestino(unaPosicion);
 		
 	}
-	public void avanzar(){
-		
 	
-	}
 	@Override
 	public boolean puedeAterrizar(Pista pista) {
 		return pista.puedeAterrizar(this);

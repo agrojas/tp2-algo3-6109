@@ -12,14 +12,7 @@ public class AvionPesado extends Avion implements Controlable{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void avanzar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
+	
 	public void moverHacia1(Posicion unaPosicion) {
 		this.trayectoria.setDestino(unaPosicion);
 		

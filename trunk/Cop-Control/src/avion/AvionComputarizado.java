@@ -11,13 +11,6 @@ public class AvionComputarizado extends Avion {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void avanzar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 
 	@Override
 	public boolean puedeAterrizar(Pista pista) {
