@@ -29,6 +29,49 @@ public class Juego {
 		return nivelActual;
 	}
 
+	
+		
+	
+
+	/**
+	 * @return the cantidadAvionesAterrizados
+	 */
+	public Integer getCantidadAvionesAterrizados() {
+		return cantidadAvionesAterrizados;
+	}
+
+	/**
+	 * @return the jugador
+	 */
+	public Jugador getJugador() {
+		return jugador;
+	}
+
+	/**
+	 * @return the niveles
+	 */
+	public List<Nivel> getNiveles() {
+		return niveles;
+	}
+
+	//llamar en hilo de gameLoop por un timer con tiempo=seteado a convenir
+	public boolean huboChoque(){
+		
+		return this.nivelActual.huboChoque();
+		
+		
+	}
+
+	//llamar en hilo de gameLoop por un timer con tiempo=seteado a convenir
+	public void chequearAterrizajes(){
+		nivelActual.aterrizarAviones();
+	}
+
+	//llamar en hilo de gameLoop por un timer con tiempo=nivel->dificultad->velocidad
+	public void actualizarMovimientoDeAviones(){
+		
+	}
+	
 	private Avion crearAvionAlAzar(){
 		Integer M= 1; 
 		Integer N= 4;
@@ -58,7 +101,7 @@ public class Juego {
 		return unAvion;
 	}
 	
-	
+	//llamar en hilo de gameLoop por un timer con tiempo=nivel->dificultad->velocidadDeAparicion
 	public void colocarAvion() {
 		boolean tienePistaAdecuada= false;
 		while (!tienePistaAdecuada){
@@ -71,41 +114,6 @@ public class Juego {
 			
 		}	
 		
-	}
-		
-	
-
-	/**
-	 * @return the cantidadAvionesAterrizados
-	 */
-	public Integer getCantidadAvionesAterrizados() {
-		return cantidadAvionesAterrizados;
-	}
-
-	/**
-	 * @return the jugador
-	 */
-	public Jugador getJugador() {
-		return jugador;
-	}
-
-	/**
-	 * @return the niveles
-	 */
-	public List<Nivel> getNiveles() {
-		return niveles;
-	}
-
-	
-	public boolean huboChoque(){
-		
-		return this.nivelActual.huboChoque();
-		
-		
-	}
-
-	public void chequearAterrizajes(){
-		nivelActual.aterrizarAviones();
 	}
 }
 
