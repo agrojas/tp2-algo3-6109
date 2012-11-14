@@ -19,9 +19,10 @@ public class PistaSimpleTest extends TestCase {
 		posicionesDeEntrada.add(unaPosicion);
 		PistaSimple pistaSimple= new PistaSimple(posicionesDeEntrada);
 		//assertEquals(posicionesDeEntrada,pistaSimple.getPosicionesDeEntrada());
-		assertTrue((pistaSimple.getPosicionesEntrada()).contains(unaPosicion) );
+		assertTrue(pistaSimple.getPosicionesEntrada().contains(unaPosicion) );
 		
 	}
+	
 	
 	
 }
