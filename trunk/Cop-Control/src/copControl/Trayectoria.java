@@ -21,6 +21,7 @@ public class Trayectoria {
 		//seteo la posicion fin como si fuesen click para calcular de la misma forma su trayectoria inicial al aparecer en mapa
 		destinos = new LinkedList<Posicion>();
 		this.setDestino(posFin);
+		
 	}
 
 	
@@ -93,7 +94,7 @@ public class Trayectoria {
 	public void avanzar() {   
 		
 		this.posicionActual= this.getVecinoDeDistanciaMinima();	
-		this.actualizarProximoDestino();
+		
 	}
 
 	//retorna posicion de un destino ( click ) a la cual debe dirigirse parcialmente el avion
@@ -111,7 +112,7 @@ public class Trayectoria {
 	}
 	
 	//para que cuando llega a un destino lo borre de la lista. Llamar siempre despues de avanzar
-	private void actualizarProximoDestino(){
+	public void actualizarProximoDestino(){
 		boolean llegoAunDestino=false;
 		Iterator<Posicion> itDestinos = destinos.iterator();
 		while (itDestinos.hasNext() && !llegoAunDestino){
