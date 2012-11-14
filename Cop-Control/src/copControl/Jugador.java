@@ -38,5 +38,9 @@ public class Jugador {
 		return(avionMarcado!=null);
 		
 	}
+	
+	public void setDestino(Posicion unDestino){
+		
+	}
 
 }

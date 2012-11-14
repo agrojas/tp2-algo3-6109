@@ -92,12 +92,13 @@ public class Trayectoria {
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
 	public void avanzar() {   
 		
-		this.actualizarProximoDestino();
-		this.posicionActual= this.getVecinoDeDistanciaMinima();		
+		//this.actualizarProximoDestino();
+		this.posicionActual= this.getVecinoDeDistanciaMinima();	
+		
 	}
 
 	//retorna posicion de un destino ( click ) a la cual debe dirigirse parcialmente el avion
-	private Posicion getDestinoActual(){  
+	public Posicion getDestinoActual(){  
 		Posicion destinoActual=null;
 		if(!destinos.isEmpty()){
 			destinoActual=destinos.get(0);  //el primer destino de la lista de destinos siempre debe de ser el parcial al cual quiero ir e irse borrando de la lista cuando llego a algun destino

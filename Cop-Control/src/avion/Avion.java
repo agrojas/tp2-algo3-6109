@@ -37,10 +37,22 @@ public abstract class Avion {
 	 */
 
 	public void avanzar(){
+		//borrar, esta para ver test
+		System.out.println("Avion esta en (x,y): ");
+		System.out.println((int)this.getPosicionActual().getCoordenadaX());
+		System.out.println((int)this.getPosicionActual().getCoordenadaY());
+		
 		trayectoria.avanzar();
+		
+		//borrar esta para ver test
+		System.out.println("Avion se movio a (x,y): ");
+		System.out.println((int)this.getPosicionActual().getCoordenadaX());
+		System.out.println((int)this.getPosicionActual().getCoordenadaY());
 	}
 
-		
+	public Posicion getDestinoActual(){
+		return trayectoria.getDestinoActual();
+	}
 		
 
 		
