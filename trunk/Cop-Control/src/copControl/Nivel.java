@@ -133,4 +133,16 @@ public class Nivel {
 	public List<Avion> getAvionesVolando() {
 		return mapa.getAvionesEnAire();
 	}
+	
+	public void avanzarAvionesEnAire(){
+		 
+		List<Avion> avionesEnAire=this.mapa.getAvionesEnAire();
+		Iterator<Avion> it= avionesEnAire.iterator();
+
+		while (it.hasNext()){
+			Avion avionActual = it.next();
+			avionActual.avanzar();
+		}
+		
+	}
 }
