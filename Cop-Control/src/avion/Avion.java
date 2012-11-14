@@ -35,8 +35,12 @@ public abstract class Avion {
 	/**
 	 * 
 	 */
+
 	abstract public void avanzar();
-	
+
+		
+		
+
 		
 	/**
 	 * @param pista

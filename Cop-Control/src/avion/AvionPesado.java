@@ -19,14 +19,22 @@ public class AvionPesado extends Avion implements Controlable{
 	}
 
 
-	public void moverHacia(Posicion unaPosicion) {
+
+	public void moverHacia1(Posicion unaPosicion) {
 		this.trayectoria.setDestino(unaPosicion);
 		
 	}
 
+
 	@Override
 	public boolean puedeAterrizar(Pista pista) {
 		return pista.puedeAterrizar(this);
+	}
+
+	@Override
+	public void moverHacia(Posicion posicion) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

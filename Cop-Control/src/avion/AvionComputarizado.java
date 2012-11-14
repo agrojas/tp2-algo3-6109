@@ -18,6 +18,7 @@ public class AvionComputarizado extends Avion {
 	}
 
 
+
 	@Override
 	public boolean puedeAterrizar(Pista pista) {
 		return pista.puedeAterrizar(this);
