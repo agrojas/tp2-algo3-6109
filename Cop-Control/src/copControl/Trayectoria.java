@@ -92,6 +92,7 @@ public class Trayectoria {
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
 	public void avanzar() {   
 		
+		this.actualizarProximoDestino();
 		this.posicionActual= this.getVecinoDeDistanciaMinima();		
 	}
 
@@ -110,7 +111,7 @@ public class Trayectoria {
 	}
 	
 	
-	private boolean llegoAunDestino(){
+	private void actualizarProximoDestino(){
 		boolean llegoAunDestino=false;
 		Iterator<Posicion> itDestinos = destinos.iterator();
 		while (itDestinos.hasNext() && !llegoAunDestino){
@@ -119,7 +120,7 @@ public class Trayectoria {
 				itDestinos.remove();
 			}
 		}
-		return llegoAunDestino;
+		
 		
 	}
 	
