@@ -7,7 +7,6 @@ import pista.Pista;
 import pista.PistaSimple;
 import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
-import avion.AvionPesado;
 import avion.AvionSimple;
 import copControl.Dificultad;
 import copControl.Jugador;
@@ -19,7 +18,9 @@ import junit.framework.TestCase;
 
 public class JuegoTest extends TestCase {
         
-        private Nivel nivel;
+        private Nivel nivel1;
+        private Nivel nivel2;
+        private Nivel nivel3;
         private Mapa mapa;
         private Dificultad dificultad;
         private AvionSimple avionSimple;
@@ -32,6 +33,22 @@ public class JuegoTest extends TestCase {
         private List<Nivel> niveles;
         private Jugador jugador;
         private Juego juego;
+        
+        public void testUnJuegoAvanzaDeNivel() {
+        	Nivel nivelActual= juego.getNivelActual();
+        	juego.avanzarNivel();
+        	assertFalse(nivelActual == juego.getNivelActual());
+			
+		}
+        
+        public void testUnJuegoAvanzaDeNivelYCuandoNoHayMasSeGanoElJuego() {
+        	//Solo tengo 3 niveles
+        	Nivel nivelActual= juego.getNivelActual();//nivel1
+        	juego.avanzarNivel();//Avanzo al 2
+        	juego.avanzarNivel();//Avanzo al 3
+        	juego.avanzarNivel();//Aca no hay mas niveles
+        	assertTrue(juego.seGano());
+		}
         
         public void testColocarAvionListaDeAvionesVolandoNovacia(){
                 juego.colocarAvion();
@@ -53,9 +70,13 @@ public class JuegoTest extends TestCase {
                 mapa = new Mapa(pistas);
                 avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion);
                 //mapa.colocarAvionEnAire(avionSimple);
-                nivel = new Nivel(mapa, dificultad);
+                nivel1 = new Nivel(mapa, dificultad);
+                nivel2 = new Nivel(mapa, dificultad);
+                nivel3 = new Nivel(mapa, dificultad);
                 niveles = new LinkedList<Nivel>();
-                niveles.add(nivel);
+                niveles.add(nivel1);
+                niveles.add(nivel2);
+                niveles.add(nivel3);
                 jugador = new Jugador("PEPE");
                 juego= new Juego (jugador,niveles);
         
