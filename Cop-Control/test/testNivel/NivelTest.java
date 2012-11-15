@@ -28,10 +28,10 @@ public class NivelTest extends TestCase {
 	private Dificultad dificultad;
 	private AvionSimple avionSimple;
 	private PistaSimple pistaSimple;
-	private Posicion posicionEntradaPista;
+	private Posicion posicionEntradaPistaSimple;
 	private Posicion posicionInicioAvion;
 	private List<Pista> pistas;
-	private List<Posicion> posicionPista;
+	private List<Posicion> posicionPistaSimple;
 	private Posicion posicionFinAvion;
 	
 	//BORRAR
@@ -39,9 +39,20 @@ public class NivelTest extends TestCase {
 	private Posicion posicionEntradaPistaLarga;
 	private PistaLarga pistaLarga;
 	
+	public void testUnNivelNoDeberiaAterrizarUnAvionPesadoEnUnaPistaSimple(){
+		Posicion posicionFinal = new Posicion(1,1);
+		AvionPesado avionPesado = new AvionPesado(posicionEntradaPistaSimple, posicionFinal);
+		nivel.colocarAvionEnAire(avionPesado);		
+		int cantAvionesVolandoInicialmente = nivel.getAvionesVolando().size();		
+		nivel.aterrizarAviones();		
+		int cantAvionesVolandoLuegoDeAterrizar =nivel.getAvionesVolando().size();		
+		assertTrue(cantAvionesVolandoInicialmente == cantAvionesVolandoLuegoDeAterrizar);
+		
+	}
+	
 	public void testUnNivelDeberiaAterrizarAvionesSiHayAlgunAvionConPosicionDePista(){
 		Posicion posicionFinal = new Posicion(1,1);
-		AvionSimple avionSimple= new AvionSimple(posicionEntradaPista,posicionFinal);
+		AvionSimple avionSimple= new AvionSimple(posicionEntradaPistaSimple,posicionFinal);
 		nivel.colocarAvionEnAire(avionSimple);
 		
 		int cantAvionesVolandoInicialmente = nivel.getAvionesVolando().size();
@@ -176,11 +187,17 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 		posicionInicioAvion = new Posicion(1, 1);
 		posicionFinAvion = new Posicion(2,3);
 	
-		posicionEntradaPista = new Posicion(3, 3);
-		posicionPista = new ArrayList<Posicion>();
-		posicionPista.add(posicionEntradaPista);
+		posicionEntradaPistaSimple = new Posicion(3, 3);
+		posicionPistaSimple = new ArrayList<Posicion>();
+		posicionPistaSimple.add(posicionEntradaPistaSimple);
 		
-		pistaSimple= new PistaSimple(posicionPista);
+		posicionEntradaPistaLarga= new Posicion(4,4);
+		posicionPistaLarga= new ArrayList<Posicion>();
+		posicionPistaLarga.add(posicionEntradaPistaLarga);
+		
+		pistaSimple= new PistaSimple(posicionPistaSimple);
+		pistaLarga= new PistaLarga(posicionPistaLarga);
+		pistas.add(pistaLarga);
 		pistas.add(pistaSimple);
 		mapa = new Mapa(pistas);
 		nivel = new Nivel(mapa, dificultad);
