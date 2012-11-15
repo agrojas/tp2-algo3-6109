@@ -13,6 +13,7 @@ public class Jugador {
 	
 	public Jugador(String nombre) {
 		this.nombre=nombre;
+		this.avionMarcado=null;
 	}
 
 	public String getNombre() {
@@ -40,6 +41,10 @@ public class Jugador {
 	}
 	
 	public void setDestino(Posicion unDestino){
+		
+	}
+	
+	public void click(){
 		
 	}
 

@@ -7,8 +7,8 @@ import copControl.Trayectoria;
 
 public abstract class Avion{
 	protected Trayectoria trayectoria;
-	protected int velocidad;
 	protected boolean estaVolando;
+	protected boolean esControlable;
 
 	
 	/**
@@ -73,6 +73,9 @@ public abstract class Avion{
 		
 	}
 	
+	public boolean esControlable(){
+		return esControlable;
+	}
 	
 	
 }

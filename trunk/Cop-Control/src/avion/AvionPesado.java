@@ -9,7 +9,7 @@ public class AvionPesado extends Avion implements Controlable{
 
 	public AvionPesado(Posicion posIni, Posicion posFin) {
 		super(posIni, posFin);
-		// TODO Auto-generated constructor stub
+		esControlable=true;
 	}
 
 	
