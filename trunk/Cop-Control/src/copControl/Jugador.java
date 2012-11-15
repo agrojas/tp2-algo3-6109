@@ -28,24 +28,19 @@ public class Jugador {
 		
 	}
 
-	/**
-	 * devuelve un booleano si unaPosicion corresponde a un avion en aire
-	 * @param unaPosicion
-	 * @return
-	 */
-	public boolean marcarAvion(Posicion unaPosicion) {
+	//si habia avion en unaPosicion lo marca, sino adiere destino al avion que ya estaba marcado
+	public void click(Posicion unaPosicion) { 
 		
-		avionMarcado=this.nivelActual.getAvionEnPosicion(unaPosicion);		
-		return(avionMarcado!=null);
+		Avion posibleAvion;
+		posibleAvion=this.nivelActual.getAvionEnPosicion(unaPosicion);		
 		
-	}
-	
-	public void setDestino(Posicion unDestino){
-		
-	}
-	
-	public void click(){
+		if (posibleAvion!=null && posibleAvion.esControlable()){ //con esto aseguro que nunca avionMarcado sea un avionComputarizado (noControlable)
+			this.avionMarcado=posibleAvion;
+		}
+		else{
+			this.avionMarcado.moverHacia(unaPosicion);
+		}
 		
 	}
-
+		
 }

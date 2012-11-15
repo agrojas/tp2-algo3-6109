@@ -17,6 +17,8 @@ public class AvionComputarizado extends Avion {
 		return pista.puedeAterrizar(this);
 	}
 
-
+	public void moverHacia(Posicion unaPosicion){
+		//no deberia dejar llamarse a este metodo en esta clase
+	}
 
 }
