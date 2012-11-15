@@ -5,7 +5,7 @@ import pista.Pista;
 import copControl.Posicion;
 import copControl.Trayectoria;
 
-public abstract class Avion {
+public abstract class Avion{
 	protected Trayectoria trayectoria;
 	protected int velocidad;
 	protected boolean estaVolando;
@@ -52,9 +52,6 @@ public abstract class Avion {
 		return trayectoria.getDestinoActual();
 	}
 		
-	public void setDestinoNuevo(Posicion nuevoDestino){
-		trayectoria.setDestino(nuevoDestino);
-	}
 		
 	/**
 	 * @param pista

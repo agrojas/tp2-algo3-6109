@@ -107,7 +107,7 @@ public class Trayectoria {
 		
 	}
 	
-	public void setDestino(Posicion unaPos){   //usar cuando hay click
+	public void setDestino(Posicion unaPos){   //usar cuando hay click, llamado por avion.moverHacia(unaPos)
 		destinos.add(unaPos);
 	}
 	
