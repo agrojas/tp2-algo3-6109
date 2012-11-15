@@ -10,7 +10,7 @@ public class Helicoptero extends Avion implements Controlable{
 
 	public Helicoptero(Posicion posIni, Posicion posFin) {
 		super(posIni, posFin);
-		// TODO Auto-generated constructor stub
+		esControlable=true;
 	}
 
 	public void moverHacia(Posicion unaPosicion) {

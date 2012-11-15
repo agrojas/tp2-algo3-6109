@@ -9,7 +9,7 @@ public class AvionSimple extends Avion implements Controlable{
 
 	public AvionSimple(Posicion posIni, Posicion posFin) {
 		super(posIni, posFin);
-		this.velocidad=5;
+		esControlable=true;
 		}
 
 	public void moverHacia(Posicion unaPosicion){
