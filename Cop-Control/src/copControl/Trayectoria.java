@@ -118,6 +118,7 @@ public class Trayectoria {
 		while (itDestinos.hasNext() && !llegoAunDestino){
 			llegoAunDestino= posicionActual.igualA(itDestinos.next());
 			if (llegoAunDestino){
+				System.out.println("remueve destino ya alcanzado");
 				itDestinos.remove();
 			}
 		}
