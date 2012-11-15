@@ -39,13 +39,6 @@ public class JugadorTest extends TestCase {
 		assertEquals(nombre, jugador.getNombre());
 	}
 	
-	public void testMarcarAvionRecibePosicionQueNoContieneAvionDevuelveFalse (){
-
-		Posicion unaPosicion = new Posicion(2,1);
-		assertFalse(jugador.marcarAvion(unaPosicion));	
-	}
-	
-	
 	
 	public void setUp() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		String nombre = "Pepe";	

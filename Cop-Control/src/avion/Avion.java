@@ -77,5 +77,12 @@ public abstract class Avion{
 		return esControlable;
 	}
 	
+	public void moverHacia(Posicion unaPosicion){
+		
+	}
+	
+		
+	
+	
 	
 }

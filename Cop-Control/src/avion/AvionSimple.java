@@ -1,11 +1,9 @@
 package avion;
 
 import pista.Pista;
-
-import copControl.Controlable;
 import copControl.Posicion;
 
-public class AvionSimple extends Avion implements Controlable{
+public class AvionSimple extends Avion{
 
 	public AvionSimple(Posicion posIni, Posicion posFin) {
 		super(posIni, posFin);
