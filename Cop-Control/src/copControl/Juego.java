@@ -1,5 +1,6 @@
 package copControl;
 
+
 import java.util.List;
 import avion.AvionSimple;
 import avion.AvionPesado;
@@ -14,12 +15,14 @@ public class Juego {
 	private Integer cantidadAvionesAterrizados;
 	private Jugador jugador;
 	private List<Nivel> niveles;
+	private boolean ganado;
 
 	public Juego(Jugador jugador,List<Nivel> niveles){
 		this.jugador=jugador;
 		this.niveles=niveles;
 		nivelActual=niveles.get(0);
 		cantidadAvionesAterrizados=0;
+		ganado=false;
 		
 	}
 	/**
@@ -63,8 +66,9 @@ public class Juego {
 	}
 
 	//llamar en hilo de gameLoop por un timer con tiempo=seteado a convenir
+	//Agregue que se modifique la cantidad de aviones aterrizados por cada ciclo
 	public void chequearAterrizajes(){
-		nivelActual.aterrizarAviones();
+		cantidadAvionesAterrizados=cantidadAvionesAterrizados+nivelActual.aterrizarAviones();
 	}
 
 	//llamar en hilo de gameLoop por un timer con tiempo=nivel->dificultad->velocidad
@@ -113,6 +117,20 @@ public class Juego {
 			}
 			
 		}	
+		
+	}
+	
+	public void avanzarNivel(){		
+		try {
+			nivelActual= niveles.get(niveles.indexOf(nivelActual)+1);
+		} catch (IndexOutOfBoundsException e) {
+			// Si no hay mas niveles en la lista se gana ?
+			ganado=true;
+		}
+	
+	}
+	public boolean seGano() {
+		return this.ganado;
 		
 	}
 }
