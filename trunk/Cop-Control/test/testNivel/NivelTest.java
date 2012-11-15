@@ -65,7 +65,7 @@ public class NivelTest extends TestCase {
 		
 	}
 	
-	public void testUnNivelNoDeberiaAterrizarAvionesSiHayAlgunAvionConPosicionDePista(){
+	public void testUnNivelNoDeberiaAterrizarAvionesSiNoHayAlgunAvionConPosicionDePista(){
 		Posicion posicionFinal = new Posicion(1,1);
 		AvionSimple avionSimple= new AvionSimple(posicionInicioAvion,posicionFinal);
 		nivel.colocarAvionEnAire(avionSimple);
