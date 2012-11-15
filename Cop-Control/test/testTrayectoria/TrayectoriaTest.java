@@ -76,6 +76,53 @@ public class TrayectoriaTest extends TestCase {
 	
 	}
 	
+	public void testAvionSimpleLlegaAPosFinAtravezDeCaminoVertical(){
+		posicionInicial= new Posicion(5,4);
+		posicionFinal = new Posicion(5,0);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(5,1)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(5,2)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(5,3)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(5,4)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		assertTrue(avionSimple.getPosicionActual().igualA(posicionFinal));	
+	
+	}
+	
+	// con este test se ve que da prioridad al movimiento diagonal ante el recto para ahorrar pasos
+	public void testAvionSimpleLlegaAPosFinAtravezDeCaminoIncierto(){
+		posicionInicial= new Posicion(0,0);
+		posicionFinal = new Posicion(2,4);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(1,1)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(2,2)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(2,3)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(2,4)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		assertTrue(avionSimple.getPosicionActual().igualA(posicionFinal));	
+	
+	}
+	
 	public void setUp(){
 		
 	}

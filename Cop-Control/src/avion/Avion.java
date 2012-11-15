@@ -64,7 +64,7 @@ public abstract class Avion{
 		if(this.getDestinoActual().igualA(this.getPosicionActual())){
 			System.out.println("Avion llego a destino!! ");
 		}
-		//else {
+		else {
 			System.out.println("Avion llego a a (x,y): ");
 			System.out.println((int)this.getPosicionActual().getCoordenadaX());
 			System.out.println((int)this.getPosicionActual().getCoordenadaY());
@@ -72,7 +72,7 @@ public abstract class Avion{
 			System.out.println("Destino de Avion es (x,y): ");
 			System.out.println((int)this.getDestinoActual().getCoordenadaX());
 			System.out.println((int)this.getDestinoActual().getCoordenadaY());
-		//}
+		}
 		
 		
 	}
