@@ -38,17 +38,8 @@ public abstract class Avion{
 
 	public void avanzar(){
 		
-		trayectoria.actualizarProximoDestino();
 		trayectoria.avanzar();
 		
-		/*if(this.getDestinoActual().igualA(this.getPosicionActual())){
-			trayectoria.actualizarProximoDestino();//ver que al agregar varios destinos pincha
-		}
-		else {
-			trayectoria.actualizarProximoDestino();
-			trayectoria.avanzar();
-		}
-*/
 	}
 				
 	
