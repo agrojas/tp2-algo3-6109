@@ -123,6 +123,35 @@ public class TrayectoriaTest extends TestCase {
 	
 	}
 	
+	public void testAvionSimpleSeMueveCambiandoDosDestinos(){
+		
+		posicionInicial= new Posicion(0,0);
+		posicionFinal = new Posicion(2,2);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(1,1)
+		
+		Posicion nuevoDestino = new Posicion(2,5);
+		avionSimple.moverHacia(nuevoDestino);
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(2,2)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR llego a primer destino
+		
+		avionSimple.avanzar(); //(2,3)
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		avionSimple.avanzar(); //(2,4)
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		avionSimple.avanzar(); //(2,5)
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		assertTrue(avionSimple.getPosicionActual().igualA(nuevoDestino));
+		
+	}
 	public void setUp(){
 		
 	}
