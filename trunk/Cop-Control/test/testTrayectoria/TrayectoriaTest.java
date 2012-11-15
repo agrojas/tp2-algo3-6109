@@ -2,17 +2,14 @@ package testTrayectoria;
 
 import avion.AvionSimple;
 import copControl.Posicion;
-import copControl.Trayectoria;
 import junit.framework.TestCase;
 
 public class TrayectoriaTest extends TestCase {
 
-	private Trayectoria trayectoria;
 	private AvionSimple avionSimple;
 	private Posicion posicionInicial;
 	private Posicion posicionFinal;
-	private Posicion nuevoDestino;
-	
+
 	public void testAvionSimpleSeCreaConSiguienteDestinoIgualAPosicionFinal(){
 		posicionInicial= new Posicion(1,1);
 		posicionFinal = new Posicion(5,1);
@@ -44,13 +41,6 @@ public class TrayectoriaTest extends TestCase {
 		avionSimple.avanzar(); //(5,1)==posFin
 		assertTrue(avionSimple.getPosicionActual().igualA(posicionFinal));
 		
-		/* llega a destino pero hace pasos de mas en el camino que deberia de ser recto, y varias veces retrocede 
-		 * de posicion ( ver consola ). Cada vez q ejecuta test genera un recorrido distinto y no deberia haber 
-		 * complicaciones en este test porq es un recorrido recto. Si sigo intentando otro avanzar pincha por pointer null 
-		 * ya que no hay mas destinos y getDestinoActual le devuelve null. Hay que hacer que al llegar al ultimo 
-		 * destino se siga moviendo en la misma direccion hasta el borde del mapa.
-		*/
-
 	}
 	
 	public void testAvionSimpleLlegaAPosFinAtravezDeCaminoDiagonal(){
@@ -150,6 +140,48 @@ public class TrayectoriaTest extends TestCase {
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
 		assertTrue(avionSimple.getPosicionActual().igualA(nuevoDestino));
+		
+	}
+	
+	public void testAvionSimpleSeMueveEntreTresDestinos(){
+		
+		posicionInicial= new Posicion(0,0);
+		posicionFinal = new Posicion(1,1);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		
+		Posicion nuevoDestino = new Posicion(3,3);
+		avionSimple.moverHacia(nuevoDestino);
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(1,1)
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		avionSimple.avanzar(); //(2,2)
+		
+		Posicion otroDestino = new Posicion(3,5);
+		avionSimple.moverHacia(otroDestino);
+		
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		avionSimple.avanzar(); //(3,3)  llego a primer destino, debe dirijirse hacia (3,5)
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		Posicion otroDestino2 = new Posicion(1,5);
+		avionSimple.moverHacia(otroDestino2);
+		
+		avionSimple.avanzar(); //(3,4)
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		avionSimple.avanzar(); //(3,5) llego a segundo destino, debe dirijirse hacia (1,5)
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		avionSimple.avanzar(); //(2,5)
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		avionSimple.avanzar(); //(1,5)
+		avionSimple.mostrarPosEnConsola();//BORRAR
+		
+		assertTrue(avionSimple.getPosicionActual().igualA(otroDestino2));
 		
 	}
 	public void setUp(){
