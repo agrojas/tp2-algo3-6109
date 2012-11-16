@@ -82,7 +82,13 @@ public abstract class Avion{
 	}
 	
 		
-	
+	public boolean aterrizar(Pista pista){
+		boolean condicion1 =(pista.tieneEntradaEn(this.trayectoria.getPosicionActual())) ;
+		boolean condicion2= this.puedeAterrizar(pista);
+		return (condicion1 && condicion2);
+		
+		
+	}
 	
 	
 }

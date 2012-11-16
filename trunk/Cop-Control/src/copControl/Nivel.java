@@ -36,27 +36,21 @@ public class Nivel {
 	//remueve del aire los aviones que esten en condiciones de aterrizar
 	public Integer aterrizarAviones() {
 		Integer cantidadDeAterrizados=0;
-		Iterator<Avion> itAvionesEnAire =this.mapa.getAvionesEnAire().iterator();
+		
 		List<Pista> pistas = this.mapa.getPistas();
 		Avion avionAterrizado=null;
 		//Recorro las pistas del mapa
 		for (Pista pista : pistas) {
-			
+			Iterator<Avion> itAvionesEnAire =this.mapa.getAvionesEnAire().iterator();
 			while(itAvionesEnAire.hasNext()){				
 				Avion avion=itAvionesEnAire.next();
 				//Si alguna de las posiciones de entrada de la pista coincide con la posicion del avion
-				
-				if(pista.getPosicionesEntrada().contains(avion.getPosicionActual())){
-				//Si el avion puede aterrizar en esa pista
-					if(avion.puedeAterrizar(pista)){
-						cantidadDeAterrizados++;
-						//Quito de la lista de aviones volando del mapa al avion en cuestion 
-						itAvionesEnAire.remove();
+				if(avion.aterrizar(pista)){
+					cantidadDeAterrizados++;
+					itAvionesEnAire.remove();
 					
-					}				
-				}//if
-				
-			}//while
+				}
+			}
 		
 		}
 		return cantidadDeAterrizados;

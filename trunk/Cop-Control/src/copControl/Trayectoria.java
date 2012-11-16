@@ -28,61 +28,7 @@ public class Trayectoria {
 	/**
 	 * @return
 	 */
-	//retorna una Posicion de un vecino con distancia minima a la Posicion de Destino Final
-	private Posicion getVecinoDeDistanciaMinima(){
-		this.calcularVecinos();
-		Map<Double, Posicion> distancias = new HashMap<Double, Posicion>();
-		double distancia=0;
-		Posicion posicionFinal = this.getDestinoActual();
-		
-		for (Posicion posicionVecina : this.vecinos) {
-			distancia= posicionVecina.distanciaHasta(posicionFinal);
-			distancias.put(distancia, posicionVecina);
-		}
-		//Ordeno por distancia minima
-		TreeMap<Double, Posicion> treeMap = new TreeMap<Double, Posicion>(distancias);
-		//Obtengo la minima distancia
-		
-		Posicion posicionMinima=treeMap.get(treeMap.firstKey())  ;
-		
-		return posicionMinima;
-		
-		
-	}
-	/**
-	 * llamar dentro de getVecinoDeDistanciaMinima para mantener actualizada la lista de vecinos
-	 */
-	private void calcularVecinos(){
-		
-		this.vecinos = new LinkedList<Posicion>();
-		
-		int posX=(int)this.posicionActual.getCoordenadaX();
-		int posY=(int)this.posicionActual.getCoordenadaY();
-		int incDerecha=(int) (this.posicionActual.getCoordenadaX()+1);
-		int incIzquierda=(int) (this.posicionActual.getCoordenadaX()-1);
-		int incArriba=(int) (this.posicionActual.getCoordenadaY()+1);
-		int incAbajo=(int) (this.posicionActual.getCoordenadaY()-1);
-		
-		Posicion posDerecha = new Posicion(incDerecha, posY);
-		Posicion posIzquierda = new Posicion(incIzquierda,posY);
-		Posicion posArriba = new Posicion(posX,incArriba);
-		Posicion posAbajo = new Posicion(posX,incAbajo);
-		
-		Posicion posDiagArribaIzquierda = new Posicion(incIzquierda,incArriba);
-		Posicion posDiagArribaDerecha = new Posicion(incDerecha,incArriba);
-		Posicion posDiagAbajoIzquierda = new Posicion(incIzquierda,incAbajo);
-		Posicion posDiagAbajoDerecha = new Posicion(incDerecha,incAbajo);
-		
-		this.vecinos.add(posDerecha);
-		this.vecinos.add(posAbajo);
-		this.vecinos.add(posIzquierda);
-		this.vecinos.add(posArriba);
-		this.vecinos.add(posDiagArribaDerecha);
-		this.vecinos.add(posDiagArribaIzquierda);
-		this.vecinos.add(posDiagAbajoIzquierda);
-		this.vecinos.add(posDiagAbajoDerecha);
-	}
-	
+
 	
 
 
@@ -94,7 +40,7 @@ public class Trayectoria {
 	public void avanzar() {   
 		
 		this.actualizarProximoDestino();
-		this.posicionActual= this.getVecinoDeDistanciaMinima();	
+		this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());	
 		
 	}
 

@@ -12,6 +12,7 @@ import pista.PosicionesEntradaVaciaException;
 import avion.Avion;
 import avion.AvionSimple;
 import avion.AvionPesado;
+import avion.Helicoptero;
 import copControl.Dificultad;
 import copControl.Mapa;
 import copControl.Nivel;
@@ -175,10 +176,10 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 		
 	}
 	
-	public void testAlCrearAvionPesadoSinPistaLargaNoDeberiaTenerPistaAdecuada() throws PosicionesEntradaVaciaException{
+	public void testAlCrearHelicopteroSinHelipuertoNoDeberiaTenerPistaAdecuada() throws PosicionesEntradaVaciaException{
 		
-		AvionPesado avionPesado= new AvionPesado(posicionInicioAvion, posicionFinAvion);
-		assertFalse(nivel.tienePistaAdecuada(avionPesado));
+		Helicoptero helicoptero= new Helicoptero(posicionInicioAvion, posicionFinAvion);
+		assertFalse(nivel.tienePistaAdecuada(helicoptero));
 		
 	}
 	public void setUp() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
