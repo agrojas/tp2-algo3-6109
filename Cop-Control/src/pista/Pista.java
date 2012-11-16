@@ -47,6 +47,10 @@ public abstract class Pista {
 		// TODO Auto-generated method stub
 		return this.posicionesEntrada;
 	}
+
+	public boolean tieneEntradaEn(Posicion posicion) {
+		return this.getPosicionesEntrada().contains(posicion);
+	}
 	
 
 }
