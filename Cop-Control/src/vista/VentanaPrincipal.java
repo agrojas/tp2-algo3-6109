@@ -20,13 +20,16 @@ import avion.AvionSimple;
 
 import pista.Pista;
 import pista.PistaSimple;
+import pista.PosicionesEntradaSobrantesException;
+import pista.PosicionesEntradaVaciaException;
 
 import copControl.Mapa;
 import copControl.Posicion;
 
-import modelo.ObjetoMultiforma;
+
 
 import fiuba.algo3.titiritero.dibujables.Circulo;
+import fiuba.algo3.titiritero.dibujables.Cuadrado;
 import fiuba.algo3.titiritero.dibujables.SuperficiePanel;
 import fiuba.algo3.titiritero.modelo.GameLoop;
 import fiuba.algo3.titiritero.modelo.SuperficieDeDibujo;
@@ -102,7 +105,16 @@ public class VentanaPrincipal {
 		List<Posicion> entradasPistaSimple = new LinkedList<Posicion>();
 		entradasPistaSimple.add(mapa.getPosicionAleatoria());
 		
-		Pista pistaSimple = new PistaSimple(entradasPistaSimple);
+		Pista pistaSimple = null;
+		try {
+			pistaSimple = new PistaSimple(entradasPistaSimple);
+		} catch (PosicionesEntradaVaciaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PosicionesEntradaSobrantesException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		List<Pista> pistas = new LinkedList<Pista>();
 		pistas.add(pistaSimple);
 		
@@ -113,10 +125,12 @@ public class VentanaPrincipal {
 		AvionSimple avionSimple = new AvionSimple(posIni,posFin);
 		
 		
-		
 		this.gameLoop.agregar(avionSimple);
-		Circulo circulo = new VistaObjetoMultiforma(modelo);
+		Circulo circulo = new VistaAvionSimple(avionSimple);
+		Cuadrado cuadrado = new VistaPistaSimple(pistaSimple);
 		this.gameLoop.agregar(circulo);
+		this.gameLoop.agregar(cuadrado);
+		
 	}
 
 	private void setComponentsFocus(JButton btnIniciar, JButton btnDetener) {
