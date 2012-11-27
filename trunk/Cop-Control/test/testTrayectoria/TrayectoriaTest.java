@@ -20,11 +20,11 @@ public class TrayectoriaTest extends TestCase {
 		
 	}
 	
-	public void testAvionSimpleCambiaSuPosicionAlAvanzar(){
+	public void testAvionSimpleCambiaSuPosicionAlvivir(){
 		posicionInicial= new Posicion(1,1);
 		posicionFinal = new Posicion(5,1);
 		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
-		avionSimple.avanzar();
+		avionSimple.vivir();
 		Posicion posicionActual= avionSimple.getPosicionActual();
 		assertFalse(posicionActual==posicionInicial);
 	}
@@ -34,11 +34,11 @@ public class TrayectoriaTest extends TestCase {
 		posicionInicial= new Posicion(1,1);
 		posicionFinal = new Posicion(5,1);
 		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
-		avionSimple.avanzar(); //(2,1)
-		avionSimple.avanzar(); //(3,1)
-		avionSimple.avanzar(); //(4,1)
+		avionSimple.vivir(); //(2,1)
+		avionSimple.vivir(); //(3,1)
+		avionSimple.vivir(); //(4,1)
 		assertFalse(avionSimple.getPosicionActual()==posicionFinal);
-		avionSimple.avanzar(); //(5,1)==posFin
+		avionSimple.vivir(); //(5,1)==posFin
 		assertTrue(avionSimple.getPosicionActual().igualA(posicionFinal));
 		
 	}
@@ -49,16 +49,16 @@ public class TrayectoriaTest extends TestCase {
 		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(2,1)
+		avionSimple.vivir(); //(2,1)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(3,3)
+		avionSimple.vivir(); //(3,3)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(4,4)
+		avionSimple.vivir(); //(4,4)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(5,5)
+		avionSimple.vivir(); //(5,5)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
@@ -72,16 +72,16 @@ public class TrayectoriaTest extends TestCase {
 		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(5,1)
+		avionSimple.vivir(); //(5,1)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(5,2)
+		avionSimple.vivir(); //(5,2)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(5,3)
+		avionSimple.vivir(); //(5,3)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(5,4)
+		avionSimple.vivir(); //(5,4)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
@@ -96,16 +96,16 @@ public class TrayectoriaTest extends TestCase {
 		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(1,1)
+		avionSimple.vivir(); //(1,1)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(2,2)
+		avionSimple.vivir(); //(2,2)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(2,3)
+		avionSimple.vivir(); //(2,3)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(2,4)
+		avionSimple.vivir(); //(2,4)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
@@ -120,23 +120,23 @@ public class TrayectoriaTest extends TestCase {
 		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(1,1)
+		avionSimple.vivir(); //(1,1)
 		
 		Posicion nuevoDestino = new Posicion(2,5);
 		avionSimple.moverHacia(nuevoDestino);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(2,2)
+		avionSimple.vivir(); //(2,2)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR llego a primer destino
 		
-		avionSimple.avanzar(); //(2,3)
+		avionSimple.vivir(); //(2,3)
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
-		avionSimple.avanzar(); //(2,4)
+		avionSimple.vivir(); //(2,4)
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
-		avionSimple.avanzar(); //(2,5)
+		avionSimple.vivir(); //(2,5)
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
 		assertTrue(avionSimple.getPosicionActual().igualA(nuevoDestino));
@@ -153,32 +153,32 @@ public class TrayectoriaTest extends TestCase {
 		avionSimple.moverHacia(nuevoDestino);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(1,1)
+		avionSimple.vivir(); //(1,1)
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
-		avionSimple.avanzar(); //(2,2)
+		avionSimple.vivir(); //(2,2)
 		
 		Posicion otroDestino = new Posicion(3,5);
 		avionSimple.moverHacia(otroDestino);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
-		avionSimple.avanzar(); //(3,3)  llego a primer destino, debe dirijirse hacia (3,5)
+		avionSimple.vivir(); //(3,3)  llego a primer destino, debe dirijirse hacia (3,5)
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
 		Posicion otroDestino2 = new Posicion(1,5);
 		avionSimple.moverHacia(otroDestino2);
 		
-		avionSimple.avanzar(); //(3,4)
+		avionSimple.vivir(); //(3,4)
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
-		avionSimple.avanzar(); //(3,5) llego a segundo destino, debe dirijirse hacia (1,5)
+		avionSimple.vivir(); //(3,5) llego a segundo destino, debe dirijirse hacia (1,5)
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
-		avionSimple.avanzar(); //(2,5)
+		avionSimple.vivir(); //(2,5)
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
-		avionSimple.avanzar(); //(1,5)
+		avionSimple.vivir(); //(1,5)
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		
 		assertTrue(avionSimple.getPosicionActual().igualA(otroDestino2));

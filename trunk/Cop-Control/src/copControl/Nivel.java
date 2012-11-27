@@ -138,7 +138,7 @@ public class Nivel {
 
 		while (it.hasNext()){
 			Avion avionActual = it.next();
-			avionActual.avanzar();
+			avionActual.vivir();
 		}
 		
 	}

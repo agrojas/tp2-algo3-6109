@@ -4,8 +4,11 @@ package avion;
 import pista.Pista;
 import copControl.Posicion;
 import copControl.Trayectoria;
+import fiuba.algo3.titiritero.modelo.ObjetoDibujable;
+import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
+import fiuba.algo3.titiritero.modelo.ObjetoVivo;
 
-public abstract class Avion{
+public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 	protected Trayectoria trayectoria;
 	protected boolean estaVolando;
 	protected boolean esControlable;
@@ -36,7 +39,7 @@ public abstract class Avion{
 	 * 
 	 */
 
-	public void avanzar(){
+	public void vivir(){
 		
 		trayectoria.avanzar();
 		

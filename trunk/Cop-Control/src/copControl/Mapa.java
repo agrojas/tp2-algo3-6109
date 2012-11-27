@@ -19,6 +19,12 @@ public class Mapa {
 		this.dimension = 50;
 	}
 
+	public Mapa() {
+		this.avionesEnAire= new ArrayList<Avion>();
+		this.setPistas(null);
+		this.dimension=50;
+	}
+
 	public List<Avion> getAvionesEnAire() {
 		return avionesEnAire;
 	}
@@ -27,7 +33,7 @@ public class Mapa {
 		return pistas;
 	}
 
-	private void setPistas(List<Pista> pistas) {
+	public void setPistas(List<Pista> pistas) {
 		this.pistas = pistas;
 	}
 
@@ -102,6 +108,15 @@ public class Mapa {
 		return this.dimension;
 	}
 	
+	public Posicion getPosicionAleatoria(){
+		Integer MinimoDimension= 0; 
+		Integer MaximoDimension= this.dimension;
+		// Valor random entre 0 y Dimension, ambos incluidos para crear Posicion Extremo.
+		int enteroAlAzarX = (int) Math.floor(Math.random()*(MaximoDimension-MinimoDimension+1)+MinimoDimension);
+		int enteroAlAzarY = (int) Math.floor(Math.random()*(MaximoDimension-MinimoDimension+1)+MinimoDimension);
+		
+		return new Posicion(enteroAlAzarX, enteroAlAzarY);
+	}
 
 
 
