@@ -35,12 +35,9 @@ public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 		return this.estaVolando;		
 	}
 	//Ver este metodo
-	/**
-	 * 
-	 */
-
+	
 	public void vivir(){
-		
+				
 		trayectoria.avanzar();
 		
 	}

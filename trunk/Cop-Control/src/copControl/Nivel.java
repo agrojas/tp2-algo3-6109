@@ -137,7 +137,12 @@ public class Nivel {
 		Iterator<Avion> it= avionesEnAire.iterator();
 
 		while (it.hasNext()){
+			
 			Avion avionActual = it.next();
+			if (avionActual.getDestinoActual()== null)
+			{
+				avionActual.moverHacia(this.mapa.getPosicionesExtremos().get(0));
+			}
 			avionActual.vivir();
 		}
 		

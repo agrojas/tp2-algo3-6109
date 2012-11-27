@@ -9,12 +9,16 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+
 public class Trayectoria {
 	
 	private Posicion posicionActual;
 	private List<Posicion> destinos; //al marcar con click se agrega un nuevo destino
 	private List<Posicion> vecinos;
 	
+	public Trayectoria(Posicion posIni){
+		
+	}
 	
 	public Trayectoria(Posicion posIni, Posicion posFin) {
 		posicionActual = posIni;
@@ -50,6 +54,7 @@ public class Trayectoria {
 		if(!destinos.isEmpty()){
 			destinoActual=destinos.get(0);  //el primer destino de la lista de destinos siempre debe de ser el parcial al cual quiero ir e irse borrando de la lista cuando llego a algun destino
 		}
+		
 		return destinoActual;
 		
 	}
