@@ -4,6 +4,7 @@ import java.util.List;
 
 import copControl.Posicion;
 import fiuba.algo3.titiritero.modelo.ObjetoDibujable;
+import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
 
 import avion.AvionComputarizado;
 import avion.AvionPesado;
@@ -11,7 +12,7 @@ import avion.AvionSimple;
 import avion.Helicoptero;
 
 
-public abstract class Pista implements ObjetoDibujable{
+public abstract class Pista implements ObjetoPosicionable{
 	protected List<Posicion> 	posicionesEntrada;
 	
 	public Pista(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException {
