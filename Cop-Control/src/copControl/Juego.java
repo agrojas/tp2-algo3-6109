@@ -2,6 +2,8 @@ package copControl;
 
 
 import java.util.List;
+
+import fiuba.algo3.titiritero.modelo.ObjetoVivo;
 import avion.AvionSimple;
 import avion.AvionPesado;
 import avion.AvionComputarizado;
@@ -9,7 +11,7 @@ import avion.Helicoptero;
 import avion.Avion;
 
 
-public class Juego {
+public class Juego implements ObjetoVivo {
 	
 	private Nivel nivelActual;  	/* implementa comparable, cheque niveles dificultad creciente o hago sort para ordenar bajo exepcion  */
 	private Integer cantidadAvionesAterrizados;
@@ -73,7 +75,7 @@ public class Juego {
 
 	//llamar en hilo de gameLoop por un timer con tiempo=nivel->dificultad->velocidad
 	public void actualizarMovimientoDeAviones(){
-		
+		this.nivelActual.avanzarAvionesEnAire();
 	}
 	
 	private Avion crearAvionAlAzar(){
@@ -131,6 +133,14 @@ public class Juego {
 	}
 	public boolean seGano() {
 		return this.ganado;
+		
+	}
+	@Override
+	public void vivir() {
+		this.colocarAvion();
+		this.chequearAterrizajes();
+		this.huboChoque();
+		this.actualizarMovimientoDeAviones();
 		
 	}
 }
