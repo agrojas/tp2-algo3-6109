@@ -4,7 +4,7 @@ package avion;
 import pista.Pista;
 import copControl.Posicion;
 import copControl.Trayectoria;
-import fiuba.algo3.titiritero.modelo.ObjetoDibujable;
+
 import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
 import fiuba.algo3.titiritero.modelo.ObjetoVivo;
 
@@ -90,5 +90,17 @@ public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 		
 	}
 	
+
+	
+	public int getX() {
+		return ((int)this.getPosicionActual().getCoordenadaX());
+	}
+
+	
+	public int getY() {
+		return ((int)this.getPosicionActual().getCoordenadaY());
+	}
+
+
 	
 }
