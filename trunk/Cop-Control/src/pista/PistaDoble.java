@@ -14,9 +14,7 @@ import fiuba.algo3.titiritero.dibujables.SuperficiePanel;
 import fiuba.algo3.titiritero.modelo.SuperficieDeDibujo;
 
 public class PistaDoble extends Pista {
-	private final static int ANCHO= 20;
-	private final static int ALTO= 20;
-	private final static Color COLOR = Color.RED;
+
 	
 
 
@@ -53,13 +51,24 @@ public class PistaDoble extends Pista {
 		return false;
 	}
 
-	@Override
-	public void dibujar(SuperficieDeDibujo superficieDeDibujo) {
-		Posicion posEntrada = this.getPosicionesEntrada().get(0);
-		Graphics grafico = ((SuperficiePanel)superficieDeDibujo).getBuffer();
-		grafico.setColor(this.COLOR);
-		grafico.fillRect((int)posEntrada.getCoordenadaX() ,(int) posEntrada.getCoordenadaY(), this.ANCHO, this.ALTO);
+
+
+	/**
+	 * @return Posicion de la primer entrada
+	 */
+	private Posicion getPosicionEntrada(){
+		return this.getPosicionesEntrada().get(0);
 		
+	}
+
+	@Override
+	public int getX() {
+		return (int)getPosicionEntrada().getCoordenadaX();
+	}
+
+	@Override
+	public int getY() {
+		return (int)getPosicionEntrada().getCoordenadaY();
 	}
 
 

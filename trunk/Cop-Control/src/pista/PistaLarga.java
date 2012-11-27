@@ -43,6 +43,21 @@ public class PistaLarga extends Pista{
 		return false;
 	}
 
+	private Posicion getPosicionEntrada(){
+		return this.getPosicionesEntrada().get(0);
+		
+	}
+	
+	@Override
+	public int getX() {
+		return (int)getPosicionEntrada().getCoordenadaX();
+	}
+
+	@Override
+	public int getY() {
+		return (int)getPosicionEntrada().getCoordenadaY();
+	}
+
 
 
 }
