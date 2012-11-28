@@ -100,7 +100,8 @@ public class Juego implements ObjetoVivo {
 				return unHelicoptero;
 			//caso AvionComputarizado
 			case 4:
-				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0),nivelActual.getPosicionPistaNoHelipuerto());
+				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0));
+				
 				return unAvionComputarizado;
 		}
 		
