@@ -20,7 +20,7 @@ public class AvionComputarizadoTest extends TestCase {
 		posicionPista.add(posicionFinal);
 		PistaSimple pistaSimple = new PistaSimple(posicionPista);
 		
-		AvionComputarizado avion = new AvionComputarizado(posicionInicial, posicionFinal);
+		AvionComputarizado avion = new AvionComputarizado(posicionInicial);
 		
 		assertTrue(avion.puedeAterrizar(pistaSimple));
 	}
@@ -34,7 +34,7 @@ public class AvionComputarizadoTest extends TestCase {
 		posicionPista.add(posicionFinal);
 		Helipuerto helipuerto = new Helipuerto(posicionPista);
 		
-		AvionComputarizado avion = new AvionComputarizado(posicionInicial, posicionFinal);
+		AvionComputarizado avion = new AvionComputarizado(posicionInicial);
 		
 		assertFalse(avion.puedeAterrizar(helipuerto));
 	}
