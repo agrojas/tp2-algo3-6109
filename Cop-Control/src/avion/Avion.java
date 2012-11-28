@@ -38,12 +38,25 @@ public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 	public boolean getEstaVolando(){
 		return this.estaVolando;		
 	}
+	
+	public void avanzar(){
+		try{
+		if (this.estaVolando){
+			trayectoria.avanzar();
+		}
+	
+		} catch (ProximoDestinoNuloException a) {
+			System.out.println("Aca esta la exception");
+			//Aca se debe insertar nuevo destino para el avion.
+			//Si es un helicoptero se queda quieto
+		}
+	}
+		
 	//Ver este metodo
 	
 	public void vivir(){
-		if (this.estaVolando){		
-			trayectoria.avanzar();
-		}
+		
+		this.avanzar();
 	}
 				
 	

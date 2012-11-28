@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import avion.ProximoDestinoNuloException;
+
 
 public class Trayectoria {
 	
@@ -42,11 +44,15 @@ public class Trayectoria {
 	}
 
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
-	public void avanzar() {   
+	public void avanzar() throws ProximoDestinoNuloException{   
 		
 		this.actualizarProximoDestino();
-		this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());	
-		
+		if (this.destinos.size() >0){
+			this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());	
+		}
+		else{
+			throw new ProximoDestinoNuloException();
+		}
 	}
 
 	//retorna posicion de un destino ( click ) a la cual debe dirigirse parcialmente el avion
