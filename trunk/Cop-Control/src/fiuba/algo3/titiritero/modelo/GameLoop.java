@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class GameLoop implements Runnable{
 
-	private static final int FRECUENCIA_DEFAULT = 500;
+	private static final int FRECUENCIA_DEFAULT = 25;
 	private Set<ObjetoVivo> objetosVivos;
 	private Set<ObjetoDibujable> objetosDibujables;
 	private boolean estaEjecutando;
