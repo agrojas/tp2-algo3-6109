@@ -101,6 +101,7 @@ public class Juego implements ObjetoVivo {
 			//caso AvionComputarizado
 			case 4:
 				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0));
+				//setea posicion de destino, la cual es una pista en la que puede aterrizar
 				unAvionComputarizado.moverHacia(this.nivelActual.getPosPistaAdecuada(unAvionComputarizado));
 				return unAvionComputarizado;
 		}

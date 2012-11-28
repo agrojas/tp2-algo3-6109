@@ -72,7 +72,7 @@ public class Posicion {
 	}
 	
 	//retorna una Posicion de un vecino con distancia minima a la Posicion de Destino Final
-	public Posicion getVecinoDeDistanciaMinima(Posicion posicionFinal ){
+	public Posicion getVecinoDeDistanciaMinima(Posicion posicionFinal){
 		
 		Map<Double, Posicion> distancias = new HashMap<Double, Posicion>();
 		double distancia=0;
