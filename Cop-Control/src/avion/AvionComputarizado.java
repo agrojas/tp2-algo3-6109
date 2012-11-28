@@ -11,7 +11,10 @@ public class AvionComputarizado extends Avion {
 		esControlable=false;
 	}
 
-
+	public AvionComputarizado(Posicion posIni, Posicion posFin){
+		super(posIni,posFin);
+		esControlable=false;
+	}
 	@Override
 	public boolean puedeAterrizar(Pista pista) {
 		return pista.puedeAterrizar(this);

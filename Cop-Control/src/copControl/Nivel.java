@@ -8,6 +8,7 @@ import org.omg.CosNaming.IstringHelper;
 import pista.Pista;
 
 import avion.Avion;
+import avion.AvionComputarizado;
 
 public class Nivel {
 	private Mapa mapa;
@@ -146,5 +147,24 @@ public class Nivel {
 			avionActual.vivir();
 		}
 		
+	}
+
+	public Posicion getPosPistaAdecuada(AvionComputarizado unAvionComputarizado) {
+		
+		List<Pista> pistas=this.mapa.getPistas();
+		Iterator<Pista> itPistas= pistas.iterator();
+		Pista pistaARetornar = null;
+		Pista pistaAEvaluar= null;
+		boolean pistaEncontrada = false;
+		
+		while (itPistas.hasNext() && !pistaEncontrada){
+			pistaAEvaluar=itPistas.next();
+			pistaEncontrada= pistaAEvaluar.puedeAterrizar(unAvionComputarizado);
+			if (pistaEncontrada){
+				pistaARetornar=pistaAEvaluar;
+			}
+		}
+		
+		return pistaARetornar.getPosicionesEntrada().get(0);
 	}
 }
