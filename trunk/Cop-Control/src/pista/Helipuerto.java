@@ -36,15 +36,19 @@ public class Helipuerto extends Pista{
 		// TODO Auto-generated method stub
 		return true;
 	}
+	private Posicion getPosicionEntrada(){
+		return this.getPosicionesEntrada().get(0);
+		
+	}
+	
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (int)getPosicionEntrada().getCoordenadaX();
 	}
+
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (int)getPosicionEntrada().getCoordenadaY();
 	}
 
 
