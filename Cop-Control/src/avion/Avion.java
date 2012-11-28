@@ -28,6 +28,10 @@ public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 		this.estaVolando=true;
 		this.trayectoria= new Trayectoria(posIni,posFin);
 	}
+	public Avion(Posicion posIni) {
+		this.estaVolando=true;
+		this.trayectoria= new Trayectoria(posIni);
+	}
 	/**
 	 * @return
 	 */
@@ -37,9 +41,9 @@ public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 	//Ver este metodo
 	
 	public void vivir(){
-				
-		trayectoria.avanzar();
-		
+		if (this.estaVolando){		
+			trayectoria.avanzar();
+		}
 	}
 				
 	

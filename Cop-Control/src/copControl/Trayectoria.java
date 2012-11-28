@@ -17,6 +17,7 @@ public class Trayectoria {
 	private List<Posicion> vecinos;
 	
 	public Trayectoria(Posicion posIni){
+		this.posicionActual=posIni;
 		
 	}
 	

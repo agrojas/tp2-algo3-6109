@@ -6,8 +6,8 @@ import copControl.Posicion;
 
 public class AvionComputarizado extends Avion {
 
-	public AvionComputarizado(Posicion posIni, Posicion posFin) {
-		super(posIni, posFin);
+	public AvionComputarizado(Posicion posIni) {
+		super(posIni);
 		esControlable=false;
 	}
 

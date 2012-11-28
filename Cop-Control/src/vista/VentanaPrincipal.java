@@ -121,7 +121,7 @@ public class VentanaPrincipal {
 		
 		mapa.setPistas(pistas);
 		Posicion posIni = mapa.generarPosicionExtremoAlAzar();
-		Posicion posFin =mapa.getPosicionPistaNoHelipuerto();
+		Posicion posFin =pistaSimple.getPosicionesEntrada().get(0);
 		AvionSimple avionSimple = new AvionSimple(posIni,posFin);
 		
 		
