@@ -138,9 +138,10 @@ public class Juego implements ObjetoVivo {
 	}
 	@Override
 	public void vivir() {
+		this.huboChoque();
 		this.colocarAvion();
 		this.chequearAterrizajes();
-		this.huboChoque();
+		
 		this.actualizarMovimientoDeAviones();
 		
 	}
