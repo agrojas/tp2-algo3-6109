@@ -88,15 +88,15 @@ public class Juego implements ObjetoVivo {
 		switch (enteroAlAzarEntreMyN) {
 			//caso AvionSimple
 			case 1:
-				AvionSimple unAvionSimple = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1));
+				AvionSimple unAvionSimple = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1),this.nivelActual.getMapa());
 				return unAvionSimple;
 			//caso AvionPesado
 			case 2:
-				AvionPesado unAvionPesado = new AvionPesado(posicionesExtremo.get(0),posicionesExtremo.get(1));
+				AvionPesado unAvionPesado = new AvionPesado(posicionesExtremo.get(0),posicionesExtremo.get(1),this.nivelActual.getMapa());
 				return unAvionPesado;
 			//caso Helicoptero
 			case 3:
-				Helicoptero unHelicoptero = new Helicoptero(posicionesExtremo.get(0),posicionesExtremo.get(1));
+				Helicoptero unHelicoptero = new Helicoptero(posicionesExtremo.get(0),posicionesExtremo.get(1),this.nivelActual.getMapa());
 				return unHelicoptero;
 			//caso AvionComputarizado
 			case 4:

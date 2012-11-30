@@ -2,6 +2,7 @@ package avion;
 
 
 import pista.Pista;
+import copControl.Mapa;
 import copControl.Posicion;
 
 public class AvionComputarizado extends Avion {
@@ -11,8 +12,8 @@ public class AvionComputarizado extends Avion {
 		esControlable=false;
 	}
 
-	public AvionComputarizado(Posicion posIni, Posicion posFin){
-		super(posIni,posFin);
+	public AvionComputarizado(Posicion posIni, Posicion posFin, Mapa mapaDeJuego){
+		super(posIni,posFin,mapaDeJuego);
 		esControlable=false;
 	}
 	@Override

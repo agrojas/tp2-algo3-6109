@@ -11,14 +11,19 @@ import pista.PistaSimple;
 import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 import avion.Helicoptero;
+import copControl.Mapa;
 import copControl.Posicion;
 import junit.framework.TestCase;
+
 
 /**
  * @author Agu
  *
  */
 public class HelicopteroTest extends TestCase {
+	
+	private Mapa mapaDeJuego;
+	
 	
 	public void testUnHelicopteroNoPuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		Posicion posicionInicial= new Posicion(1,1);
@@ -27,7 +32,7 @@ public class HelicopteroTest extends TestCase {
 		posicionPista.add(posicionFinal);
 		PistaSimple pistaSimple = new PistaSimple(posicionPista);
 		
-		Helicoptero helicoptero = new Helicoptero(posicionInicial, posicionFinal);
+		Helicoptero helicoptero = new Helicoptero(posicionInicial, posicionFinal,mapaDeJuego);
 		
 		assertFalse(helicoptero.puedeAterrizar(pistaSimple));
 	}
@@ -39,9 +44,13 @@ public class HelicopteroTest extends TestCase {
 		posicionPista.add(posicionFinal);
 		Helipuerto helipuerto = new Helipuerto(posicionPista);
 		
-		Helicoptero helicoptero = new Helicoptero(posicionInicial, posicionFinal);
+		Helicoptero helicoptero = new Helicoptero(posicionInicial, posicionFinal,mapaDeJuego);
 		
 		assertTrue(helicoptero.puedeAterrizar(helipuerto));
+	}
+	
+	public void setUp(){
+	 mapaDeJuego = new Mapa();
 	}
 
 }

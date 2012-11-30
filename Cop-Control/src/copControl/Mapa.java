@@ -16,13 +16,13 @@ public class Mapa {
 		this.avionesEnAire= new ArrayList<Avion>();
 		this.setPistas(pistas);
 		//tama�o de la "matriz" de posiciones 50x50
-		this.dimension = 500;
+		this.dimension = 400;
 	}
 
 	public Mapa() {
 		this.avionesEnAire= new ArrayList<Avion>();
 		this.setPistas(null);
-		this.dimension=500;
+		this.dimension=400;
 	}
 
 	public List<Avion> getAvionesEnAire() {
@@ -58,7 +58,8 @@ public class Mapa {
 		Integer MaximoDimension= this.dimension;
 		// Valor random entre 0 y Dimension, ambos incluidos para crear Posicion Extremo.
 		Integer enteroAlAzarEntreCeroYDimension = (int) Math.floor(Math.random()*(MaximoDimension-MinimoDimension+1)+MinimoDimension);
-		
+		System.out.println("Entero al azar entre cero y dimension:");
+		System.out.println(enteroAlAzarEntreCeroYDimension);
 		
 		switch (enteroAlAzarEntreMyN) {
 		//Posicion Extremo superior

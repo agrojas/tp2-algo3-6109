@@ -8,11 +8,13 @@ import pista.PistaSimple;
 import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 import avion.AvionSimple;
+import copControl.Mapa;
 import copControl.Posicion;
 import junit.framework.TestCase;
 
 public class AvionSimpleTest extends TestCase {
 	
+	Mapa mapaDeJuego;
 	public void testUnAvionSimpleSeMueveDeUnaPosicionAOtra(){
 	
 	}
@@ -24,7 +26,7 @@ public class AvionSimpleTest extends TestCase {
 		posicionPista.add(posicionFinal);
 		PistaSimple pistaSimple = new PistaSimple(posicionPista);
 		
-		AvionSimple avion = new AvionSimple(posicionInicial, posicionFinal);
+		AvionSimple avion = new AvionSimple(posicionInicial, posicionFinal,mapaDeJuego);
 		
 		assertTrue(avion.puedeAterrizar(pistaSimple));
 	}
@@ -36,13 +38,16 @@ public class AvionSimpleTest extends TestCase {
 		posicionPista.add(posicionFinal);
 		Helipuerto helipuerto = new Helipuerto(posicionPista);
 		
-		AvionSimple avion = new AvionSimple(posicionInicial, posicionFinal);
+		AvionSimple avion = new AvionSimple(posicionInicial, posicionFinal,mapaDeJuego);
 		
 		assertFalse(avion.puedeAterrizar(helipuerto));
 	}
 
 	
-
+	public void setUp(){
+		
+		mapaDeJuego = new Mapa();
+	}
 	
 	
 	

@@ -1,6 +1,7 @@
 package testTrayectoria;
 
 import avion.AvionSimple;
+import copControl.Mapa;
 import copControl.Posicion;
 import junit.framework.TestCase;
 
@@ -9,11 +10,11 @@ public class TrayectoriaTest extends TestCase {
 	private AvionSimple avionSimple;
 	private Posicion posicionInicial;
 	private Posicion posicionFinal;
-
+	private Mapa mapa;
 	public void testAvionSimpleSeCreaConSiguienteDestinoIgualAPosicionFinal(){
 		posicionInicial= new Posicion(1,1);
 		posicionFinal = new Posicion(5,1);
-		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal,mapa);
 		assertTrue(avionSimple.getPosicionActual()==posicionInicial);
 		Posicion posicionDeDestino= avionSimple.getDestinoActual();
 		assertTrue(posicionDeDestino==posicionFinal);
@@ -23,7 +24,8 @@ public class TrayectoriaTest extends TestCase {
 	public void testAvionSimpleCambiaSuPosicionAlvivir(){
 		posicionInicial= new Posicion(1,1);
 		posicionFinal = new Posicion(5,1);
-		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+	
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal,mapa);
 		avionSimple.vivir();
 		Posicion posicionActual= avionSimple.getPosicionActual();
 		assertFalse(posicionActual==posicionInicial);
@@ -33,7 +35,7 @@ public class TrayectoriaTest extends TestCase {
 	public void testAvionSimpleVaCambiandoSuPosActualHastaLlegarAPosFinEnCaminoRecto(){
 		posicionInicial= new Posicion(1,1);
 		posicionFinal = new Posicion(5,1);
-		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal, mapa);
 		avionSimple.vivir(); //(2,1)
 		avionSimple.vivir(); //(3,1)
 		avionSimple.vivir(); //(4,1)
@@ -46,7 +48,7 @@ public class TrayectoriaTest extends TestCase {
 	public void testAvionSimpleLlegaAPosFinAtravezDeCaminoDiagonal(){
 		posicionInicial= new Posicion(1,1);
 		posicionFinal = new Posicion(5,5);
-		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal, mapa);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		avionSimple.vivir(); //(2,1)
@@ -69,7 +71,7 @@ public class TrayectoriaTest extends TestCase {
 	public void testAvionSimpleLlegaAPosFinAtravezDeCaminoVertical(){
 		posicionInicial= new Posicion(5,4);
 		posicionFinal = new Posicion(5,0);
-		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal, mapa);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		avionSimple.vivir(); //(5,1)
@@ -93,7 +95,7 @@ public class TrayectoriaTest extends TestCase {
 	public void testAvionSimpleLlegaAPosFinAtravezDeCaminoIncierto(){
 		posicionInicial= new Posicion(0,0);
 		posicionFinal = new Posicion(2,4);
-		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal, mapa);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		avionSimple.vivir(); //(1,1)
@@ -117,7 +119,7 @@ public class TrayectoriaTest extends TestCase {
 		
 		posicionInicial= new Posicion(0,0);
 		posicionFinal = new Posicion(2,2);
-		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal, mapa);
 		
 		avionSimple.mostrarPosEnConsola();//BORRAR
 		avionSimple.vivir(); //(1,1)
@@ -147,7 +149,7 @@ public class TrayectoriaTest extends TestCase {
 		
 		posicionInicial= new Posicion(0,0);
 		posicionFinal = new Posicion(1,1);
-		avionSimple= new AvionSimple(posicionInicial,posicionFinal);
+		avionSimple= new AvionSimple(posicionInicial,posicionFinal, mapa);
 		
 		Posicion nuevoDestino = new Posicion(3,3);
 		avionSimple.moverHacia(nuevoDestino);
@@ -185,7 +187,7 @@ public class TrayectoriaTest extends TestCase {
 		
 	}
 	public void setUp(){
-		
+		mapa= new Mapa();
 	}
 	
 }

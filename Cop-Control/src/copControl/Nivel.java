@@ -167,4 +167,9 @@ public class Nivel {
 		
 		return pistaARetornar.getPosicionesEntrada().get(0);
 	}
+
+	public Mapa getMapa() {
+		
+		return this.mapa;
+	}
 }
