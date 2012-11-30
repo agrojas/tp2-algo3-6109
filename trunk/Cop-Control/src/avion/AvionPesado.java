@@ -1,12 +1,13 @@
 package avion;
 
 import pista.Pista;
+import copControl.Mapa;
 import copControl.Posicion;
 
 public class AvionPesado extends Avion{
 
-	public AvionPesado(Posicion posIni, Posicion posFin) {
-		super(posIni, posFin);
+	public AvionPesado(Posicion posIni, Posicion posFin,Mapa mapaDeMovimiento) {
+		super(posIni, posFin,mapaDeMovimiento);
 		esControlable=true;
 	}
 

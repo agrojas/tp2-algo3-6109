@@ -2,6 +2,7 @@ package avion;
 
 
 import pista.Pista;
+import copControl.Mapa;
 import copControl.Posicion;
 import copControl.Trayectoria;
 
@@ -12,7 +13,6 @@ public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 	protected Trayectoria trayectoria;
 	protected boolean estaVolando;
 	protected boolean esControlable;
-
 	
 	/**
 	 * @return
@@ -24,9 +24,9 @@ public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 	 * @param posIni
 	 * @param posFin
 	 */
-	public Avion(Posicion posIni,Posicion posFin){
+	public Avion(Posicion posIni,Posicion posFin,Mapa mapaDeMovimiento){
 		this.estaVolando=true;
-		this.trayectoria= new Trayectoria(posIni,posFin);
+		this.trayectoria= new Trayectoria(posIni,posFin,mapaDeMovimiento);
 	}
 	public Avion(Posicion posIni) {
 		this.estaVolando=true;
@@ -40,15 +40,9 @@ public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
 	}
 	
 	public void avanzar(){
-		try{
+		
 		if (this.estaVolando){
 			trayectoria.avanzar();
-		}
-	
-		} catch (ProximoDestinoNuloException a) {
-			System.out.println("Aca esta la exception");
-			//Aca se debe insertar nuevo destino para el avion.
-			//Si es un helicoptero se queda quieto
 		}
 	}
 		

@@ -68,7 +68,7 @@ public class JuegoTest extends TestCase {
                 pistaSimple= new PistaSimple(posicionPista);
                 pistas.add(pistaSimple);
                 mapa = new Mapa(pistas);
-                avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion);
+                avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion, mapa);
                 //mapa.colocarAvionEnAire(avionSimple);
                 nivel1 = new Nivel(mapa, dificultad);
                 nivel2 = new Nivel(mapa, dificultad);

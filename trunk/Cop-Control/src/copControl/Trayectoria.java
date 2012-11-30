@@ -17,17 +17,19 @@ public class Trayectoria {
 	private Posicion posicionActual;
 	private List<Posicion> destinos; //al marcar con click se agrega un nuevo destino
 	private List<Posicion> vecinos;
+	private Mapa mapaDeMovimiento; 
 	
 	public Trayectoria(Posicion posIni){
 		this.posicionActual=posIni;
 		
 	}
 	
-	public Trayectoria(Posicion posIni, Posicion posFin) {
+	public Trayectoria(Posicion posIni, Posicion posFin,Mapa mapaDeMovimiento) {
 		posicionActual = posIni;
 		//seteo la posicion fin como si fuesen click para calcular de la misma forma su trayectoria inicial al aparecer en mapa
 		destinos = new LinkedList<Posicion>();
 		this.setDestino(posFin);
+		this.mapaDeMovimiento = mapaDeMovimiento;
 		
 	}
 
@@ -44,14 +46,21 @@ public class Trayectoria {
 	}
 
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
-	public void avanzar() throws ProximoDestinoNuloException{   
+	public void avanzar(){   
 		
 		this.actualizarProximoDestino();
 		if (this.destinos.size() >0){
 			this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());	
 		}
 		else{
-			throw new ProximoDestinoNuloException();
+			
+			this.destinos.add(this.mapaDeMovimiento.generarPosicionExtremoAlAzar());
+			/*System.out.println("Esta es la posicion Actual:")
+			System.out.println(this.posicionActual.getCoordenadaX());
+			System.out.println(this.posicionActual.getCoordenadaY());
+			System.out.println("Este es el nuevo destino:");
+			System.out.println(this.destinos.get(0).getCoordenadaX());
+			System.out.println(this.destinos.get(0).getCoordenadaY());*/
 		}
 	}
 

@@ -43,7 +43,7 @@ public class NivelTest extends TestCase {
 	
 	public void testUnNivelDeberiaAterrizarAvionesSiHayAlgunAvionConPosicionDePista(){
 		Posicion posicionFinal = new Posicion(1,1);
-		AvionSimple avionSimple= new AvionSimple(posicionEntradaPista,posicionFinal);
+		AvionSimple avionSimple= new AvionSimple(posicionEntradaPista,posicionFinal, mapa);
 		nivel.colocarAvionEnAire(avionSimple);
 		
 		int cantAvionesVolandoInicialmente = nivel.getAvionesVolando().size();
@@ -58,7 +58,7 @@ public class NivelTest extends TestCase {
 	
 	public void testUnNivelNoDeberiaAterrizarAvionesSiNoHayAlgunAvionConPosicionDePista(){
 		Posicion posicionFinal = new Posicion(1,1);
-		AvionSimple avionSimple= new AvionSimple(posicionInicioAvion,posicionFinal);
+		AvionSimple avionSimple= new AvionSimple(posicionInicioAvion,posicionFinal, mapa);
 		nivel.colocarAvionEnAire(avionSimple);
 		int cantAvionesVolandoInicialmente = nivel.getAvionesVolando().size();
 		 
@@ -76,9 +76,9 @@ public class NivelTest extends TestCase {
 		Posicion posicionInicialBis = new Posicion(2,3);	
 		Posicion posicionFinal= new Posicion(2,3);
 		
-		AvionSimple avionSimple1= new AvionSimple(posicionInicial,posicionFinal);
-		AvionSimple avionSimple2= new AvionSimple(posicionInicialBis,posicionFinal);
-		AvionPesado avionPesado1= new AvionPesado(posicionInicialBis,posicionFinal);
+		AvionSimple avionSimple1= new AvionSimple(posicionInicial,posicionFinal,mapa);
+		AvionSimple avionSimple2= new AvionSimple(posicionInicialBis,posicionFinal,mapa);
+		AvionPesado avionPesado1= new AvionPesado(posicionInicialBis,posicionFinal,mapa);
 		
 		
 		nivel.colocarAvionEnAire(avionSimple1);
@@ -97,9 +97,9 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 		Posicion posicionInicialBis = new Posicion(2,3);	
 		Posicion posicionFinal= new Posicion(2,8);
 		
-		AvionSimple avionSimple1= new AvionSimple(posicionInicial,posicionFinal);
-		AvionSimple avionSimple2= new AvionSimple(posicionInicialBis,posicionFinal);
-		AvionPesado avionPesado1= new AvionPesado(posicionFinal,posicionInicialBis);
+		AvionSimple avionSimple1= new AvionSimple(posicionInicial,posicionFinal,mapa);
+		AvionSimple avionSimple2= new AvionSimple(posicionInicialBis,posicionFinal,mapa);
+		AvionPesado avionPesado1= new AvionPesado(posicionFinal,posicionInicialBis,mapa);
 		
 		nivel.colocarAvionEnAire(avionSimple1);
 		nivel.colocarAvionEnAire(avionPesado1);
@@ -118,8 +118,8 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 		boolean verificacion;
 		Posicion posicionInicial= new Posicion(1,2);
 		
-		AvionSimple avionSimple= new AvionSimple(posicionInicial,posicionInicial);
-		AvionPesado avionPesado= new AvionPesado(posicionInicial,posicionInicial);
+		AvionSimple avionSimple= new AvionSimple(posicionInicial,posicionInicial, mapa);
+		AvionPesado avionPesado= new AvionPesado(posicionInicial,posicionInicial, mapa);
 		
 		avionesVolando.add(avionSimple);
 		avionesVolando.add(avionPesado);
@@ -134,7 +134,7 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 	
 	public void testUnNivelAterrizaAvionesQuePuedanAterrizar(){
 		
-		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion);
+		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion, mapa);
 		mapa.colocarAvionEnAire(avionSimple);
 		nivel.aterrizarAviones();
 		assertTrue(nivel.tieneAvionesVolando());
@@ -142,21 +142,21 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 	}
 	public void testColocarAvionSimpleEnAire(){
 		
-		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion);
+		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion,mapa);
 		mapa.colocarAvionEnAire(avionSimple);
 		assertTrue(nivel.tieneAvionesVolando());
 	}
 	
 	public void testAlCrearAvionSimpleYPistaSimpleDeberiaTenerPistaAdecuada(){
 		
-		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion);
+		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion,mapa);
 		assertTrue(nivel.tienePistaAdecuada(avionSimple));
 		
 	}
 	
 	public void testAlCrearHelicopteroSinHelipuertoNoDeberiaTenerPistaAdecuada() throws PosicionesEntradaVaciaException{
 		
-		Helicoptero helicoptero= new Helicoptero(posicionInicioAvion, posicionFinAvion);
+		Helicoptero helicoptero= new Helicoptero(posicionInicioAvion, posicionFinAvion,mapa);
 		assertFalse(nivel.tienePistaAdecuada(helicoptero));
 		
 	}

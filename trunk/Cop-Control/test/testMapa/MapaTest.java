@@ -32,7 +32,7 @@ public class MapaTest extends TestCase {
 		pistaSimple= new PistaSimple(posicionPista);
 		pistas.add(pistaSimple);
 		mapa = new Mapa(pistas);
-		avionSimple= new AvionSimple(posicionInicioAvion, posicionInicioAvion);
+		avionSimple= new AvionSimple(posicionInicioAvion, posicionInicioAvion,mapa);
 	}
 	
 	public void testColocarAvionSimpleEnAire(){
