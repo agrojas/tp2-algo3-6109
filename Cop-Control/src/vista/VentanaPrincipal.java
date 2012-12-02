@@ -11,6 +11,8 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -123,7 +125,6 @@ public class VentanaPrincipal {
 		Posicion posIni = mapa.generarPosicionExtremoAlAzar();
 		Posicion posFin =pistaSimple.getPosicionesEntrada().get(0);
 		AvionSimple avionSimple = new AvionSimple(posIni,posFin, mapa);
-		
 		
 		this.gameLoop.agregar(avionSimple);
 		Circulo circulo = new VistaAvionSimple(avionSimple);
