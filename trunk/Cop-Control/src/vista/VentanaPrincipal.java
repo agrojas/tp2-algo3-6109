@@ -36,7 +36,7 @@ import fiuba.algo3.titiritero.dibujables.SuperficiePanel;
 import fiuba.algo3.titiritero.modelo.GameLoop;
 import fiuba.algo3.titiritero.modelo.SuperficieDeDibujo;
 
-public class VentanaPrincipal {
+public class VentanaPrincipal{
 
 	private JFrame frame;
 	private GameLoop gameLoop;
@@ -126,6 +126,17 @@ public class VentanaPrincipal {
 		Posicion posFin =pistaSimple.getPosicionesEntrada().get(0);
 		AvionSimple avionSimple = new AvionSimple(posIni,posFin, mapa);
 		
+		//para el Broker
+		
+		/*
+		 * 
+		Observer vistaAvionSimple = (Observer) new VistaAvionSimple(avionSimple);
+		this.gameLoop.agregar(avionSimple);
+		this.gameLoop.agregar(vistaAvionSimple); // agregar implements en Vista de Observer sino no compila
+		
+		broker.agregarAvion(avionSimple); //no me cierra que VentanaPrincipal cree un Avion
+		broker.observarNuevoAvion(vistaAvionSimple);
+		*/
 		this.gameLoop.agregar(avionSimple);
 		Circulo circulo = new VistaAvionSimple(avionSimple);
 		Cuadrado cuadrado = new VistaPistaSimple(pistaSimple);
