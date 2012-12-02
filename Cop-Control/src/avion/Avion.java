@@ -1,6 +1,8 @@
 package avion;
 
 
+import java.util.Observable;
+
 import pista.Pista;
 import copControl.Mapa;
 import copControl.Posicion;
@@ -9,7 +11,7 @@ import copControl.Trayectoria;
 import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
 import fiuba.algo3.titiritero.modelo.ObjetoVivo;
 
-public abstract class Avion implements ObjetoVivo, ObjetoPosicionable{
+public abstract class Avion extends Observable implements ObjetoVivo, ObjetoPosicionable{
 	protected Trayectoria trayectoria;
 	protected boolean estaVolando;
 	protected boolean esControlable;

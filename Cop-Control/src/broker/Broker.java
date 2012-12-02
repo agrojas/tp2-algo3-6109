@@ -5,7 +5,7 @@ import java.util.Observer;
 
 import avion.Avion;
 
-public class Broker {
+public class Broker{
 	
 	private List<Observer> listaDeObservadores;
 
