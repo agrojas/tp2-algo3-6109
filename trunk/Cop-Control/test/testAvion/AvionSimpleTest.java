@@ -43,6 +43,18 @@ public class AvionSimpleTest extends TestCase {
 		assertFalse(avion.puedeAterrizar(helipuerto));
 	}
 
+	public void testUnaPosicionDentroDelRadioDelAvionDebeDevolverTrue() {
+		Posicion posicionInicial= new Posicion(30,30);
+		Posicion posicionFinal= new Posicion(3,9);
+		Posicion posicionDePrueba=new Posicion(31,31);
+		
+		
+		AvionSimple avion = new AvionSimple(posicionInicial, posicionFinal,mapaDeJuego);
+		assertTrue(avion.esPosicionContenida(posicionDePrueba));
+		
+	}
+	
+	
 	
 	public void setUp(){
 		
