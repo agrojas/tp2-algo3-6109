@@ -12,6 +12,12 @@ public abstract class Avion  implements  ObjetoPosicionable{
 	protected boolean estaVolando;
 	protected boolean esControlable;
 	protected int radio;
+	protected boolean estaMarcado;
+	
+	public boolean estaMarcado(){
+		
+		return this.estaMarcado;
+	}
 	
 	/**
 	 * @return the radio
@@ -33,11 +39,13 @@ public abstract class Avion  implements  ObjetoPosicionable{
 	public Avion(Posicion posIni,Posicion posFin,Mapa mapaDeMovimiento){
 		this.estaVolando=true;
 		this.trayectoria= new Trayectoria(posIni,posFin,mapaDeMovimiento);
+		this.estaMarcado=false;
 		
 	}
-	public Avion(Posicion posIni,Mapa mapaDeMovimiento) {
+	public Avion(Posicion posIni) {
 		this.estaVolando=true;
-		this.trayectoria= new Trayectoria(posIni,mapaDeMovimiento);
+		this.trayectoria= new Trayectoria(posIni);
+		this.estaMarcado=false;
 		
 	}
 	/**
@@ -88,13 +96,12 @@ public abstract class Avion  implements  ObjetoPosicionable{
 		return esControlable;
 	}
 	
-	public void moverHacia(Posicion unaPosicion){
-		
-	}
+	public abstract void moverHacia(Posicion unaPosicion);
 	
 		
 	public boolean aterrizar(Pista pista){
-		boolean condicion1 =(pista.tieneEntradaEn(this.trayectoria.getPosicionActual())) ;
+		
+		boolean condicion1 =(pista.estaEnZonaAterrizaje(this)) ;
 		boolean condicion2= this.puedeAterrizar(pista);
 		return (condicion1 && condicion2);
 		
@@ -110,6 +117,30 @@ public abstract class Avion  implements  ObjetoPosicionable{
 	
 	public int getY() {
 		return ((int)this.getPosicionActual().getCoordenadaY());
+	}
+
+	
+    
+    public boolean esPosicionContenida(Posicion unaPosicion) {
+        double x1 = unaPosicion.getCoordenadaX();
+        double y1 = unaPosicion.getCoordenadaY();
+    	double x2 = (double)this.getX();
+    	double y2 = (double)this.getY();
+        double dx = x1 - x2;
+        double dy = y1 - y2;
+        double distance = Math.sqrt(dx*dx + dy*dy);
+        boolean marcado=distance <= this.radio;
+        if(marcado){
+        	this.estaMarcado=true;
+        	
+        }
+        
+        return marcado;
+    }
+
+	public void desmarcar() {
+		this.estaMarcado=false;
+		
 	}
 
 
