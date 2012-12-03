@@ -10,9 +10,6 @@ public class VistaAvionComputarizado extends Circulo{
 	public VistaAvionComputarizado(ObjetoPosicionable modelo) {
 		super(30,  modelo);
 		this.setColor(Color.WHITE);
-	}
-
-	
-	
+	}	
 
 }

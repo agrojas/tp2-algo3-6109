@@ -7,8 +7,8 @@ import copControl.Posicion;
 
 public class AvionComputarizado extends Avion {
 
-	public AvionComputarizado(Posicion posIni) {
-		super(posIni);
+	public AvionComputarizado(Posicion posIni, Mapa mapaDeMovimiento) {
+		super(posIni, mapaDeMovimiento);
 		esControlable=false;
 		this.radio=10;
 		

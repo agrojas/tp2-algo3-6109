@@ -190,24 +190,15 @@ public class Nivel {
 		
 	}
 
-	public Posicion getPosPistaAdecuada(AvionComputarizado unAvionComputarizado) {
+	public Posicion getPosPistaAdecuada(AvionComputarizado unAvion) {
 		
-		List<Pista> pistas=this.mapa.getPistas();
-		Iterator<Pista> itPistas= pistas.iterator();
-		Pista pistaARetornar = null;
-		Pista pistaAEvaluar= null;
-		boolean pistaEncontrada = false;
 		
-		while (itPistas.hasNext() && !pistaEncontrada){
-			pistaAEvaluar=itPistas.next();
-			pistaEncontrada= pistaAEvaluar.puedeAterrizar(unAvionComputarizado);
-			if (pistaEncontrada){
-				pistaARetornar=pistaAEvaluar;
-			}
+		 return (this.mapa.getPosPistaAdecuada(unAvion));
 		}
 		
-		return pistaARetornar.getPosicionesEntrada().get(0);
-	}
+		
+		
+	
 
 	public Mapa getMapa() {
 		

@@ -35,9 +35,9 @@ public abstract class Avion  implements  ObjetoPosicionable{
 		this.trayectoria= new Trayectoria(posIni,posFin,mapaDeMovimiento);
 		
 	}
-	public Avion(Posicion posIni) {
+	public Avion(Posicion posIni,Mapa mapaDeMovimiento) {
 		this.estaVolando=true;
-		this.trayectoria= new Trayectoria(posIni);
+		this.trayectoria= new Trayectoria(posIni,mapaDeMovimiento);
 		
 	}
 	/**
