@@ -93,5 +93,13 @@ public class Posicion {
 		
 	}
 
+	@Override
+	public String toString(){
+		Double x= this.getCoordenadaX();
+		Double y = this.getCoordenadaY();
+		String salida ="Las coordenadas son: "+x.toString()+","+y.toString();
+		return salida;
+		
+	}
 
 }

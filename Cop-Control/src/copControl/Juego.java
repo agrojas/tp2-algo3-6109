@@ -4,6 +4,7 @@ package copControl;
 import java.util.List;
 
 import fiuba.algo3.titiritero.modelo.ObjetoVivo;
+import Observador.Observable;
 import avion.AvionSimple;
 import avion.AvionPesado;
 import avion.AvionComputarizado;
@@ -11,20 +12,20 @@ import avion.Helicoptero;
 import avion.Avion;
 
 
-public class Juego implements ObjetoVivo {
+public class Juego extends Observable implements ObjetoVivo {
 	
 	private Nivel nivelActual;  	/* implementa comparable, cheque niveles dificultad creciente o hago sort para ordenar bajo exepcion  */
 	private Integer cantidadAvionesAterrizados;
 	private Jugador jugador;
 	private List<Nivel> niveles;
-	private boolean ganado;
+	private boolean jugandose;
 
 	public Juego(Jugador jugador,List<Nivel> niveles){
 		this.jugador=jugador;
 		this.niveles=niveles;
 		nivelActual=niveles.get(0);
 		cantidadAvionesAterrizados=0;
-		ganado=false;
+		jugandose=true;
 		
 	}
 	/**
@@ -34,7 +35,9 @@ public class Juego implements ObjetoVivo {
 		return nivelActual;
 	}
 
-	
+	public boolean estaJugandose(){
+		return this.jugandose;
+	}
 		
 	
 
@@ -60,11 +63,12 @@ public class Juego implements ObjetoVivo {
 	}
 
 	//llamar en hilo de gameLoop por un timer con tiempo=seteado a convenir
-	public boolean huboChoque(){
+	public void huboChoque(){
 		
-		return this.nivelActual.huboChoque();
-		
-		
+		if( this.nivelActual.huboChoque()){
+			
+			this.jugandose=false;
+		}		
 	}
 
 	//llamar en hilo de gameLoop por un timer con tiempo=seteado a convenir
@@ -100,10 +104,13 @@ public class Juego implements ObjetoVivo {
 				return unHelicoptero;
 			//caso AvionComputarizado
 			case 4:
-				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0));
-				//setea posicion de destino, la cual es una pista en la que puede aterrizar
-				unAvionComputarizado.moverHacia(this.nivelActual.getPosPistaAdecuada(unAvionComputarizado));
-				return unAvionComputarizado;
+				//Cambiar
+				AvionSimple unAvionSimple1 = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1),this.nivelActual.getMapa());
+				return unAvionSimple1;
+//				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0));
+//				//setea posicion de destino, la cual es una pista en la que puede aterrizar
+//				unAvionComputarizado.moverHacia(this.nivelActual.getPosPistaAdecuada(unAvionComputarizado));
+//				return unAvionComputarizado;
 		}
 		
 		return unAvion;
@@ -111,16 +118,22 @@ public class Juego implements ObjetoVivo {
 	
 	//llamar en hilo de gameLoop por un timer con tiempo=nivel->dificultad->velocidadDeAparicion
 	public void colocarAvion() {
-		boolean tienePistaAdecuada= false;
-		while (!tienePistaAdecuada){
+		
+		if(this.nivelActual.getCantidadDeAvionesMaxima()>= this.nivelActual.getAvionesVolando().size()){
 			
-			Avion unAvion= this.crearAvionAlAzar();
-			if (nivelActual.tienePistaAdecuada(unAvion)){
-				nivelActual.colocarAvionEnAire(unAvion);
-				tienePistaAdecuada=true;
-			}
+			boolean tienePistaAdecuada= false;
+			while (!tienePistaAdecuada){
+				
+				Avion unAvion= this.crearAvionAlAzar();
+				if (nivelActual.tienePistaAdecuada(unAvion)){
+					nivelActual.colocarAvionEnAire(unAvion);
+					tienePistaAdecuada=true;
+				}
+				
+			}	
 			
-		}	
+		}
+
 		
 	}
 	
@@ -129,23 +142,30 @@ public class Juego implements ObjetoVivo {
 			nivelActual= niveles.get(niveles.indexOf(nivelActual)+1);
 		} catch (IndexOutOfBoundsException e) {
 			// Si no hay mas niveles en la lista se gana ?
-			ganado=true;
+			jugandose=true;
 		}
 	
 	}
 	public boolean seGano() {
-		return this.ganado;
+		return this.jugandose;
 		
 	}
 	@Override
 	public void vivir() {
-		this.huboChoque();
+		
+	
 		this.colocarAvion();
+		
+		this.huboChoque();
+
 		this.chequearAterrizajes();
 		
-		this.actualizarMovimientoDeAviones();
+		this.actualizarMovimientoDeAviones();			
 		
+		notificarObservadores();
 	}
+
+
 }
 
 

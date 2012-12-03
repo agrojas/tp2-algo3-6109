@@ -11,6 +11,7 @@ public class Helicoptero extends Avion{
 	public Helicoptero(Posicion posIni, Posicion posFin,Mapa mapaDeMovimiento) {
 		super(posIni, posFin,mapaDeMovimiento);
 		esControlable=true;
+		this.radio=10;
 	}
 
 	public void moverHacia(Posicion unaPosicion) {

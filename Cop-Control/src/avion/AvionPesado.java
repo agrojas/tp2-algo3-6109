@@ -9,6 +9,7 @@ public class AvionPesado extends Avion{
 	public AvionPesado(Posicion posIni, Posicion posFin,Mapa mapaDeMovimiento) {
 		super(posIni, posFin,mapaDeMovimiento);
 		esControlable=true;
+		this.radio=15;
 	}
 
 	
