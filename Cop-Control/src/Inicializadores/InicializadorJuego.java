@@ -3,6 +3,7 @@ package Inicializadores;
 import java.util.LinkedList;
 import java.util.List;
 
+import pista.Helipuerto;
 import pista.Pista;
 import pista.PistaSimple;
 import pista.PosicionesEntradaSobrantesException;
@@ -53,6 +54,7 @@ public class InicializadorJuego {
 	private static List<Pista> pistasInicializadas(){
 		List<Pista> pistas = new LinkedList<Pista>();
 		pistas.add(pistaSimpleInicializada());
+		pistas.add(helipuertoInicializado());
 		return pistas;		
 	}
 
@@ -68,6 +70,16 @@ public class InicializadorJuego {
 		}
 		return null;
 	}
+	
+	private static Helipuerto helipuertoInicializado() {
+		try {
+			return new Helipuerto(posicionesHelipuerto());
+		} catch (PosicionesEntradaVaciaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	private static List<Posicion> posicionesPistaSimple() {
 		Posicion posicionEntrada = new Posicion(25, 25);
@@ -76,4 +88,10 @@ public class InicializadorJuego {
 		return posiciones;
 	}
 	
+	private static List<Posicion> posicionesHelipuerto() {
+		Posicion posicionEntrada = new Posicion(100, 100);
+		List<Posicion> posiciones = new LinkedList<Posicion>();
+		posiciones.add(posicionEntrada);
+		return posiciones;
+	}
 }

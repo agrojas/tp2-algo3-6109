@@ -1,11 +1,18 @@
 package Observador;
 
 import java.util.List;
+
+import pista.Helipuerto;
 import pista.Pista;
+import pista.PistaSimple;
 
 import vista.VistaAvionSimple;
+import vista.VistaHelicoptero;
+import vista.VistaHelipuerto;
 import vista.VistaPistaSimple;
 import avion.Avion;
+import avion.AvionSimple;
+import avion.Helicoptero;
 
 import copControl.Juego;
 import fiuba.algo3.titiritero.modelo.GameLoop;
@@ -47,7 +54,7 @@ public class AdministradorDeVistas implements Observador {
 		List<Pista> pistas = this.juego.getNivelActual().getMapa().getPistas();
 		
 		for (Pista pista : pistas) {
-			this.gameloop.agregar(vistaPista(pista));
+			this.gameloop.agregar(nuevaVistaDePista(pista));
 		}
 	}
 
@@ -56,18 +63,29 @@ public class AdministradorDeVistas implements Observador {
 		List<Avion> aviones=this.juego.getNivelActual().getAvionesVolando();
 		
 		for (Avion avion : aviones) {
-			this.gameloop.agregar(nuevaVista(avion));
+			this.gameloop.agregar(nuevaVistaDeAvion(avion));
 			
 		}
 	}
 
-	private ObjetoDibujable vistaPista(Pista pista) {
-		return new VistaPistaSimple(pista);
+	private ObjetoDibujable nuevaVistaDePista(Pista pista) {
+		if(pista.getClass()==PistaSimple.class){
+			return new VistaPistaSimple(pista);
+		}
+		if(pista.getClass()==Helipuerto.class){
+			return new VistaHelipuerto(pista);
+		}
+		return null;
 	}
 	
-	private ObjetoDibujable nuevaVista(Avion  avion) {
-		// TODO Auto-generated method stub
-		return new VistaAvionSimple(avion);
+	private ObjetoDibujable nuevaVistaDeAvion(Avion  avion) {
+		if(avion.getClass()==AvionSimple.class){
+			return new VistaAvionSimple(avion);
+		}
+		if(avion.getClass()==Helicoptero.class){
+			return new VistaHelicoptero(avion);
+		}
+		return null;
 	}
 
 
