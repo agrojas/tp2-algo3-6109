@@ -6,6 +6,7 @@ import copControl.Posicion;
 import fiuba.algo3.titiritero.modelo.ObjetoDibujable;
 import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
 
+import avion.Avion;
 import avion.AvionComputarizado;
 import avion.AvionPesado;
 import avion.AvionSimple;
@@ -14,6 +15,7 @@ import avion.Helicoptero;
 
 public abstract class Pista implements ObjetoPosicionable{
 	protected List<Posicion> 	posicionesEntrada;
+	protected int radioAterrizaje;
 	
 	public Pista(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException {
 		
@@ -50,9 +52,17 @@ public abstract class Pista implements ObjetoPosicionable{
 		return this.posicionesEntrada;
 	}
 
-	public boolean tieneEntradaEn(Posicion posicion) {
-		return this.getPosicionesEntrada().contains(posicion);
-	}
+
+	public abstract boolean estaEnZonaAterrizaje(Avion avion);
 	
+    // does circle (x1, y1, r1) intersect circle (x2, y2, r2)?
+    protected boolean intersects(double x1, double y1, double r1,
+                                     double x2, double y2, double r2) {
+        double dx = x1 - x2;
+        double dy = y1 - y2;
+        double distance = Math.sqrt(dx*dx + dy*dy);
+        return distance <= r1 + r2;
+        
+    }
 
 }
