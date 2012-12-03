@@ -12,10 +12,12 @@ import avion.AvionComputarizado;
 public class Nivel {
 	private Mapa mapa;
 	private Dificultad dificultad;
+	private boolean ganado;
 	
 	public Nivel(Mapa mapa, Dificultad dificultad) {
 		this.mapa=mapa;
 		this.dificultad=dificultad;
+		this.ganado=false;
 	}
 
 	public Avion getAvionEnPosicion(Posicion unaPosicion) {
@@ -25,8 +27,9 @@ public class Nivel {
 
 		while (it.hasNext()){
 			Avion avionActual = it.next();
-			if(unaPosicion == avionActual.getPosicionActual()){
+			if(avionActual.esPosicionContenida(unaPosicion)){
 				avionRecivido= avionActual;
+				return avionRecivido;
 			}		
 		}
 		
@@ -48,7 +51,7 @@ public class Nivel {
 				if(avion.aterrizar(pista)){
 					cantidadDeAterrizados++;
 					itAvionesEnAire.remove();
-					
+					System.out.println("aterrizo un avion");
 				}
 			}
 		
@@ -102,16 +105,7 @@ public class Nivel {
 		Iterator<Avion> it= avionesEnAire.iterator();
 		while(it.hasNext() && (!chocoConOtroAvion)){
 			avionActual = it.next();
-//		while ((!avionesEnAire.isEmpty()) && (!chocoConOtroAvion)) {
-//		
-//			
-//			Iterator<Avion> it= avionesEnAire.iterator();
-//			avionActual = it.next();
-		
-			//Defino nueva variaboolean huboCambio;
-//			huboCambio= avionesEnAire.remove(avionActual);ble para almacenar resultado de metodo List.remove
-//			
-							
+					
 			chocoConOtroAvion = this.chocoConOtroAvion(avionActual,avionesEnAire);
 			
 		}		
@@ -207,5 +201,22 @@ public class Nivel {
 
 	public int getCantidadDeAvionesMaxima() {
 		return this.dificultad.getCantidadDeAvionesPorAterrizar();
+	}
+
+	public Integer getCantidadDeAvionesPorAterrizar() {
+		return this.dificultad.getCantidadDeAvionesPorAterrizar();
+	}
+	
+	/**
+	 * @return
+	 */
+	public boolean seGano(int cantidadAvionesAterrizados ) {
+		return(this.getCantidadDeAvionesPorAterrizar()==cantidadAvionesAterrizados);
+		
+	}
+	
+	public boolean estaGanado(){
+		return this.ganado;
+		
 	}
 }

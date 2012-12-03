@@ -56,6 +56,7 @@ public class Trayectoria {
 		
 		try {
 			this.actualizarProximoDestino();
+			//System.out.println("Posicion avion: "+this.posicionActual.toString());
 			if (this.destinos.size() >0){
 				this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());	
 			}
