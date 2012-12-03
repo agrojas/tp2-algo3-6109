@@ -2,6 +2,7 @@ package pista;
 
 import java.util.List;
 
+import avion.Avion;
 import avion.AvionComputarizado;
 import avion.AvionPesado;
 import avion.AvionSimple;
@@ -14,6 +15,8 @@ public class Helipuerto extends Pista{
 
 	public Helipuerto(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException{
 		super(posicionesEntrada);
+		this.posicionesEntrada= posicionesEntrada;		
+		this.radioAterrizaje=15;
 		// TODO Auto-generated constructor stub
 	}
 	@Override
@@ -50,6 +53,23 @@ public class Helipuerto extends Pista{
 	public int getY() {
 		return (int)getPosicionEntrada().getCoordenadaY();
 	}
+	@Override
+	public boolean estaEnZonaAterrizaje(Avion avion) {
+		
+		Posicion posicion1= this.getPosicionesEntrada().get(0);
+		int radio1 = this.radioAterrizaje;
+		Posicion posicion2 = avion.getPosicionActual();
+		int radio2 = avion.getRadio();	
+		
+		return intersects(posicion1.getCoordenadaX(), posicion1.getCoordenadaY(), radio1,
+				posicion2.getCoordenadaX(), posicion2.getCoordenadaY(), radio2);
+	}
+
+	
+	
+
+
+
 
 
 }
