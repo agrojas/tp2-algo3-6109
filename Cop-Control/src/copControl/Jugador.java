@@ -29,7 +29,7 @@ public class Jugador {
 	}
 
 	//si habia avion en unaPosicion lo marca, sino adiere destino al avion que ya estaba marcado
-	public void click(Posicion unaPosicion) { 
+	public void moverHacia(Posicion unaPosicion) { 
 		
 		Avion posibleAvion;
 		posibleAvion=this.nivelActual.getAvionEnPosicion(unaPosicion);		
@@ -40,6 +40,30 @@ public class Jugador {
 		else{
 			this.avionMarcado.moverHacia(unaPosicion);
 		}
+		
+	}
+
+	public void moverHacia(int x, int y) {
+		Posicion unaPosicion= new Posicion(x, y);
+		System.out.println("Click: "+unaPosicion.toString());
+		Avion posibleAvion=this.nivelActual.getAvionEnPosicion(unaPosicion);
+		if(this.avionMarcado == null){
+//			Avion posibleAvion=this.nivelActual.getAvionEnPosicion(unaPosicion);		
+			if (posibleAvion!=null){
+				
+				if (posibleAvion.esControlable()){ //con esto aseguro que nunca avionMarcado sea un avionComputarizado (noControlable)
+					this.avionMarcado=posibleAvion;
+				}								
+			}
+			
+		}else{
+			
+			this.avionMarcado.moverHacia(unaPosicion);
+			this.avionMarcado.desmarcar();
+			this.avionMarcado=null;
+			
+		}
+		
 		
 	}
 		
