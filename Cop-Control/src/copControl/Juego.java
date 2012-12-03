@@ -1,6 +1,7 @@
 package copControl;
 
 
+import java.util.Iterator;
 import java.util.List;
 
 import fiuba.algo3.titiritero.modelo.ObjetoVivo;
@@ -26,7 +27,7 @@ public class Juego extends Observable implements ObjetoVivo {
 		nivelActual=niveles.get(0);
 		cantidadAvionesAterrizados=0;
 		jugandose=true;
-		
+		jugador.setNivelActual(nivelActual);
 	}
 	/**
 	 * @return the nivelActual
@@ -105,12 +106,12 @@ public class Juego extends Observable implements ObjetoVivo {
 			//caso AvionComputarizado
 			case 4:
 				//Cambiar
-			//	AvionSimple unAvionSimple1 = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1),this.nivelActual.getMapa());
-//				return unAvionSimple1;
-				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0),this.nivelActual.getMapa());
-				//setea posicion de destino, la cual es una pista en la que puede aterrizar
-				unAvionComputarizado.moverHacia(this.nivelActual.getPosPistaAdecuada(unAvionComputarizado));
-				return unAvionComputarizado;
+				AvionSimple unAvionSimple1 = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1),this.nivelActual.getMapa());
+				return unAvionSimple1;
+//				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0));
+//				//setea posicion de destino, la cual es una pista en la que puede aterrizar
+//				unAvionComputarizado.moverHacia(this.nivelActual.getPosPistaAdecuada(unAvionComputarizado));
+//				return unAvionComputarizado;
 		}
 		
 		return unAvion;
@@ -119,7 +120,7 @@ public class Juego extends Observable implements ObjetoVivo {
 	//llamar en hilo de gameLoop por un timer con tiempo=nivel->dificultad->velocidadDeAparicion
 	public void colocarAvion() {
 		
-		if(this.nivelActual.getCantidadDeAvionesMaxima()>= this.nivelActual.getAvionesVolando().size()){
+		if(this.nivelActual.getCantidadDeAvionesMaxima()> this.nivelActual.getAvionesVolando().size()){
 			
 			boolean tienePistaAdecuada= false;
 			while (!tienePistaAdecuada){
@@ -137,32 +138,63 @@ public class Juego extends Observable implements ObjetoVivo {
 		
 	}
 	
+	/**
+	 * Cambiar ESTOOO!
+	 */
 	public void avanzarNivel(){		
+		//TODO Cambiar
 		try {
 			nivelActual= niveles.get(niveles.indexOf(nivelActual)+1);
+			cantidadAvionesAterrizados=0;
+			jugador.setNivelActual(nivelActual);
 		} catch (IndexOutOfBoundsException e) {
 			// Si no hay mas niveles en la lista se gana ?
 			jugandose=true;
 		}
 	
 	}
-	public boolean seGano() {
-		return this.jugandose;
+	
+	public void verificarNivelesGanados(){
+		boolean ganado= true;
+		Iterator<Nivel> nivelIt= this.niveles.iterator();
+		while(nivelIt.hasNext() && ganado){
+			Nivel nivel= nivelIt.next();
+			ganado=nivel.estaGanado();
+		}
 		
+		if( ganado){			
+			this.jugandose=false;
+		}
 	}
+	
+	/* (non-Javadoc)
+	 * @see fiuba.algo3.titiritero.modelo.ObjetoVivo#vivir()
+	 */
 	@Override
 	public void vivir() {
 		
-	
-		this.colocarAvion();
-		
-		this.huboChoque();
+		if(this.estaJugandose()){
+			
+			if(this.nivelActual.seGano(cantidadAvionesAterrizados)){
+			
+				this.avanzarNivel();
+			
+			}else{
+				
+				this.colocarAvion();
+				
+				this.huboChoque();
 
-		this.chequearAterrizajes();
-		
-		this.actualizarMovimientoDeAviones();			
+				this.chequearAterrizajes();
+				
+				this.actualizarMovimientoDeAviones();				
+				
+			}	
+			
+		}
 		
 		notificarObservadores();
+		
 	}
 
 
