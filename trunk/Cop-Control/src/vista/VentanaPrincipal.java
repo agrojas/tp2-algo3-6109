@@ -31,8 +31,6 @@ import copControl.Juego;
 import copControl.Mapa;
 import copControl.Posicion;
 
-
-
 import fiuba.algo3.titiritero.dibujables.Circulo;
 import fiuba.algo3.titiritero.dibujables.Cuadrado;
 import fiuba.algo3.titiritero.dibujables.SuperficiePanel;
@@ -40,7 +38,7 @@ import fiuba.algo3.titiritero.modelo.GameLoop;
 import fiuba.algo3.titiritero.modelo.ObjetoDibujable;
 import fiuba.algo3.titiritero.modelo.SuperficieDeDibujo;
 
-public class VentanaPrincipal{
+public class VentanaPrincipal {
 
 	private JFrame frame;
 	private GameLoop gameLoop;
@@ -75,46 +73,60 @@ public class VentanaPrincipal{
 
 	/**
 	 * Initialize the contents of the frame.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	private void initialize() throws IOException {
 		frame = new JFrame();
 		frame.setForeground(new Color(0, 0, 0));
-		//tamaño ventana
+		// tamaño ventana
 		frame.setBounds(100, 100, 600, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Cop Control");
-		
+
 		JButton btnIniciar = this.addBotonIniciar();
-		
+
 		JButton btnDetener = this.addBotonDetener();
-		
+
 		JPanel panel = this.addSuperficiePanel();
-		
+
 		this.gameLoop = new GameLoop((SuperficieDeDibujo) panel);
-		
-		this.inicializarModelo();
-		
-		this.addMouseListener(panel);
-		//por ahora no lo usamos
-		//this.addKeyListener();
+
+		// this.inicializarModelo();
+		final Juego juego = InicializadorJuego.juegoInicializado();
+		AdministradorDeVistas admin = new AdministradorDeVistas(juego, gameLoop);
+		juego.agregarObservador(admin);
+		this.gameLoop.agregar(juego);
+		panel.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+
+				juego.getJugador().moverHacia(arg0.getX(), arg0.getY());
+
+			}
+		});
+		// this.addMouseListener(panel);
+
+		// por ahora no lo usamos
+		// this.addKeyListener();
 
 		this.setComponentsFocus(btnIniciar, btnDetener);
 
 	}
 
-		//Aca poner la logica de inicializacion
-	private void inicializarModelo() {
-		Juego juego = InicializadorJuego.juegoInicializado();
-		AdministradorDeVistas admin = new AdministradorDeVistas(juego,gameLoop);
-		juego.agregarObservador(admin);
-		this.gameLoop.agregar(juego);
-//		for (ObjetoDibujable vista : admin.getVistas()) {
-//			this.gameLoop.agregar(vista);
-//		}
-		
-	}
+	//
+	// //Aca poner la logica de inicializacion
+	// private void inicializarModelo() {
+	// Juego juego = InicializadorJuego.juegoInicializado();
+	// AdministradorDeVistas admin = new AdministradorDeVistas(juego,gameLoop);
+	// juego.agregarObservador(admin);
+	// this.gameLoop.agregar(juego);
+	//
+	//
+	//
+	// }
 
 	private void setComponentsFocus(JButton btnIniciar, JButton btnDetener) {
 		frame.setFocusable(true);
@@ -123,40 +135,39 @@ public class VentanaPrincipal{
 	}
 
 	private void addKeyListener() {
-		frame.addKeyListener(new KeyListener(
-				) {
-			
+		frame.addKeyListener(new KeyListener() {
+
 			@Override
 			public void keyTyped(KeyEvent arg0) {
 				System.out.println("Key pressed");
 			}
-			
+
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 			}
-			
+
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				System.out.println("Ping");
-			}  
-			 	
+			}
+
 		});
 	}
 
 	private void addMouseListener(JPanel panel) {
 		panel.addMouseListener(new MouseAdapter() {
-					
+
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
-				
-			}});
+
+			}
+		});
 	}
 
 	private JPanel addSuperficiePanel() {
 		JPanel panel = new SuperficiePanel();
 		panel.setBackground(new Color(0, 0, 0));
-		//tamaño fondo
+		// tamaño fondo
 		panel.setBounds(42, 53, 500, 500);
 		frame.getContentPane().add(panel);
 		return panel;
