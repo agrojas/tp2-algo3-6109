@@ -1,21 +1,25 @@
 package avion;
 
 
-import java.util.Observable;
-
 import pista.Pista;
 import copControl.Mapa;
 import copControl.Posicion;
 import copControl.Trayectoria;
-
 import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
-import fiuba.algo3.titiritero.modelo.ObjetoVivo;
 
-public abstract class Avion extends Observable implements ObjetoVivo, ObjetoPosicionable{
+public abstract class Avion  implements  ObjetoPosicionable{
 	protected Trayectoria trayectoria;
 	protected boolean estaVolando;
 	protected boolean esControlable;
+	protected int radio;
 	
+	/**
+	 * @return the radio
+	 */
+	public int getRadio() {
+		return radio;
+	}
+
 	/**
 	 * @return
 	 */
@@ -29,10 +33,12 @@ public abstract class Avion extends Observable implements ObjetoVivo, ObjetoPosi
 	public Avion(Posicion posIni,Posicion posFin,Mapa mapaDeMovimiento){
 		this.estaVolando=true;
 		this.trayectoria= new Trayectoria(posIni,posFin,mapaDeMovimiento);
+		
 	}
 	public Avion(Posicion posIni) {
 		this.estaVolando=true;
 		this.trayectoria= new Trayectoria(posIni);
+		
 	}
 	/**
 	 * @return
@@ -46,15 +52,7 @@ public abstract class Avion extends Observable implements ObjetoVivo, ObjetoPosi
 		if (this.estaVolando){
 			trayectoria.avanzar();
 		}
-	}
-		
-	//Ver este metodo
-	
-	public void vivir(){
-		
-		this.avanzar();
-	}
-				
+	}	
 	
 
 	public Posicion getDestinoActual(){

@@ -48,30 +48,36 @@ public class Trayectoria {
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
 	public void avanzar(){   
 		
-		this.actualizarProximoDestino();
-		if (this.destinos.size() >0){
-			this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());	
-		}
-		else{
-			
-			this.destinos.add(this.mapaDeMovimiento.generarPosicionExtremoAlAzar());
-			/*System.out.println("Esta es la posicion Actual:")
-			System.out.println(this.posicionActual.getCoordenadaX());
-			System.out.println(this.posicionActual.getCoordenadaY());
-			System.out.println("Este es el nuevo destino:");
-			System.out.println(this.destinos.get(0).getCoordenadaX());
-			System.out.println(this.destinos.get(0).getCoordenadaY());*/
+		try {
+			this.actualizarProximoDestino();
+			if (this.destinos.size() >0){
+				this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());	
+			}
+			else{
+				
+				this.destinos.add(this.mapaDeMovimiento.generarPosicionExtremoAlAzar());
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
 	//retorna posicion de un destino ( click ) a la cual debe dirigirse parcialmente el avion
 	public Posicion getDestinoActual(){  
-		Posicion destinoActual=null;
-		if(!destinos.isEmpty()){
-			destinoActual=destinos.get(0);  //el primer destino de la lista de destinos siempre debe de ser el parcial al cual quiero ir e irse borrando de la lista cuando llego a algun destino
+		try {
+			Posicion destinoActual=null;
+			if(!destinos.isEmpty()){
+				destinoActual=destinos.get(0);  //el primer destino de la lista de destinos siempre debe de ser el parcial al cual quiero ir e irse borrando de la lista cuando llego a algun destino
+			}
+			
+			return destinoActual;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		return destinoActual;
+		return posicionActual;
 		
 	}
 	
@@ -81,14 +87,19 @@ public class Trayectoria {
 	
 	//para que cuando llega a un destino lo borre de la lista. Llamar siempre al principio de trayectoria.avanzar()
 	private void actualizarProximoDestino(){
-		boolean llegoAunDestino=false;
-		Iterator<Posicion> itDestinos = destinos.iterator();
-		while (itDestinos.hasNext() && !llegoAunDestino){
-			llegoAunDestino= posicionActual.igualA(itDestinos.next());
-			if (llegoAunDestino){
-				System.out.println("remueve destino ya alcanzado");
-				itDestinos.remove();
+		try {
+			boolean llegoAunDestino=false;
+			Iterator<Posicion> itDestinos = destinos.iterator();
+			while (itDestinos.hasNext() && !llegoAunDestino){
+				llegoAunDestino= posicionActual.igualA(itDestinos.next());
+				if (llegoAunDestino){
+					System.out.println("remueve destino ya alcanzado");
+					itDestinos.remove();
+				}
 			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		

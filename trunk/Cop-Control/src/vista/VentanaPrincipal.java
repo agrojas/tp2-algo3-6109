@@ -18,6 +18,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Inicializadores.InicializadorJuego;
+import Observador.AdministradorDeVistas;
 import avion.AvionSimple;
 
 import pista.Pista;
@@ -25,6 +27,7 @@ import pista.PistaSimple;
 import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 
+import copControl.Juego;
 import copControl.Mapa;
 import copControl.Posicion;
 
@@ -34,6 +37,7 @@ import fiuba.algo3.titiritero.dibujables.Circulo;
 import fiuba.algo3.titiritero.dibujables.Cuadrado;
 import fiuba.algo3.titiritero.dibujables.SuperficiePanel;
 import fiuba.algo3.titiritero.modelo.GameLoop;
+import fiuba.algo3.titiritero.modelo.ObjetoDibujable;
 import fiuba.algo3.titiritero.modelo.SuperficieDeDibujo;
 
 public class VentanaPrincipal{
@@ -80,7 +84,7 @@ public class VentanaPrincipal{
 		frame.setBounds(100, 100, 600, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("Proyecto Base para uso del Titiritero");
+		frame.setTitle("Cop Control");
 		
 		JButton btnIniciar = this.addBotonIniciar();
 		
@@ -102,46 +106,13 @@ public class VentanaPrincipal{
 
 		//Aca poner la logica de inicializacion
 	private void inicializarModelo() {
-		Mapa mapa = new Mapa();
-		
-		List<Posicion> entradasPistaSimple = new LinkedList<Posicion>();
-		entradasPistaSimple.add(mapa.getPosicionAleatoria());
-		
-		Pista pistaSimple = null;
-		try {
-			pistaSimple = new PistaSimple(entradasPistaSimple);
-		} catch (PosicionesEntradaVaciaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (PosicionesEntradaSobrantesException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		List<Pista> pistas = new LinkedList<Pista>();
-		pistas.add(pistaSimple);
-		
-		
-		mapa.setPistas(pistas);
-		Posicion posIni = mapa.generarPosicionExtremoAlAzar();
-		Posicion posFin =pistaSimple.getPosicionesEntrada().get(0);
-		AvionSimple avionSimple = new AvionSimple(posIni,posFin, mapa);
-		
-		//para el Broker
-		
-		/*
-		 * 
-		Observer vistaAvionSimple = (Observer) new VistaAvionSimple(avionSimple);
-		this.gameLoop.agregar(avionSimple);
-		this.gameLoop.agregar(vistaAvionSimple); // agregar implements en Vista de Observer sino no compila
-		
-		broker.agregarAvion(avionSimple); //no me cierra que VentanaPrincipal cree un Avion
-		broker.observarNuevoAvion(vistaAvionSimple);
-		*/
-		this.gameLoop.agregar(avionSimple);
-		Circulo circulo = new VistaAvionSimple(avionSimple);
-		Cuadrado cuadrado = new VistaPistaSimple(pistaSimple);
-		this.gameLoop.agregar(circulo);
-		this.gameLoop.agregar(cuadrado);
+		Juego juego = InicializadorJuego.juegoInicializado();
+		AdministradorDeVistas admin = new AdministradorDeVistas(juego,gameLoop);
+		juego.agregarObservador(admin);
+		this.gameLoop.agregar(juego);
+//		for (ObjetoDibujable vista : admin.getVistas()) {
+//			this.gameLoop.agregar(vista);
+//		}
 		
 	}
 

@@ -94,8 +94,8 @@ public class NivelTest extends TestCase {
 public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta(){
 		
 		Posicion posicionInicial = new Posicion(1,1);
-		Posicion posicionInicialBis = new Posicion(2,3);	
-		Posicion posicionFinal= new Posicion(2,8);
+		Posicion posicionInicialBis = new Posicion(100,30);	
+		Posicion posicionFinal= new Posicion(21,82);
 		
 		AvionSimple avionSimple1= new AvionSimple(posicionInicial,posicionFinal,mapa);
 		AvionSimple avionSimple2= new AvionSimple(posicionInicialBis,posicionFinal,mapa);
