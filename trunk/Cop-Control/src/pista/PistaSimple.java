@@ -17,8 +17,12 @@ public class PistaSimple extends Pista{
 	public PistaSimple(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException {
 		super (posicionesEntrada);
 		if (posicionesEntrada.size()>1){
-			throw new PosicionesEntradaSobrantesException();			
+//			while (this.posicionesEntrada.size()>1){
+//				this.posicionesEntrada.remove(1);
+//			}
+			throw new PosicionesEntradaSobrantesException();		
 		}
+		
 		this.posicionesEntrada= posicionesEntrada;		
 				
 	}

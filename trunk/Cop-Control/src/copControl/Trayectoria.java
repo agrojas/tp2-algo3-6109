@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import pista.Pista;
+
+import avion.Avion;
 import avion.ProximoDestinoNuloException;
 
 
@@ -19,9 +22,11 @@ public class Trayectoria {
 	private List<Posicion> vecinos;
 	private Mapa mapaDeMovimiento; 
 	
-	public Trayectoria(Posicion posIni){
+	public Trayectoria(Posicion posIni, Mapa mapaDeMovimiento){
 		this.posicionActual=posIni;
-		
+		destinos= new LinkedList<Posicion>();
+		this.mapaDeMovimiento=mapaDeMovimiento;
+		//destinos.add(mapaDeMovimiento.)
 	}
 	
 	public Trayectoria(Posicion posIni, Posicion posFin,Mapa mapaDeMovimiento) {
@@ -30,6 +35,7 @@ public class Trayectoria {
 		destinos = new LinkedList<Posicion>();
 		this.setDestino(posFin);
 		this.mapaDeMovimiento = mapaDeMovimiento;
+		
 		
 	}
 
@@ -101,6 +107,9 @@ public class Trayectoria {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+	
 		
 		
 	}

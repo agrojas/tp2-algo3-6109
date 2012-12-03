@@ -1,10 +1,12 @@
 package copControl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import pista.Pista;
 import avion.Avion;
+import avion.AvionComputarizado;
 
 public class Mapa {
 	private List<Avion> avionesEnAire;
@@ -83,6 +85,25 @@ public class Mapa {
 		return posicionADevolver;
 		
 	}
+	
+	public Posicion getPosPistaAdecuada(Avion unAvion) {
+		
+//		List<Pista> pistas=this.getPistas();
+		Iterator<Pista> itPistas= this.pistas.iterator();
+		Pista pistaAEvaluar= null;
+		boolean pistaEncontrada = false;
+				
+		while (itPistas.hasNext() && !pistaEncontrada){
+				pistaAEvaluar=itPistas.next();
+				pistaEncontrada= unAvion.puedeAterrizar(pistaAEvaluar);
+				
+			}
+		
+		
+		 return (pistaAEvaluar.getPosicionesEntrada().get(0));
+		}
+	
+	
 	//retorna una lista de dos posiciones dentro de dimension de mapa al azar
 	public List<Posicion> getPosicionesExtremos() {
 		
