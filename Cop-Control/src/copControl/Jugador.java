@@ -56,17 +56,26 @@ public class Jugador {
 			if (posibleAvion!=null){				
 				if (posibleAvion.esControlable()){ //con esto aseguro que nunca avionMarcado sea un avionComputarizado (noControlable)
 					this.avionMarcado=posibleAvion;
+				
 				}								
 			}
 			
 		}else{
 		
 			if (posibleAvion==this.avionMarcado){
+				
+				if (posibleAvion.esDetenible()){
+					posibleAvion.detener();
+				}
 				this.avionMarcado.desmarcar();
 				this.avionMarcado=null;
 			}else{
 				//Se examina si el posible avion es nulo u otro avion
 				if (posibleAvion==null){
+					if(avionMarcado.esDetenible()){
+						this.avionMarcado.arrancar();
+					}
+					this.avionMarcado.iniciarNuevaTrayectoria(unaPosicion);
 					this.avionMarcado.moverHacia(unaPosicion);
 				}
 				else{
@@ -75,9 +84,7 @@ public class Jugador {
 					this.avionMarcado=posibleAvion;
 				}
 			}
-		}
-		
-		
+		}		
 	}
 		
 }

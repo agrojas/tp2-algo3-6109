@@ -13,6 +13,7 @@ public abstract class Avion  implements  ObjetoPosicionable{
 	protected boolean esControlable;
 	protected int radio;
 	protected boolean estaMarcado;
+	protected boolean esDetenible;
 	
 	public boolean estaMarcado(){
 		
@@ -40,12 +41,14 @@ public abstract class Avion  implements  ObjetoPosicionable{
 		this.estaVolando=true;
 		this.trayectoria= new Trayectoria(posIni,posFin,mapaDeMovimiento);
 		this.estaMarcado=false;
-		
+		this.esDetenible=false;
 	}
+	
 	public Avion(Posicion posIni,Mapa mapaDeMovimiento) {
 		this.estaVolando=true;
 		this.trayectoria= new Trayectoria(posIni,mapaDeMovimiento);
 		this.estaMarcado=false;
+		this.esDetenible=false;
 		
 	}
 	/**
@@ -57,10 +60,10 @@ public abstract class Avion  implements  ObjetoPosicionable{
 	
 	public void avanzar(){
 		
-		if (this.estaVolando){
+	//if (this.estaVolando)
 			trayectoria.avanzar();
 		}
-	}	
+//	}	
 	
 
 	public Posicion getDestinoActual(){
@@ -142,7 +145,26 @@ public abstract class Avion  implements  ObjetoPosicionable{
 		this.estaMarcado=false;
 		
 	}
+	
+	public boolean esDetenible(){
+		return this.esDetenible;
+	}
 
+	public void detener() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void iniciarNuevaTrayectoria(Posicion nuevaPosicion){
+		this.trayectoria.borrarDestinos();
+//		this.trayectoria.setDestino(nuevaPosicion);
+		
+	}
+
+	public void arrancar() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	
 }

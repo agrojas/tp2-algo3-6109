@@ -11,7 +11,7 @@ import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
 public class VistaHelicoptero extends Circulo{
 	
 	public VistaHelicoptero(ObjetoPosicionable modelo) {
-		super(25,  modelo);
+		super(15,  modelo);
 		this.setColor(Color.BLUE);
 	}
 

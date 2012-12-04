@@ -21,12 +21,14 @@ public class Trayectoria {
 	private List<Posicion> destinos; //al marcar con click se agrega un nuevo destino
 	private List<Posicion> vecinos;
 	private Mapa mapaDeMovimiento; 
+	private Posicion posicionAnterior;
 	
 	public Trayectoria(Posicion posIni, Mapa mapaDeMovimiento){
 		this.posicionActual=posIni;
 		destinos= new LinkedList<Posicion>();
 		this.mapaDeMovimiento=mapaDeMovimiento;
 		//destinos.add(mapaDeMovimiento.)
+		this.posicionAnterior=this.posicionActual;
 	}
 	
 	public Trayectoria(Posicion posIni, Posicion posFin,Mapa mapaDeMovimiento) {
@@ -35,7 +37,7 @@ public class Trayectoria {
 		destinos = new LinkedList<Posicion>();
 		this.setDestino(posFin);
 		this.mapaDeMovimiento = mapaDeMovimiento;
-		
+		this.posicionAnterior=this.posicionActual;
 		
 	}
 
@@ -55,18 +57,24 @@ public class Trayectoria {
 	public void avanzar(){   
 		
 		try {
+			
 			this.actualizarProximoDestino();
-			//System.out.println("Posicion avion: "+this.posicionActual.toString());
-			if (this.destinos.size() >0){
-				this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());	
+			if (!this.destinos.isEmpty()){
+				this.posicionAnterior=this.posicionActual;
+				this.posicionActual= this.posicionActual.getVecinoDeDistanciaMinima(this.getDestinoActual());
+				
 			}
 			else{
-				
-				this.destinos.add(this.mapaDeMovimiento.generarPosicionExtremoAlAzar());
-				
+				//Si choc@ contr@ un borde
+				if (mapaDeMovimiento.esPosicionExtremo(this.posicionActual)){
+					this.destinos.add(this.mapaDeMovimiento.generarPosicionExtremoAlAzar());
+				}
+				else{	
+					//Si me quedo sin destinos 
+					this.destinos.add(this.generarPosicionExtremoRecta());
+				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -100,7 +108,6 @@ public class Trayectoria {
 			while (itDestinos.hasNext() && !llegoAunDestino){
 				llegoAunDestino= posicionActual.igualA(itDestinos.next());
 				if (llegoAunDestino){
-					System.out.println("remueve destino ya alcanzado");
 					itDestinos.remove();
 				}
 			}
@@ -109,9 +116,54 @@ public class Trayectoria {
 			e.printStackTrace();
 		}
 		
-		
+	}
 	
+	
+	public void detener(){
 		
+		this.setDestino(this.getPosicionActual());
+		
+	}
+
+	public void borrarDestinos() {
+		this.destinos.clear();
+		
+	}
+	
+	
+	
+	private Posicion generarPosicionExtremoRecta(){
+		
+		
+		int deltaX = ((int)this.posicionActual.getCoordenadaX()-(int)this.posicionAnterior.getCoordenadaX());
+		int deltaY = ((int)this.posicionActual.getCoordenadaY()-(int)this.posicionAnterior.getCoordenadaY());
+		Posicion posicionNueva= this.posicionActual;
+		
+		
+		while (!mapaDeMovimiento.esPosicionExtremo(posicionNueva)){
+			System.out.println("generaPosExtremo");
+			if (deltaX>0){
+				deltaX=deltaX+1;
+			}else{
+				if(deltaX<0){
+					deltaX=deltaX-1;
+				}
+				
+			}
+			
+			if (deltaY>0){
+				deltaY=deltaY+1;
+			}else{
+				if(deltaY<0){
+					deltaY=deltaY-1;
+				}
+				
+			}
+			posicionNueva = new Posicion(deltaX+(int)this.posicionActual.getCoordenadaX(),deltaY+(int)this.posicionActual.getCoordenadaY()); 
+		
+		}
+		
+		return posicionNueva;
 		
 	}
 	
