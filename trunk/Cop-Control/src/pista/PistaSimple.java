@@ -15,12 +15,10 @@ import pista.PosicionesEntradaSobrantesException;
 public class PistaSimple extends Pista{
 
 	
-	public PistaSimple(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException {
-		super (posicionesEntrada);
-		if (posicionesEntrada.size()>1){
-			throw new PosicionesEntradaSobrantesException();			
-		}
-		this.posicionesEntrada= posicionesEntrada;		
+	public PistaSimple(Posicion posicionEntrada) throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException {
+		super (posicionEntrada);
+
+		this.posicionEntrada= posicionEntrada;		
 				
 	}
 
@@ -49,10 +47,7 @@ public class PistaSimple extends Pista{
 
 
 
-	private Posicion getPosicionEntrada(){
-		return this.getPosicionesEntrada().get(0);
-		
-	}
+
 
 	@Override
 	public int getX() {
@@ -67,7 +62,7 @@ public class PistaSimple extends Pista{
 	@Override
 	public boolean estaEnZonaAterrizaje(Avion avion) {
 		
-		Posicion posicion1= this.getPosicionesEntrada().get(0);
+		Posicion posicion1= this.getPosicionEntrada();
 		int radio1 = this.radioAterrizaje;
 		Posicion posicion2 = avion.getPosicionActual();
 		int radio2 = avion.getRadio();	

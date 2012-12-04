@@ -14,9 +14,9 @@ public class PistaLarga extends Pista{
 
 
 
-	public PistaLarga(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException {
-		super(posicionesEntrada);
-		this.posicionesEntrada= posicionesEntrada;
+	public PistaLarga(Posicion posicionEntrada) throws PosicionesEntradaVaciaException {
+		super(posicionEntrada);
+		this.posicionEntrada= posicionEntrada;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -44,10 +44,7 @@ public class PistaLarga extends Pista{
 		return false;
 	}
 
-	private Posicion getPosicionEntrada(){
-		return this.getPosicionesEntrada().get(0);
-		
-	}
+
 	
 	@Override
 	public int getX() {
@@ -62,7 +59,7 @@ public class PistaLarga extends Pista{
 	@Override
 	public boolean estaEnZonaAterrizaje(Avion avion) {
 		
-		Posicion posicion1= this.getPosicionesEntrada().get(0);
+		Posicion posicion1= this.getPosicionEntrada();
 		int radio1 = this.radioAterrizaje;
 		Posicion posicion2 = avion.getPosicionActual();
 		int radio2 = avion.getRadio();	

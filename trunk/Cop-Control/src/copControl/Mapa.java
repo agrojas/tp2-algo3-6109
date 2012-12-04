@@ -100,7 +100,7 @@ public class Mapa {
 			}
 		
 		
-		 return (pistaAEvaluar.getPosicionesEntrada().get(0));
+		 return (pistaAEvaluar.getPosicionEntrada());
 		}
 	
 	
@@ -141,5 +141,16 @@ public class Mapa {
 	}
 
 
+	public boolean esPosicionExtremo(Posicion unaPosicion){
+		
+		double x1 = unaPosicion.getCoordenadaX();
+		double y1 = unaPosicion.getCoordenadaY();
+		boolean bordeIzq= ((x1==0)&&(y1>=0)&&(y1<=this.dimension));
+		boolean bordeSup=((y1==0)&&(x1>=0)&&(x1<=this.dimension));
+		boolean bordeInf=((y1==this.dimension)&&(x1>=0)&&(x1<=this.dimension));
+		boolean bordeDer=((x1==this.dimension)&&(y1>=0)&&(y1<=this.dimension));
+		
+		return (bordeIzq || bordeDer || bordeSup || bordeInf);
+	}
 
 }

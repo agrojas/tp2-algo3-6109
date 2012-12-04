@@ -19,13 +19,13 @@ public class PistaDoble extends Pista {
 	
 
 
-	public PistaDoble(List<Posicion> posicionesEntrada) throws PosicionesEntradaSobrantesException, PosicionesEntradaVaciaException  {
-		super (posicionesEntrada);
-		if (posicionesEntrada.size()>2){
-			throw new PosicionesEntradaSobrantesException();			
-		}
-		this.posicionesEntrada= posicionesEntrada;		
-				
+	public PistaDoble(Posicion posicionEntrada) throws PosicionesEntradaSobrantesException, PosicionesEntradaVaciaException  {
+		super (posicionEntrada);
+//		if (posicionEntrada>2){
+//			throw new PosicionesEntradaSobrantesException();			
+//		}
+		this.posicionEntrada= posicionEntrada;		
+				//TODO CALCULAR LA OTRA ENTRADA
 	}
 
 	@Override
@@ -57,25 +57,25 @@ public class PistaDoble extends Pista {
 	/**
 	 * @return Posicion de la primer entrada
 	 */
-	private Posicion getPosicionEntrada(){
-		return this.getPosicionesEntrada().get(0);
+	private Posicion getPosicionEntradaPrincipal(){
+		return this.getPosicionEntrada();
 		
 	}
 
 	@Override
 	public int getX() {
-		return (int)getPosicionEntrada().getCoordenadaX();
+		return (int)getPosicionEntradaPrincipal().getCoordenadaX();
 	}
 
 	@Override
 	public int getY() {
-		return (int)getPosicionEntrada().getCoordenadaY();
+		return (int)getPosicionEntradaPrincipal().getCoordenadaY();
 	}
 
 	@Override
 	public boolean estaEnZonaAterrizaje(Avion avion) {
 		
-		Posicion posicion1= this.getPosicionesEntrada().get(0);
+		Posicion posicion1= this.getPosicionEntradaPrincipal();
 		int radio1 = this.radioAterrizaje;
 		Posicion posicion2 = avion.getPosicionActual();
 		int radio2 = avion.getRadio();	

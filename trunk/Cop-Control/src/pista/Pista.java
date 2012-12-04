@@ -14,12 +14,12 @@ import avion.Helicoptero;
 
 
 public abstract class Pista implements ObjetoPosicionable{
-	protected List<Posicion> 	posicionesEntrada;
+	protected Posicion 	posicionEntrada;
 	protected int radioAterrizaje;
 	
-	public Pista(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException {
+	public Pista(Posicion posicionEntrada) throws PosicionesEntradaVaciaException {
 		
-		if (posicionesEntrada.isEmpty()){
+		if (posicionEntrada == null){
 			throw new PosicionesEntradaVaciaException();
 		}
 			
@@ -47,9 +47,9 @@ public abstract class Pista implements ObjetoPosicionable{
 	public abstract boolean puedeAterrizar(Helicoptero helicoptero);
 	
 	
-	public List<Posicion> getPosicionesEntrada() {
+	public Posicion getPosicionEntrada() {
 		// TODO Auto-generated method stub
-		return this.posicionesEntrada;
+		return this.posicionEntrada;
 	}
 
 

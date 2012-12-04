@@ -13,9 +13,9 @@ import copControl.Posicion;
 public class Helipuerto extends Pista{
 
 
-	public Helipuerto(List<Posicion> posicionesEntrada) throws PosicionesEntradaVaciaException{
-		super(posicionesEntrada);
-		this.posicionesEntrada= posicionesEntrada;		
+	public Helipuerto(Posicion posicionEntrada) throws PosicionesEntradaVaciaException{
+		super(posicionEntrada);
+		this.posicionEntrada= posicionEntrada;		
 		this.radioAterrizaje=15;
 		// TODO Auto-generated constructor stub
 	}
@@ -39,10 +39,7 @@ public class Helipuerto extends Pista{
 		// TODO Auto-generated method stub
 		return true;
 	}
-	private Posicion getPosicionEntrada(){
-		return this.getPosicionesEntrada().get(0);
-		
-	}
+
 	
 	@Override
 	public int getX() {
@@ -56,7 +53,7 @@ public class Helipuerto extends Pista{
 	@Override
 	public boolean estaEnZonaAterrizaje(Avion avion) {
 		
-		Posicion posicion1= this.getPosicionesEntrada().get(0);
+		Posicion posicion1= this.getPosicionEntrada();
 		int radio1 = this.radioAterrizaje;
 		Posicion posicion2 = avion.getPosicionActual();
 		int radio2 = avion.getRadio();	
