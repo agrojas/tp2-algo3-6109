@@ -46,22 +46,35 @@ public class Jugador {
 	public void moverHacia(int x, int y) {
 		Posicion unaPosicion= new Posicion(x, y);
 		System.out.println("Click: "+unaPosicion.toString());
+		
+		
 		Avion posibleAvion=this.nivelActual.getAvionEnPosicion(unaPosicion);
+		
+		
 		if(this.avionMarcado == null){
 //			Avion posibleAvion=this.nivelActual.getAvionEnPosicion(unaPosicion);		
-			if (posibleAvion!=null){
-				
+			if (posibleAvion!=null){				
 				if (posibleAvion.esControlable()){ //con esto aseguro que nunca avionMarcado sea un avionComputarizado (noControlable)
 					this.avionMarcado=posibleAvion;
 				}								
 			}
 			
 		}else{
-			
-			this.avionMarcado.moverHacia(unaPosicion);
-			this.avionMarcado.desmarcar();
-			this.avionMarcado=null;
-			
+		
+			if (posibleAvion==this.avionMarcado){
+				this.avionMarcado.desmarcar();
+				this.avionMarcado=null;
+			}else{
+				//Se examina si el posible avion es nulo u otro avion
+				if (posibleAvion==null){
+					this.avionMarcado.moverHacia(unaPosicion);
+				}
+				else{
+				//Si es otro avion se desmarca el actual y se marca el nuevo	
+					this.avionMarcado.desmarcar();
+					this.avionMarcado=posibleAvion;
+				}
+			}
 		}
 		
 		
