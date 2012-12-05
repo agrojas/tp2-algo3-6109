@@ -27,9 +27,7 @@ public class MapaTest extends TestCase {
 		pistas = new LinkedList<Pista>();
 		posicionEntradaPista = new Posicion(3, 3);
 		posicionInicioAvion = new Posicion(1, 1);
-		posicionPista = new LinkedList<Posicion>();
-		posicionPista.add(posicionEntradaPista);
-		pistaSimple= new PistaSimple(posicionPista);
+		pistaSimple= new PistaSimple(posicionEntradaPista);
 		pistas.add(pistaSimple);
 		mapa = new Mapa(pistas);
 		avionSimple= new AvionSimple(posicionInicioAvion, posicionInicioAvion,mapa);

@@ -33,7 +33,7 @@ public class NivelTest extends TestCase {
 	private Posicion posicionEntradaPista;
 	private Posicion posicionInicioAvion;
 	private List<Pista> pistas;
-	private List<Posicion> posicionPista;
+	private Posicion posicionPista;
 	private Posicion posicionFinAvion;
 	
 	//BORRAR
@@ -166,11 +166,7 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 		posicionInicioAvion = new Posicion(1, 1);
 		posicionFinAvion = new Posicion(2,3);
 	
-		posicionEntradaPista = new Posicion(3, 3);
-		posicionPista = new ArrayList<Posicion>();
-		posicionPista.add(posicionEntradaPista);
-		
-		
+		posicionPista = new Posicion(3, 3);
 		pistaSimple= new PistaSimple(posicionPista);
 		pistas.add(pistaSimple);
 		mapa = new Mapa(pistas);

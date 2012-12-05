@@ -20,9 +20,7 @@ public class AvionPesadoTest extends TestCase {
 	public void testUnAvionPesadoPuedeAterrizarEnUnaPistaLarga() throws PosicionesEntradaVaciaException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
-		List<Posicion> posicionPista = new LinkedList<Posicion>();
-		posicionPista.add(posicionFinal);
-		PistaLarga pistaLarga = new PistaLarga(posicionPista);
+		PistaLarga pistaLarga = new PistaLarga(posicionFinal);
 		
 		AvionPesado avion = new AvionPesado(posicionInicial, posicionFinal,mapaDeJuego);
 		
@@ -33,9 +31,7 @@ public class AvionPesadoTest extends TestCase {
 		
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
-		List<Posicion> posicionPista = new LinkedList<Posicion>();
-		posicionPista.add(posicionFinal);
-		PistaSimple pistaSimple = new PistaSimple(posicionPista);
+		PistaSimple pistaSimple = new PistaSimple(posicionFinal);
 		
 		AvionPesado avion = new AvionPesado(posicionInicial, posicionFinal,mapaDeJuego);
 		
@@ -45,9 +41,7 @@ public class AvionPesadoTest extends TestCase {
 	public void testUnAvionPesadoNoPuedeAterrizarEnUnHelipuerto() throws PosicionesEntradaVaciaException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
-		List<Posicion> posicionPista = new LinkedList<Posicion>();
-		posicionPista.add(posicionFinal);
-		Helipuerto helipuerto = new Helipuerto(posicionPista);
+		Helipuerto helipuerto = new Helipuerto(posicionFinal);
 		
 		
 		AvionPesado avion = new AvionPesado(posicionInicial, posicionFinal,mapaDeJuego);
