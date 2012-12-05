@@ -8,7 +8,7 @@ import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
 public class VistaAvionComputarizado extends Circulo{
 	
 	public VistaAvionComputarizado(ObjetoPosicionable modelo) {
-		super(30,  modelo);
+		super(20,  modelo);
 		this.setColor(Color.WHITE);
 	}	
 

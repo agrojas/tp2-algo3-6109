@@ -2,7 +2,6 @@ package vista;
 
 import java.awt.Color;
 
-import avion.AvionSimple;
 import avion.Helicoptero;
 
 import fiuba.algo3.titiritero.dibujables.Circulo;

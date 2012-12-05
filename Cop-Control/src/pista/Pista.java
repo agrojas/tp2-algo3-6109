@@ -1,9 +1,6 @@
 package pista;
 
-import java.util.List;
-
 import copControl.Posicion;
-import fiuba.algo3.titiritero.modelo.ObjetoDibujable;
 import fiuba.algo3.titiritero.modelo.ObjetoPosicionable;
 
 import avion.Avion;
@@ -22,7 +19,7 @@ public abstract class Pista implements ObjetoPosicionable{
 		if (posicionEntrada == null){
 			throw new PosicionesEntradaVaciaException();
 		}
-			
+		this.posicionEntrada=posicionEntrada;
 	}
 	
 	/**

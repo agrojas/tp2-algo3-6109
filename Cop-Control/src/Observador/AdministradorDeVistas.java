@@ -4,13 +4,21 @@ import java.util.List;
 
 import pista.Helipuerto;
 import pista.Pista;
+import pista.PistaDoble;
+import pista.PistaLarga;
 import pista.PistaSimple;
 
+import vista.VistaAvionComputarizado;
+import vista.VistaAvionPesado;
 import vista.VistaAvionSimple;
 import vista.VistaHelicoptero;
 import vista.VistaHelipuerto;
+import vista.VistaPistaDoble;
+import vista.VistaPistaLarga;
 import vista.VistaPistaSimple;
 import avion.Avion;
+import avion.AvionComputarizado;
+import avion.AvionPesado;
 import avion.AvionSimple;
 import avion.Helicoptero;
 
@@ -75,6 +83,12 @@ public class AdministradorDeVistas implements Observador {
 		if(pista.getClass()==Helipuerto.class){
 			return new VistaHelipuerto(pista);
 		}
+		if(pista.getClass()==PistaDoble.class){
+			return new VistaPistaDoble(pista);
+		}
+		if(pista.getClass()==PistaLarga.class){
+			return new VistaPistaLarga(pista);
+		}
 		return null;
 	}
 	
@@ -84,6 +98,12 @@ public class AdministradorDeVistas implements Observador {
 		}
 		if(avion.getClass()==Helicoptero.class){
 			return new VistaHelicoptero(avion);
+		}
+		if(avion.getClass()==AvionPesado.class){
+			return new VistaAvionPesado(avion);
+		}
+		if(avion.getClass()==AvionComputarizado.class){
+			return new VistaAvionComputarizado(avion);
 		}
 		return null;
 	}

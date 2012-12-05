@@ -105,13 +105,11 @@ public class Juego extends Observable implements ObjetoVivo {
 				return unHelicoptero;
 			//caso AvionComputarizado
 			case 4:
-				//Cambiar
-				AvionSimple unAvionSimple1 = new AvionSimple(posicionesExtremo.get(0),posicionesExtremo.get(1),this.nivelActual.getMapa());
-				return unAvionSimple1;
-//				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0));
-//				//setea posicion de destino, la cual es una pista en la que puede aterrizar
-//				unAvionComputarizado.moverHacia(this.nivelActual.getPosPistaAdecuada(unAvionComputarizado));
-//				return unAvionComputarizado;
+
+				AvionComputarizado unAvionComputarizado = new AvionComputarizado(posicionesExtremo.get(0), this.nivelActual.getMapa());
+				//setea posicion de destino, la cual es una pista en la que puede aterrizar
+				unAvionComputarizado.moverHacia(this.nivelActual.getPosPistaAdecuada(unAvionComputarizado));
+				return unAvionComputarizado;
 		}
 		
 		return unAvion;

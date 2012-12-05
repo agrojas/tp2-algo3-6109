@@ -1,7 +1,5 @@
 package pista;
 
-import java.util.List;
-
 import avion.Avion;
 import avion.AvionComputarizado;
 import avion.AvionPesado;
