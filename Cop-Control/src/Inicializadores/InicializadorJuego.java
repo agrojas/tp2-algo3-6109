@@ -17,11 +17,10 @@ import copControl.Nivel;
 import copControl.Posicion;
 
 public class InicializadorJuego {
-	private Juego juego;
 
-	public InicializadorJuego (Juego juego){
+
+	public InicializadorJuego (){	
 		
-		this.juego=juego; 
 	}
 	
 	public static Juego juegoInicializado(){
@@ -44,7 +43,7 @@ public class InicializadorJuego {
 	}
 	
 	private static Dificultad dificultadInicializada() {
-		return new Dificultad(5, 3, 2);
+		return new Dificultad(10, 50, 50);
 	}
 
 	private static Mapa mapaInicializado(){

@@ -20,13 +20,15 @@ public class Juego extends Observable implements ObjetoVivo {
 	private Jugador jugador;
 	private List<Nivel> niveles;
 	private boolean jugandose;
+	private int intervaloEntreNuevoAvion;
 
 	public Juego(Jugador jugador,List<Nivel> niveles){
 		this.jugador=jugador;
 		this.niveles=niveles;
-		nivelActual=niveles.get(0);
-		cantidadAvionesAterrizados=0;
-		jugandose=true;
+		this.nivelActual=niveles.get(0);
+		this.cantidadAvionesAterrizados=0;
+		this.jugandose=true;
+		this.intervaloEntreNuevoAvion=0;
 		jugador.setNivelActual(nivelActual);
 	}
 	/**
@@ -118,7 +120,7 @@ public class Juego extends Observable implements ObjetoVivo {
 	//llamar en hilo de gameLoop por un timer con tiempo=nivel->dificultad->velocidadDeAparicion
 	public void colocarAvion() {
 		
-		if(this.nivelActual.getCantidadDeAvionesMaxima()> this.nivelActual.getAvionesVolando().size()){
+		if(this.nivelActual.getFrecuenciaDeAparicionDeNuevoAvion()<= this.cantidadDeCiclos()){
 			
 			boolean tienePistaAdecuada= false;
 			while (!tienePistaAdecuada){
@@ -130,12 +132,20 @@ public class Juego extends Observable implements ObjetoVivo {
 				}
 				
 			}	
+			this.reiniciarCiclos();
 			
 		}
 
 		
 	}
 	
+	private void reiniciarCiclos() {
+		this.intervaloEntreNuevoAvion=0;
+		
+	}
+	private int cantidadDeCiclos() {
+		return this.intervaloEntreNuevoAvion;
+	}
 	/**
 	 * Cambiar ESTOOO!
 	 */
@@ -190,9 +200,15 @@ public class Juego extends Observable implements ObjetoVivo {
 			}	
 			
 		}
-		
+		this.pasoUnCiclo();
 		notificarObservadores();
 		
+	}
+	private void pasoUnCiclo() {
+		this.intervaloEntreNuevoAvion++;
+	}
+	public int getVelocidadActual() {
+		return this.nivelActual.getVelocidadDeAviones();
 	}
 
 

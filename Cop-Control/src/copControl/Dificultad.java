@@ -7,6 +7,11 @@ public class Dificultad {
 	private int velocidad;
 	private int valorDeDificultad;
 
+	/**
+	 * @param cantidadDeAvionesPorAterrizar
+	 * @param frecuenciaDeAparicion Debe ser un valor mayor o igual que 10 para que no se sature de aviones
+	 * @param velocidad
+	 */
 	public Dificultad(int cantidadDeAvionesPorAterrizar, int frecuenciaDeAparicion, int velocidad) {
 		this.cantidadDeAvionesPorAterrizar=cantidadDeAvionesPorAterrizar;
 		this.frecuenciaDeAparicion=frecuenciaDeAparicion;
