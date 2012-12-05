@@ -42,7 +42,7 @@ public class AdministradorDeVistas implements Observador {
 	public void actualizar() {
 		
 		if(juego.estaJugandose()){
-			
+			this.gameloop.setFrecuencia(juego.getVelocidadActual());
 			this.gameloop.removerObjetosDibujables();
 			actualizarVistasAviones();			
 			actualizarVistasPistas();	

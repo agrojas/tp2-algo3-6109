@@ -1,25 +1,17 @@
 package copControl;
 
 
-import java.util.HashMap;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
 
-import pista.Pista;
-
-import avion.Avion;
-import avion.ProximoDestinoNuloException;
 
 
 public class Trayectoria {
 	
 	private Posicion posicionActual;
 	private List<Posicion> destinos; //al marcar con click se agrega un nuevo destino
-	private List<Posicion> vecinos;
 	private Mapa mapaDeMovimiento; 
 	private Posicion posicionAnterior;
 	
@@ -56,7 +48,7 @@ public class Trayectoria {
 	//recorrer posicion por posicion calculando trayectoria entre destinos, debe de ser llamado por juego cada sierto tiempo (velocidad de nivel)
 	public void avanzar(){   
 		
-		try {
+	
 			
 			this.actualizarProximoDestino();
 			if (!this.destinos.isEmpty()){
@@ -74,25 +66,19 @@ public class Trayectoria {
 					this.destinos.add(this.generarPosicionExtremoRecta());
 				}
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	
 	}
 
 	//retorna posicion de un destino ( click ) a la cual debe dirigirse parcialmente el avion
 	public Posicion getDestinoActual(){  
-		try {
+		
 			Posicion destinoActual=null;
 			if(!destinos.isEmpty()){
 				destinoActual=destinos.get(0);  //el primer destino de la lista de destinos siempre debe de ser el parcial al cual quiero ir e irse borrando de la lista cuando llego a algun destino
 			}
 			
 			return destinoActual;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return posicionActual;
+	
 		
 	}
 	
@@ -102,7 +88,7 @@ public class Trayectoria {
 	
 	//para que cuando llega a un destino lo borre de la lista. Llamar siempre al principio de trayectoria.avanzar()
 	private void actualizarProximoDestino(){
-		try {
+		
 			boolean llegoAunDestino=false;
 			Iterator<Posicion> itDestinos = destinos.iterator();
 			while (itDestinos.hasNext() && !llegoAunDestino){
@@ -111,10 +97,7 @@ public class Trayectoria {
 					itDestinos.remove();
 				}
 			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		
 	}
 	
