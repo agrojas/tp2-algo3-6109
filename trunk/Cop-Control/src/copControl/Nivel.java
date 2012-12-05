@@ -37,8 +37,8 @@ public class Nivel {
 	}
 
 	//remueve del aire los aviones que esten en condiciones de aterrizar
-	public int aterrizarAviones() {
-		int cantidadDeAterrizados=0;
+	public Integer aterrizarAviones() {
+		Integer cantidadDeAterrizados=0;
 		
 		List<Pista> pistas = this.mapa.getPistas();
 		//Avion avionAterrizado=null;
@@ -49,17 +49,14 @@ public class Nivel {
 				Avion avion=itAvionesEnAire.next();
 				//Si alguna de las posiciones de entrada de la pista coincide con la posicion del avion
 				if(avion.aterrizar(pista)){
-					cantidadDeAterrizados=cantidadDeAterrizados+1;
+					cantidadDeAterrizados++;
 					itAvionesEnAire.remove();
 					System.out.println("aterrizo un avion");
 				}
 			}
 		
 		}
-		System.out.println("cantidad Aviones Volando "+this.getAvionesVolando().size());
-		System.out.println("cantidad de aterrizados "+cantidadDeAterrizados);
 		return cantidadDeAterrizados;
-		
 	}
 	
 
@@ -202,8 +199,8 @@ public class Nivel {
 		return this.mapa;
 	}
 
-	public int getCantidadDeAvionesMaxima() {
-		return this.dificultad.getCantidadDeAvionesPorAterrizar();
+	public int getFrecuenciaDeAparicionDeNuevoAvion() {
+		return this.dificultad.getfrecuenciaDeAparicion();
 	}
 
 	public Integer getCantidadDeAvionesPorAterrizar() {
@@ -221,5 +218,9 @@ public class Nivel {
 	public boolean estaGanado(){
 		return this.ganado;
 		
+	}
+
+	public int getVelocidadDeAviones() {
+		return this.dificultad.getVelocidad();
 	}
 }
