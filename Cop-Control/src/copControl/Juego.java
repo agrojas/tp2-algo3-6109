@@ -171,10 +171,12 @@ public class Juego extends Observable implements ObjetoVivo {
 			nivelActual= niveles.get(niveles.indexOf(nivelActual)+1);
 			cantidadAvionesAterrizados=0;
 			jugador.setNivelActual(nivelActual);
+			System.out.println("Nivel Ganado!!!!!!!!!!!!!!    Avanzar!! ");
 		}
 		else{
 			this.estaGanado=true;
 			this.jugandose=false;
+			System.out.println("Nivel Y Juego Ganado!!!!!!!!!!!!!!");
 		}
 	}
 	
