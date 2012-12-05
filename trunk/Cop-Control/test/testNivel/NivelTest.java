@@ -42,27 +42,22 @@ public class NivelTest extends TestCase {
 	private PistaLarga pistaLarga;
 	
 	public void testUnNivelDeberiaAterrizarAvionesSiHayAlgunAvionConPosicionDePista(){
-		Posicion posicionFinal = new Posicion(1,1);
-		AvionSimple avionSimple= new AvionSimple(posicionEntradaPista,posicionFinal, mapa);
-		
-		assertTrue (nivel.getAvionesVolando().isEmpty());
-		
+		Posicion posicionFinal = new Posicion(5,5);
+		AvionSimple avionSimple= new AvionSimple(posicionPista,posicionFinal, mapa);
+	
 		nivel.colocarAvionEnAire(avionSimple);
-		
-		assertFalse (nivel.getAvionesVolando().isEmpty());
-		
-		int cantidadAvionesAterrizados= nivel.aterrizarAviones();
-		
-		assertTrue(cantidadAvionesAterrizados==1);
+		//deberia aterrizar avion
+		assertTrue((nivel.aterrizarAviones())==1);
 		
 	}
 	
 	public void testUnNivelNoDeberiaAterrizarAvionesSiNoHayAlgunAvionConPosicionDePista(){
-		Posicion posicionFinal = new Posicion(1,1);
+		Posicion posicionFinal = new Posicion(2,2);
 		AvionSimple avionSimple= new AvionSimple(posicionInicioAvion,posicionFinal, mapa);
 		nivel.colocarAvionEnAire(avionSimple);
-
-		assertTrue((nivel.aterrizarAviones())==1); 
+		//No deberia aterrizar avion
+		System.out.println(nivel.getAvionesVolando().size());
+		assertTrue((nivel.aterrizarAviones())==0); 
 		
 		
 	}
