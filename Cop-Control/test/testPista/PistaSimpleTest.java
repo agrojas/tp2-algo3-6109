@@ -11,15 +11,14 @@ import pista.PosicionesEntradaVaciaException;
 
 public class PistaSimpleTest extends TestCase {
 
-	private List<Posicion> posicionesDeEntrada;
+	private Posicion posicionesDeEntrada;
 	
 	public void testCrearPistaSimple() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
-		Posicion unaPosicion= new Posicion (1,1);
-		posicionesDeEntrada= new ArrayList<Posicion>();
-		posicionesDeEntrada.add(unaPosicion);
-		PistaSimple pistaSimple= new PistaSimple(posicionesDeEntrada);
+		Posicion posicionDeEntrada= new Posicion (1,1);
+	
+		PistaSimple pistaSimple= new PistaSimple(posicionDeEntrada);
 		//assertEquals(posicionesDeEntrada,pistaSimple.getPosicionesDeEntrada());
-		assertTrue(pistaSimple.getPosicionEntrada().contains(unaPosicion) );
+		assertTrue(pistaSimple.getPosicionEntrada()==posicionDeEntrada) ;
 		
 	}
 	

@@ -63,9 +63,7 @@ public class JuegoTest extends TestCase {
                 posicionEntradaPista = new Posicion(3, 3);
                 posicionInicioAvion = new Posicion(1, 1);
                 posicionFinAvion = new Posicion(2,3);
-                posicionPista = new LinkedList<Posicion>();
-                posicionPista.add(posicionEntradaPista);
-                pistaSimple= new PistaSimple(posicionPista);
+                pistaSimple= new PistaSimple(posicionEntradaPista);
                 pistas.add(pistaSimple);
                 mapa = new Mapa(pistas);
                 avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion, mapa);

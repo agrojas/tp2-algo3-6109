@@ -22,9 +22,7 @@ public class AvionSimpleTest extends TestCase {
 	public void testUnAvionSimplePuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
-		List<Posicion> posicionPista = new LinkedList<Posicion>();
-		posicionPista.add(posicionFinal);
-		PistaSimple pistaSimple = new PistaSimple(posicionPista);
+		PistaSimple pistaSimple = new PistaSimple(posicionFinal);
 		
 		AvionSimple avion = new AvionSimple(posicionInicial, posicionFinal,mapaDeJuego);
 		
@@ -34,9 +32,7 @@ public class AvionSimpleTest extends TestCase {
 	public void testUnAvionSimpleNoPuedeAterrizarEnUnHelipuerto() throws PosicionesEntradaVaciaException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
-		List<Posicion> posicionPista = new LinkedList<Posicion>();
-		posicionPista.add(posicionFinal);
-		Helipuerto helipuerto = new Helipuerto(posicionPista);
+		Helipuerto helipuerto = new Helipuerto(posicionFinal);
 		
 		AvionSimple avion = new AvionSimple(posicionInicial, posicionFinal,mapaDeJuego);
 		

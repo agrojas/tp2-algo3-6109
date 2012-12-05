@@ -29,10 +29,10 @@ public class JugadorTest extends TestCase {
 	private Helipuerto helipuerto;
 	private List<Pista> pistas;
 	private Dificultad dificultad;
-	private List<Posicion> posicionesPistaSimple= new ArrayList<Posicion>();
-	private List<Posicion> posicionesPistaDoble= new ArrayList<Posicion>();
-	private List<Posicion> posicionesPistaLarga= new ArrayList<Posicion>();
-	private List<Posicion> posicionesHelipuerto= new ArrayList<Posicion>();
+	private  Posicion posicionPistaSimple;
+	private  Posicion posicionPistaDoble;
+	private  Posicion posicionPistaLarga;
+	private  Posicion posicionHelipuerto;
 	
 	public void testJugadorDebeInicializarseConNombre(){
 		String nombre = "Pepe";
@@ -44,14 +44,14 @@ public class JugadorTest extends TestCase {
 		String nombre = "Pepe";	
 		
 		jugador = new Jugador(nombre);
-		posicionesPistaSimple.add(new Posicion(1,2));
-		posicionesPistaDoble.add(new Posicion(2,3));
-		posicionesPistaLarga.add(new Posicion(3,4));
-		posicionesHelipuerto.add(new Posicion(2,1));
-		pistaSimple = new PistaSimple(posicionesPistaSimple);
-		pistaDoble = new PistaDoble(posicionesPistaDoble);
-		pistaLarga = new PistaLarga(posicionesPistaLarga);
-		helipuerto = new Helipuerto(posicionesHelipuerto);
+		posicionPistaSimple = new Posicion(1,2);
+		posicionPistaDoble = new Posicion(2,3);
+		posicionPistaLarga = new Posicion(3,4);
+		posicionHelipuerto = new Posicion(2,1);
+		pistaSimple = new PistaSimple(posicionPistaSimple);
+		pistaDoble = new PistaDoble(posicionPistaDoble);
+		pistaLarga = new PistaLarga(posicionPistaLarga);
+		helipuerto = new Helipuerto(posicionHelipuerto);
 		pistas=new LinkedList<Pista>();
 		pistas.add(pistaSimple);
 		pistas.add(pistaDoble);

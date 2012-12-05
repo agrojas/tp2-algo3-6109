@@ -12,12 +12,12 @@ import pista.*;
 public class PistaTest extends TestCase {
 		
 	private Pista pista;
-	private List<Posicion> posiciones = new ArrayList<Posicion>();
+	private Posicion posicionPista;
 
 	public void testDebeLanzarExcepcionSiNoRecibePosicion() throws PosicionesEntradaSobrantesException{
 		try{
-			System.out.println(posiciones);
-			pista= new PistaSimple(posiciones);
+			System.out.println(posicionPista);
+			pista= new PistaSimple(posicionPista);
 			}
 		
 		catch (PosicionesEntradaVaciaException e){
