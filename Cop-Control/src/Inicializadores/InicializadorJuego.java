@@ -60,7 +60,7 @@ public class InicializadorJuego {
 
 	private static PistaSimple pistaSimpleInicializada() {
 		try {
-			return new PistaSimple(posicionesPistaSimple());
+			return new PistaSimple(posicionPistaSimple());
 		} catch (PosicionesEntradaVaciaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -73,7 +73,7 @@ public class InicializadorJuego {
 	
 	private static Helipuerto helipuertoInicializado() {
 		try {
-			return new Helipuerto(posicionesHelipuerto());
+			return new Helipuerto(posicionHelipuerto());
 		} catch (PosicionesEntradaVaciaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,17 +81,13 @@ public class InicializadorJuego {
 		return null;
 	}
 
-	private static List<Posicion> posicionesPistaSimple() {
+	private static Posicion posicionPistaSimple() {
 		Posicion posicionEntrada = new Posicion(25, 25);
-		List<Posicion> posiciones = new LinkedList<Posicion>();
-		posiciones.add(posicionEntrada);
-		return posiciones;
+		return posicionEntrada;
 	}
 	
-	private static List<Posicion> posicionesHelipuerto() {
+	private static Posicion posicionHelipuerto() {
 		Posicion posicionEntrada = new Posicion(100, 100);
-		List<Posicion> posiciones = new LinkedList<Posicion>();
-		posiciones.add(posicionEntrada);
-		return posiciones;
+		return posicionEntrada;
 	}
 }
