@@ -10,7 +10,7 @@ public class VistaPistaLarga extends Cuadrado{
 
 	public VistaPistaLarga(ObjetoPosicionable objetoPosicionable) {
 		super(40,20, objetoPosicionable);
-		this.setColor(Color.LIGHT_GRAY);
+		this.setColor(Color.MAGENTA);
 	}
 
 }
