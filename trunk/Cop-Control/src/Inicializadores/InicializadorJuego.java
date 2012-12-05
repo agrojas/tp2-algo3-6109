@@ -5,8 +5,8 @@ import java.util.List;
 
 import pista.Helipuerto;
 import pista.Pista;
+import pista.PistaDoble;
 import pista.PistaSimple;
-import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 
 import copControl.Dificultad;
@@ -44,7 +44,7 @@ public class InicializadorJuego {
 	}
 	
 	private static Dificultad dificultadInicializada() {
-		return new Dificultad(3, 3, 2);
+		return new Dificultad(5, 3, 2);
 	}
 
 	private static Mapa mapaInicializado(){
@@ -55,16 +55,24 @@ public class InicializadorJuego {
 		List<Pista> pistas = new LinkedList<Pista>();
 		pistas.add(pistaSimpleInicializada());
 		pistas.add(helipuertoInicializado());
+		pistas.add(pistaDobleInicializada());
 		return pistas;		
 	}
 
+	private static PistaDoble pistaDobleInicializada(){
+		Posicion posicionPistaDoble = new Posicion(100,200);
+		try {
+			return new PistaDoble(posicionPistaDoble);
+		} catch (PosicionesEntradaVaciaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 	private static PistaSimple pistaSimpleInicializada() {
 		try {
 			return new PistaSimple(posicionPistaSimple());
 		} catch (PosicionesEntradaVaciaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (PosicionesEntradaSobrantesException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

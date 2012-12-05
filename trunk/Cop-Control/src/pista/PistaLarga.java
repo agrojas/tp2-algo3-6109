@@ -1,7 +1,5 @@
 package pista;
 
-import java.util.List;
-
 import avion.Avion;
 import avion.AvionComputarizado;
 import avion.AvionPesado;
@@ -16,8 +14,6 @@ public class PistaLarga extends Pista{
 
 	public PistaLarga(Posicion posicionEntrada) throws PosicionesEntradaVaciaException {
 		super(posicionEntrada);
-		this.posicionEntrada= posicionEntrada;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

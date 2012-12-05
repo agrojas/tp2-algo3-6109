@@ -1,8 +1,6 @@
 package pista;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.util.List;
+
 
 import avion.Avion;
 import avion.AvionComputarizado;
@@ -11,21 +9,20 @@ import avion.AvionSimple;
 import avion.Helicoptero;
 
 import copControl.Posicion;
-import fiuba.algo3.titiritero.dibujables.SuperficiePanel;
-import fiuba.algo3.titiritero.modelo.SuperficieDeDibujo;
+
 
 public class PistaDoble extends Pista {
-
+	private Posicion posicionEntradaSecundaria;
+	private int largo;
 	
 
 
-	public PistaDoble(Posicion posicionEntrada) throws PosicionesEntradaSobrantesException, PosicionesEntradaVaciaException  {
+	public PistaDoble(Posicion posicionEntrada) throws PosicionesEntradaVaciaException  {
 		super (posicionEntrada);
-//		if (posicionEntrada>2){
-//			throw new PosicionesEntradaSobrantesException();			
-//		}
+		this.radioAterrizaje=15;
+		this.largo=20;
 		this.posicionEntrada= posicionEntrada;		
-				//TODO CALCULAR LA OTRA ENTRADA
+		this.posicionEntradaSecundaria= new Posicion((int)this.getPosicionEntradaPrincipal().getCoordenadaX()+largo,(int)this.getPosicionEntradaPrincipal().getCoordenadaY());
 	}
 
 	@Override
@@ -57,10 +54,20 @@ public class PistaDoble extends Pista {
 	/**
 	 * @return Posicion de la primer entrada
 	 */
-	private Posicion getPosicionEntradaPrincipal(){
+	public Posicion getPosicionEntradaPrincipal(){
 		return this.getPosicionEntrada();
 		
 	}
+	
+	/**
+	 * @return Posicion de la primer entrada
+	 */
+	public Posicion getPosicionEntradaSecundaria(){
+		return this.posicionEntradaSecundaria;
+		
+	}
+	
+	
 
 	@Override
 	public int getX() {
@@ -75,13 +82,20 @@ public class PistaDoble extends Pista {
 	@Override
 	public boolean estaEnZonaAterrizaje(Avion avion) {
 		
-		Posicion posicion1= this.getPosicionEntradaPrincipal();
-		int radio1 = this.radioAterrizaje;
-		Posicion posicion2 = avion.getPosicionActual();
-		int radio2 = avion.getRadio();	
+		Posicion posicionPrincipal= this.getPosicionEntradaPrincipal();
+		Posicion posicionSecundaria= this.getPosicionEntradaSecundaria();
+		int radio = this.radioAterrizaje;
 		
-		return intersects(posicion1.getCoordenadaX(), posicion1.getCoordenadaY(), radio1,
-				posicion2.getCoordenadaX(), posicion2.getCoordenadaY(), radio2);
+		Posicion posicionAvion = avion.getPosicionActual();
+		int radioAvion = avion.getRadio();	
+		
+		boolean entraEnPrincipal= intersects(posicionPrincipal.getCoordenadaX(), posicionPrincipal.getCoordenadaY(), radio,
+				posicionAvion.getCoordenadaX(), posicionAvion.getCoordenadaY(), radioAvion);
+		
+		boolean entraEnSecundaria=intersects(posicionSecundaria.getCoordenadaX(), posicionSecundaria.getCoordenadaY(), radio,
+				posicionAvion.getCoordenadaX(), posicionAvion.getCoordenadaY(), radioAvion);
+		
+		return (entraEnPrincipal||entraEnSecundaria);
 	}
 
 }

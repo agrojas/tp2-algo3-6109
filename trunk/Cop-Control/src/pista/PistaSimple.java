@@ -1,8 +1,6 @@
 package pista;
 
 
-import java.util.List;
-
 import avion.Avion;
 import avion.AvionComputarizado;
 import avion.AvionPesado;
@@ -11,13 +9,12 @@ import avion.Helicoptero;
 
 import copControl.Posicion;
 
-import pista.PosicionesEntradaSobrantesException;
 public class PistaSimple extends Pista{
 
 	
-	public PistaSimple(Posicion posicionEntrada) throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException {
+	public PistaSimple(Posicion posicionEntrada) throws PosicionesEntradaVaciaException {
 		super (posicionEntrada);
-
+		this.radioAterrizaje=15;
 		this.posicionEntrada= posicionEntrada;		
 				
 	}
