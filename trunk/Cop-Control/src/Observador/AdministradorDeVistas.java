@@ -48,6 +48,7 @@ public class AdministradorDeVistas implements Observador {
 			actualizarVistasPistas();	
 			
 		}else{
+			
 			this.gameloop.detenerEjecucion();
 			
 		}

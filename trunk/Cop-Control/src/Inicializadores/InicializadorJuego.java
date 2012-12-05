@@ -6,6 +6,7 @@ import java.util.List;
 import pista.Helipuerto;
 import pista.Pista;
 import pista.PistaDoble;
+import pista.PistaLarga;
 import pista.PistaSimple;
 import pista.PosicionesEntradaVaciaException;
 
@@ -55,7 +56,20 @@ public class InicializadorJuego {
 		pistas.add(pistaSimpleInicializada());
 		pistas.add(helipuertoInicializado());
 		pistas.add(pistaDobleInicializada());
+		pistas.add(pistaLargaInicializada());
 		return pistas;		
+	}
+	
+	
+	private static PistaLarga pistaLargaInicializada(){
+		Posicion posicionPista = new Posicion(300,200);
+		try {
+			return new PistaLarga(posicionPista);
+		} catch (PosicionesEntradaVaciaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	private static PistaDoble pistaDobleInicializada(){
