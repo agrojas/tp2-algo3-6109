@@ -37,11 +37,14 @@ public class InicializadorJuego {
 	private static List<Nivel> nivelesJuego (){
 		List<Nivel> niveles = new LinkedList<Nivel>();
 		niveles.add(nivelInicializado());
+		niveles.add(nivel2Inicializado());// agregado de segundo nivel
 		return niveles;
 	}
 	private static Nivel nivelInicializado(){
 		return new Nivel(mapaInicializado(), dificultadInicializada());		
 	}
+	
+	
 	
 	private static Dificultad dificultadInicializada() {
 		return new Dificultad(2, 50, 50);
@@ -111,4 +114,24 @@ public class InicializadorJuego {
 		Posicion posicionEntrada = new Posicion(100, 100);
 		return posicionEntrada;
 	}
+	
+	//
+	//
+	//Agregado para tener varios niveles
+	//
+	//
+	//
+	private static Nivel nivel2Inicializado(){
+		return new Nivel(mapa2Inicializado(), dificultadInicializada());		
+	}
+	private static Mapa mapa2Inicializado(){
+		return new Mapa(pistas2Inicializadas());
+	}
+	private static List<Pista> pistas2Inicializadas(){
+		List<Pista> pistas = new LinkedList<Pista>();
+		pistas.add(pistaSimpleInicializada());
+		
+		return pistas;		
+	}
+	
 }
