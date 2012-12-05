@@ -21,6 +21,8 @@ public class Juego extends Observable implements ObjetoVivo {
 	private List<Nivel> niveles;
 	private boolean jugandose;
 	private int intervaloEntreNuevoAvion;
+	private boolean estaGanado;
+	
 
 	public Juego(Jugador jugador,List<Nivel> niveles){
 		this.jugador=jugador;
@@ -28,8 +30,9 @@ public class Juego extends Observable implements ObjetoVivo {
 		this.nivelActual=niveles.get(0);
 		this.cantidadAvionesAterrizados=0;
 		this.jugandose=true;
+		this.estaGanado=false;
 		this.intervaloEntreNuevoAvion=0;
-		jugador.setNivelActual(nivelActual);
+		this.jugador.setNivelActual(nivelActual);
 	}
 	/**
 	 * @return the nivelActual
@@ -149,7 +152,7 @@ public class Juego extends Observable implements ObjetoVivo {
 	/**
 	 * Cambiar ESTOOO!
 	 */
-	public void avanzarNivel(){		
+	/*public void avanzarNivel(){		
 		//TODO Cambiar
 		try {
 			nivelActual= niveles.get(niveles.indexOf(nivelActual)+1);
@@ -160,19 +163,39 @@ public class Juego extends Observable implements ObjetoVivo {
 			jugandose=true;
 		}
 	
-	}
+	}*/
 	
-	public void verificarNivelesGanados(){
-		boolean ganado= true;
-		Iterator<Nivel> nivelIt= this.niveles.iterator();
-		while(nivelIt.hasNext() && ganado){
-			Nivel nivel= nivelIt.next();
-			ganado=nivel.estaGanado();
-		}
+	public void avanzarNivel(){		
 		
-		if( ganado){			
+		if (!esUltimoNivel()){
+			nivelActual= niveles.get(niveles.indexOf(nivelActual)+1);
+			cantidadAvionesAterrizados=0;
+			jugador.setNivelActual(nivelActual);
+		}
+		else{
+			this.estaGanado=true;
 			this.jugandose=false;
 		}
+	}
+	
+	private boolean esUltimoNivel(){
+		//el primer numero de nivel es el nivel 0
+		int numeroDeNivelActual = this.niveles.indexOf(nivelActual);
+		return (numeroDeNivelActual==this.niveles.size()-1);
+	}
+	
+	public boolean esJuegoGanado(){
+
+		Iterator<Nivel> nivelIt= this.niveles.iterator();
+		while(nivelIt.hasNext() && this.estaGanado){
+			Nivel nivel= nivelIt.next();
+			this.estaGanado=nivel.estaGanado();
+		}
+		
+		if( this.estaGanado){			
+			this.jugandose=false;
+		}
+		return this.estaGanado;
 	}
 	
 	/* (non-Javadoc)
@@ -181,7 +204,7 @@ public class Juego extends Observable implements ObjetoVivo {
 	@Override
 	public void vivir() {
 		
-		if(this.estaJugandose()){
+		if(this.estaJugandose() && !this.esJuegoGanado()){
 			
 			if(this.nivelActual.seGano(cantidadAvionesAterrizados)){
 			
