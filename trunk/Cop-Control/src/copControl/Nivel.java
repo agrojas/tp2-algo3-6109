@@ -37,8 +37,8 @@ public class Nivel {
 	}
 
 	//remueve del aire los aviones que esten en condiciones de aterrizar
-	public Integer aterrizarAviones() {
-		Integer cantidadDeAterrizados=0;
+	public int aterrizarAviones() {
+		int cantidadDeAterrizados=0;
 		
 		List<Pista> pistas = this.mapa.getPistas();
 		//Avion avionAterrizado=null;

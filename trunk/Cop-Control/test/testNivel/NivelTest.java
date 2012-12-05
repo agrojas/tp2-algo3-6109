@@ -61,12 +61,9 @@ public class NivelTest extends TestCase {
 		Posicion posicionFinal = new Posicion(1,1);
 		AvionSimple avionSimple= new AvionSimple(posicionInicioAvion,posicionFinal, mapa);
 		nivel.colocarAvionEnAire(avionSimple);
-		int cantAvionesVolandoInicialmente = nivel.getAvionesVolando().size();
-		 
-		int cantidadAvionesAterrizados= nivel.aterrizarAviones();
-		int cantAvionesVolandoLuegoDeAterrizar =nivel.getAvionesVolando().size();
+
+		assertTrue((nivel.aterrizarAviones())==1); 
 		
-		assertTrue(cantAvionesVolandoInicialmente == cantAvionesVolandoLuegoDeAterrizar);
 		
 	}
 	
@@ -138,7 +135,7 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion, mapa);
 		mapa.colocarAvionEnAire(avionSimple);
 		int cantidadAvionesAterrizados= nivel.aterrizarAviones();
-		assertTrue(nivel.tieneAvionesVolando());
+		assertFalse(nivel.tieneAvionesVolando());
 	
 	}
 	public void testColocarAvionSimpleEnAire(){
