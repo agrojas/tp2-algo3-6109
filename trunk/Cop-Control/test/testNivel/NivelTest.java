@@ -52,12 +52,14 @@ public class NivelTest extends TestCase {
 	}
 	
 	public void testUnNivelNoDeberiaAterrizarAvionesSiNoHayAlgunAvionConPosicionDePista(){
-		Posicion posicionFinal = new Posicion(2,2);
-		AvionSimple avionSimple= new AvionSimple(posicionInicioAvion,posicionFinal, mapa);
+		Posicion posInicio = new Posicion (11,11);
+		Posicion posicionFinal = new Posicion(8,0);
+		AvionSimple avionSimple= new AvionSimple(posInicio,posicionFinal, mapa);
 		nivel.colocarAvionEnAire(avionSimple);
-		//No deberia aterrizar avion
-		System.out.println(nivel.getAvionesVolando().size());
+		
+		//el chequeo de aterrizaje es por radio
 		assertTrue((nivel.aterrizarAviones())==0); 
+		
 		
 		
 	}

@@ -49,14 +49,17 @@ public class Nivel {
 				Avion avion=itAvionesEnAire.next();
 				//Si alguna de las posiciones de entrada de la pista coincide con la posicion del avion
 				if(avion.aterrizar(pista)){
-					cantidadDeAterrizados++;
+					cantidadDeAterrizados=cantidadDeAterrizados+1;
 					itAvionesEnAire.remove();
 					System.out.println("aterrizo un avion");
 				}
 			}
 		
 		}
+		System.out.println("cantidad Aviones Volando "+this.getAvionesVolando().size());
+		System.out.println("cantidad de aterrizados "+cantidadDeAterrizados);
 		return cantidadDeAterrizados;
+		
 	}
 	
 
