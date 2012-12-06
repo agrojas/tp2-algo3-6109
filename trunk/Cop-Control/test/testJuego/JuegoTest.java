@@ -50,9 +50,10 @@ public class JuegoTest extends TestCase {
 //        	assertTrue(true);
 //		}
         
-        public void testColocarAvionListaDeAvionesVolandoNovacia(){
+        public void testSiIngresaUnAvionTengoAvionesVolando(){
+        		juego.vivir();
                 juego.colocarAvion();
-                juego.vivir();
+             
                 assertTrue(juego.getNivelActual().tieneAvionesVolando());
         }
         
