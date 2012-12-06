@@ -16,13 +16,13 @@ public class Mapa {
 	public Mapa(List<Pista>pistas) {
 		this.avionesEnAire= new ArrayList<Avion>();
 		this.setPistas(pistas);
-		this.dimension = 400;
+		this.dimension = 500;
 	}
 
 	public Mapa() {
 		this.avionesEnAire= new ArrayList<Avion>();
 		this.setPistas(null);
-		this.dimension=400;
+		this.dimension=500;
 	}
 
 	public List<Avion> getAvionesEnAire() {
