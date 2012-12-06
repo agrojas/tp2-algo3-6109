@@ -60,7 +60,7 @@ public class VentanaPrincipal {
 	private void initialize() throws IOException {
 		frame = new JFrame();
 		// tamaño ventana
-		frame.setBounds(400, 50, 500, 600);
+		frame.setBounds(400, 50, 534, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Cop Control");
@@ -134,7 +134,7 @@ public class VentanaPrincipal {
 		
 		// tamaño fondo
 
-		panel.setBounds(0, 0, 510, 510);
+		panel.setBounds(0, 0, 534, 510);
 
 		frame.getContentPane().add(panel);
 		return panel;
@@ -162,7 +162,7 @@ public class VentanaPrincipal {
 			}
 		});
 
-		btnIniciar.setBounds(40, 515, 77, 40);
+		btnIniciar.setBounds(70, 515, 77, 40);
 
 		frame.getContentPane().add(btnIniciar);
 		return btnIniciar;
