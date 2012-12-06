@@ -6,7 +6,6 @@ import java.util.List;
 import pista.Helipuerto;
 import pista.PistaLarga;
 import pista.PistaSimple;
-import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 import avion.AvionPesado;
 import copControl.Mapa;
@@ -27,7 +26,7 @@ public class AvionPesadoTest extends TestCase {
 		assertTrue(avion.puedeAterrizar(pistaLarga));
 	}
 	
-	public void testUnAvionPesadoNoPuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
+	public void testUnAvionPesadoNoPuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException{
 		
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);

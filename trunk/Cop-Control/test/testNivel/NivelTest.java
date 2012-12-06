@@ -8,7 +8,6 @@ import java.util.List;
 import pista.Pista;
 import pista.PistaLarga;
 import pista.PistaSimple;
-import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 import avion.Avion;
 import avion.AvionSimple;
@@ -56,9 +55,9 @@ public class NivelTest extends TestCase {
 		Posicion posicionFinal = new Posicion(8,0);
 		AvionSimple avionSimple= new AvionSimple(posInicio,posicionFinal, mapa);
 		nivel.colocarAvionEnAire(avionSimple);
-		
+		nivel.aterrizarAviones();
 		//el chequeo de aterrizaje es por radio
-		assertTrue((nivel.aterrizarAviones())==0); 
+		assertTrue(nivel.getAvionesVolando().size()==0); 
 		
 		
 		
@@ -155,7 +154,7 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 		assertFalse(nivel.tienePistaAdecuada(helicoptero));
 		
 	}
-	public void setUp() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
+	public void setUp() throws PosicionesEntradaVaciaException{
 		dificultad= new Dificultad(1, 1, 1);
 		pistas = new ArrayList<Pista>();
 		posicionInicioAvion = new Posicion(1, 1);
