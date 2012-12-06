@@ -78,7 +78,8 @@ public class VentanaPrincipal {
 	 */
 	private void initialize() throws IOException {
 		frame = new JFrame();
-		frame.setForeground(new Color(0, 0, 0));
+		//frame.setForeground(new Color(0, 0, 0));
+		frame.setBounds(400, 50, 500, 600);
 		// tamaño ventana
 		//frame.setBounds(100, 100, 600, 600);
 		frame.setBounds(400, 50, 500, 600);
@@ -170,8 +171,12 @@ public class VentanaPrincipal {
 		panel.setBackground(new Color(0, 0, 0));
 		
 		// tamaño fondo
+
+		panel.setBounds(0, 0, 500, 500);
+
 		//panel.setBounds(42, 53, 500, 500);
 		panel.setBounds(0, 0, 500, 500);
+
 		frame.getContentPane().add(panel);
 		return panel;
 	}
@@ -183,8 +188,12 @@ public class VentanaPrincipal {
 				gameLoop.detenerEjecucion();
 			}
 		});
+
+		btnDetener.setBounds(350, 515, 92, 25);
+
 		//btnDetener.setBounds(325, 16, 92, 25);
 		btnDetener.setBounds(350, 515, 92, 25);
+
 		frame.getContentPane().add(btnDetener);
 		return btnDetener;
 	}
@@ -196,8 +205,12 @@ public class VentanaPrincipal {
 				gameLoop.iniciarEjecucion();
 			}
 		});
+
+		btnIniciar.setBounds(40, 515, 77, 25);
+
 		//btnIniciar.setBounds(42, 16, 77, 25);
 		btnIniciar.setBounds(40, 515, 77, 25);
+
 		frame.getContentPane().add(btnIniciar);
 		return btnIniciar;
 	}
