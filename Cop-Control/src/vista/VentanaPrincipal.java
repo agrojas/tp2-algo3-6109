@@ -134,7 +134,7 @@ public class VentanaPrincipal {
 		
 		// tamaño fondo
 
-		panel.setBounds(0, 0, 505, 505);
+		panel.setBounds(0, 0, 510, 510);
 
 		frame.getContentPane().add(panel);
 		return panel;
@@ -148,7 +148,7 @@ public class VentanaPrincipal {
 			}
 		});
 
-		btnDetener.setBounds(350, 515, 92, 25);
+		btnDetener.setBounds(350, 515, 92, 40);
 
 		frame.getContentPane().add(btnDetener);
 		return btnDetener;
@@ -162,7 +162,7 @@ public class VentanaPrincipal {
 			}
 		});
 
-		btnIniciar.setBounds(40, 515, 77, 25);
+		btnIniciar.setBounds(40, 515, 77, 40);
 
 		frame.getContentPane().add(btnIniciar);
 		return btnIniciar;
