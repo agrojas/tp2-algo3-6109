@@ -125,8 +125,8 @@ public abstract class Avion  implements  ObjetoPosicionable{
 	
     
     public boolean esPosicionContenida(Posicion unaPosicion) {
-        double x1 = unaPosicion.getCoordenadaX();
-        double y1 = unaPosicion.getCoordenadaY();
+    	double x1 = (unaPosicion.getCoordenadaX()-(this.getRadio()/2));
+        double y1 = unaPosicion.getCoordenadaY()-(this.getRadio()/2);
     	double x2 = (double)this.getX();
     	double y2 = (double)this.getY();
         double dx = x1 - x2;
