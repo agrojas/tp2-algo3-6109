@@ -11,7 +11,7 @@ import java.util.List;
 public class Trayectoria {
 	
 	private Posicion posicionActual;
-	private List<Posicion> destinos; //al marcar con click se agrega un nuevo destino
+	private List<Posicion> destinos;
 	private Mapa mapaDeMovimiento; 
 	private Posicion posicionAnterior;
 	
@@ -19,7 +19,6 @@ public class Trayectoria {
 		this.posicionActual=posIni;
 		destinos= new LinkedList<Posicion>();
 		this.mapaDeMovimiento=mapaDeMovimiento;
-		//destinos.add(mapaDeMovimiento.)
 		this.posicionAnterior=this.posicionActual;
 	}
 	
@@ -124,7 +123,7 @@ public class Trayectoria {
 		
 		
 		while (!mapaDeMovimiento.esPosicionExtremo(posicionNueva)){
-			System.out.println("generaPosExtremo");
+			//System.out.println("generaPosExtremo");
 			if (deltaX>0){
 				deltaX=deltaX+1;
 			}else{

@@ -60,10 +60,9 @@ public abstract class Avion  implements  ObjetoPosicionable{
 	
 	public void avanzar(){
 		
-	//if (this.estaVolando)
+	
 			trayectoria.avanzar();
-		}
-//	}	
+		}	
 	
 
 	public Posicion getDestinoActual(){
@@ -78,7 +77,7 @@ public abstract class Avion  implements  ObjetoPosicionable{
 	abstract public boolean puedeAterrizar(Pista pista);
 	
 	//borrar metodo es para testear por consola 
-	public void mostrarPosEnConsola(){
+	/*public void mostrarPosEnConsola(){
 		if(this.getDestinoActual().igualA(this.getPosicionActual())){
 			System.out.println("Avion llego a destino!! ");
 		}
@@ -93,7 +92,7 @@ public abstract class Avion  implements  ObjetoPosicionable{
 		}
 		
 		
-	}
+	}*/
 	
 	public boolean esControlable(){
 		return esControlable;

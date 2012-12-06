@@ -51,8 +51,7 @@ public class Jugador {
 		Avion posibleAvion=this.nivelActual.getAvionEnPosicion(unaPosicion);
 		
 		
-		if(this.avionMarcado == null){
-//			Avion posibleAvion=this.nivelActual.getAvionEnPosicion(unaPosicion);		
+		if(this.avionMarcado == null){		
 			if (posibleAvion!=null){				
 				if (posibleAvion.esControlable()){ //con esto aseguro que nunca avionMarcado sea un avionComputarizado (noControlable)
 					this.avionMarcado=posibleAvion;
