@@ -8,7 +8,6 @@ import java.util.List;
 
 import pista.Helipuerto;
 import pista.PistaSimple;
-import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 import avion.Helicoptero;
 import copControl.Mapa;
@@ -25,7 +24,7 @@ public class HelicopteroTest extends TestCase {
 	private Mapa mapaDeJuego;
 	
 	
-	public void testUnHelicopteroNoPuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
+	public void testUnHelicopteroNoPuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
 		PistaSimple pistaSimple = new PistaSimple(posicionFinal);

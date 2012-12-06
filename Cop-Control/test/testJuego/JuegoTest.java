@@ -5,7 +5,7 @@ import java.util.List;
 
 import pista.Pista;
 import pista.PistaSimple;
-import pista.PosicionesEntradaSobrantesException;
+
 import pista.PosicionesEntradaVaciaException;
 import avion.AvionSimple;
 import copControl.Dificultad;
@@ -52,12 +52,13 @@ public class JuegoTest extends TestCase {
         
         public void testColocarAvionListaDeAvionesVolandoNovacia(){
                 juego.colocarAvion();
+                juego.vivir();
                 assertTrue(juego.getNivelActual().tieneAvionesVolando());
         }
         
         
 
-        public void setUp() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
+        public void setUp() throws PosicionesEntradaVaciaException{
                 dificultad= new Dificultad(1, 1, 1);
                 pistas = new LinkedList<Pista>();
                 posicionEntradaPista = new Posicion(3, 3);

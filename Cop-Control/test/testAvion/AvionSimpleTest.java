@@ -5,7 +5,6 @@ import java.util.List;
 
 import pista.Helipuerto;
 import pista.PistaSimple;
-import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 import avion.AvionSimple;
 import copControl.Mapa;
@@ -19,7 +18,7 @@ public class AvionSimpleTest extends TestCase {
 	
 	}
 	
-	public void testUnAvionSimplePuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException, PosicionesEntradaSobrantesException{
+	public void testUnAvionSimplePuedeAterrizarEnUnaPistaSimple() throws PosicionesEntradaVaciaException{
 		Posicion posicionInicial= new Posicion(1,1);
 		Posicion posicionFinal= new Posicion(5,5);
 		PistaSimple pistaSimple = new PistaSimple(posicionFinal);
