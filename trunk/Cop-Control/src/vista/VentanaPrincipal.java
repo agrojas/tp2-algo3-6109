@@ -24,7 +24,6 @@ import avion.AvionSimple;
 
 import pista.Pista;
 import pista.PistaSimple;
-import pista.PosicionesEntradaSobrantesException;
 import pista.PosicionesEntradaVaciaException;
 
 import copControl.Juego;
