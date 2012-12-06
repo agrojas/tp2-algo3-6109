@@ -59,7 +59,6 @@ public class VentanaPrincipal {
 	 */
 	private void initialize() throws IOException {
 		frame = new JFrame();
-		frame.setBounds(400, 50, 500, 600);
 		// tamaño ventana
 		frame.setBounds(400, 50, 500, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -135,7 +134,7 @@ public class VentanaPrincipal {
 		
 		// tamaño fondo
 
-		panel.setBounds(0, 0, 500, 500);
+		panel.setBounds(0, 0, 505, 505);
 
 		frame.getContentPane().add(panel);
 		return panel;
