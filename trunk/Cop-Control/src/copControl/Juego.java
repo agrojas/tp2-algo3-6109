@@ -15,7 +15,7 @@ import avion.Avion;
 
 public class Juego extends Observable implements ObjetoVivo {
 	
-	private Nivel nivelActual;  	/* implementa comparable, cheque niveles dificultad creciente o hago sort para ordenar bajo exepcion  */
+	private Nivel nivelActual;  
 	private Integer cantidadAvionesAterrizados;
 	private Jugador jugador;
 	private List<Nivel> niveles;
@@ -78,7 +78,6 @@ public class Juego extends Observable implements ObjetoVivo {
 	}
 
 	//llamar en hilo de gameLoop por un timer con tiempo=seteado a convenir
-	//Agregue que se modifique la cantidad de aviones aterrizados por cada ciclo
 	public void chequearAterrizajes(){
 		cantidadAvionesAterrizados=cantidadAvionesAterrizados+nivelActual.aterrizarAviones();
 	}
@@ -149,21 +148,6 @@ public class Juego extends Observable implements ObjetoVivo {
 	private int cantidadDeCiclos() {
 		return this.intervaloEntreNuevoAvion;
 	}
-	/**
-	 * Cambiar ESTOOO!
-	 */
-	/*public void avanzarNivel(){		
-		//TODO Cambiar
-		try {
-			nivelActual= niveles.get(niveles.indexOf(nivelActual)+1);
-			cantidadAvionesAterrizados=0;
-			jugador.setNivelActual(nivelActual);
-		} catch (IndexOutOfBoundsException e) {
-			// Si no hay mas niveles en la lista se gana ?
-			jugandose=true;
-		}
-	
-	}*/
 	
 	public void avanzarNivel(){		
 		

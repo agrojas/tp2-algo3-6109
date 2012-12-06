@@ -14,11 +14,6 @@ public class AvionComputarizado extends Avion {
 		
 	}
 
-	public AvionComputarizado(Posicion posIni, Posicion posFin,Mapa mapaDeJuego){
-		super(posIni,posFin,mapaDeJuego);
-		esControlable=false;
-		this.radio=10;
-	}
 	@Override
 	public boolean puedeAterrizar(Pista pista) {
 		return pista.puedeAterrizar(this);

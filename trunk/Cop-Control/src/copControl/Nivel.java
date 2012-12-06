@@ -65,10 +65,6 @@ public class Nivel {
 		return mapa.getPosicionesExtremos();
 	}
 
-	public Posicion getPosicionPistaNoHelipuerto() {
-		return (mapa.getPosicionPistaNoHelipuerto());
-	}
-
 	public void colocarAvionEnAire(Avion unAvion) {
 		mapa.colocarAvionEnAire(unAvion);
 	

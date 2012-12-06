@@ -6,7 +6,6 @@ import java.util.List;
 
 import pista.Pista;
 import avion.Avion;
-import avion.AvionComputarizado;
 
 public class Mapa {
 	private List<Avion> avionesEnAire;
@@ -17,7 +16,6 @@ public class Mapa {
 	public Mapa(List<Pista>pistas) {
 		this.avionesEnAire= new ArrayList<Avion>();
 		this.setPistas(pistas);
-		//tama�o de la "matriz" de posiciones 50x50
 		this.dimension = 400;
 	}
 
@@ -45,7 +43,6 @@ public class Mapa {
 		
 	}
 
-	//cambiar a private
 	public Posicion generarPosicionExtremoAlAzar(){
 		
 		Posicion posicionADevolver=null;
@@ -88,7 +85,6 @@ public class Mapa {
 	
 	public Posicion getPosPistaAdecuada(Avion unAvion) {
 		
-//		List<Pista> pistas=this.getPistas();
 		Iterator<Pista> itPistas= this.pistas.iterator();
 		Pista pistaAEvaluar= null;
 		boolean pistaEncontrada = false;
@@ -115,10 +111,6 @@ public class Mapa {
 		return posicionesExtremos;
 	}
 
-	public Posicion getPosicionPistaNoHelipuerto() {
-		Posicion unaPosicionPistaNoHelipuerto= new Posicion(25,25); //reemplazar por invocacion a metodo con codigo real
-		return unaPosicionPistaNoHelipuerto;
-	}
 
 	public void colocarAvionEnAire(Avion unAvion) {
 		avionesEnAire.add(unAvion);
@@ -145,9 +137,7 @@ public class Mapa {
 		
 		double x1 = unaPosicion.getCoordenadaX();
 		double y1 = unaPosicion.getCoordenadaY();
-		
-		//boolean bordeIzq= ((x1==0)&&(y1>=0)&&(y1<=this.dimension));
-		  //boolean bordeSup=((y1==0)&&(x1>=0)&&(x1<=this.dimension));
+	
 		boolean bordeIzq= ((x1==0)||(y1>=0)&&(y1<=this.dimension));
 		boolean bordeSup=((y1==0)||(x1>=0)&&(x1<=this.dimension));
 		boolean bordeInf=((y1==this.dimension)&&((x1>=0)&&(x1<=this.dimension)));
