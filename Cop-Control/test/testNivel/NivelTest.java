@@ -6,7 +6,6 @@ import java.util.List;
 
 
 import pista.Pista;
-import pista.PistaLarga;
 import pista.PistaSimple;
 import pista.PosicionesEntradaVaciaException;
 import avion.Avion;
@@ -29,16 +28,12 @@ public class NivelTest extends TestCase {
 	private Dificultad dificultad;
 	private AvionSimple avionSimple;
 	private PistaSimple pistaSimple;
-	private Posicion posicionEntradaPista;
 	private Posicion posicionInicioAvion;
 	private List<Pista> pistas;
 	private Posicion posicionPista;
 	private Posicion posicionFinAvion;
 	
-	//BORRAR
-	private List<Posicion> posicionPistaLarga ;
-	private Posicion posicionEntradaPistaLarga;
-	private PistaLarga pistaLarga;
+
 	
 	public void testUnNivelDeberiaAterrizarAvionesSiHayAlgunAvionConPosicionDePista(){
 		Posicion posicionFinal = new Posicion(5,5);
@@ -104,33 +99,14 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 				
 	}
 	
-	
-	//Borrar luego. Solo sirve para chequear metodo remove
-	public void testRemueveElementoDeLaLista(){
-		
-		List<Avion> avionesVolando= new LinkedList();
-		boolean verificacion;
-		Posicion posicionInicial= new Posicion(1,2);
-		
-		AvionSimple avionSimple= new AvionSimple(posicionInicial,posicionInicial, mapa);
-		AvionPesado avionPesado= new AvionPesado(posicionInicial,posicionInicial, mapa);
-		
-		avionesVolando.add(avionSimple);
-		avionesVolando.add(avionPesado);
-		
-		verificacion= avionesVolando.remove(avionSimple);
-		
-		assertTrue(true);
-		
-		
-	}
+
 	
 	
 	public void testUnNivelAterrizaAvionesQuePuedanAterrizar(){
 		
 		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion, mapa);
 		mapa.colocarAvionEnAire(avionSimple);
-		int cantidadAvionesAterrizados= nivel.aterrizarAviones();
+		
 		assertFalse(nivel.tieneAvionesVolando());
 	
 	}
