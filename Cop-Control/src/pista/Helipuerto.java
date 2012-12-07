@@ -1,6 +1,5 @@
 package pista;
 
-import avion.Avion;
 import avion.AvionComputarizado;
 import avion.AvionPesado;
 import avion.AvionSimple;
@@ -48,19 +47,7 @@ public class Helipuerto extends Pista{
 	public int getY() {
 		return (int)getPosicionEntrada().getCoordenadaY();
 	}
-	@Override
-	public boolean estaEnZonaAterrizaje(Avion avion) {
-		
-		Posicion posicion1= this.getPosicionEntrada();
-		int radio1 = this.radioAterrizaje;
-		Posicion posicion2 = avion.getPosicionActual();
-		int radio2 = avion.getRadio();	
-		
-		return intersects(posicion1.getCoordenadaX(), posicion1.getCoordenadaY(), radio1,
-				posicion2.getCoordenadaX(), posicion2.getCoordenadaY(), radio2);
-	}
 
-	
 	
 
 

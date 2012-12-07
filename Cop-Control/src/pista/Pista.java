@@ -49,8 +49,19 @@ public abstract class Pista implements ObjetoPosicionable{
 		return this.posicionEntrada;
 	}
 
+	
+	public boolean estaEnZonaAterrizaje(Avion avion) {
+		
+		Posicion posicion1= this.getPosicionEntrada();
+		int radio1 = this.radioAterrizaje;
+		Posicion posicion2 = avion.getPosicionActual();
+		int radio2 = avion.getRadio();	
+		
+		return intersects(posicion1.getCoordenadaX(), posicion1.getCoordenadaY(), radio1,
+				posicion2.getCoordenadaX(), posicion2.getCoordenadaY(), radio2);
+	}
 
-	public abstract boolean estaEnZonaAterrizaje(Avion avion);
+	
 	
     // does circle (x1, y1, r1) intersect circle (x2, y2, r2)?
     protected boolean intersects(double x1, double y1, double r1,

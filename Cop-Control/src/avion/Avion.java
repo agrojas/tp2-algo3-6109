@@ -156,7 +156,6 @@ public abstract class Avion  implements  ObjetoPosicionable{
 
 	public void iniciarNuevaTrayectoria(Posicion nuevaPosicion){
 		this.trayectoria.borrarDestinos();
-//		this.trayectoria.setDestino(nuevaPosicion);
 		
 	}
 
