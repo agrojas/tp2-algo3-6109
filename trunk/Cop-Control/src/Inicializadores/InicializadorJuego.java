@@ -54,7 +54,7 @@ public class InicializadorJuego {
 	
 	
 	private static Dificultad dificultadInicializada() {
-		return new Dificultad(2, 150, 50);
+		return new Dificultad(5, 50, 50);
 	}
 
 	private static Mapa mapaInicializado(){
@@ -130,7 +130,7 @@ public class InicializadorJuego {
 	//
 	
 	private static Dificultad dificultad2Inicializada() {
-		return new Dificultad(5, 50, 50);
+		return new Dificultad(5, 40, 50);
 	}
 	
 	private static Nivel nivel2Inicializado(){

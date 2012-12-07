@@ -15,7 +15,7 @@ public class PistaDoble extends Pista {
 	private Posicion posicionEntradaSecundaria;
 	private int largo;
 	
-
+	
 
 	public PistaDoble(Posicion posicionEntrada) throws PosicionesEntradaVaciaException  {
 		super (posicionEntrada);
@@ -25,6 +25,10 @@ public class PistaDoble extends Pista {
 		this.posicionEntradaSecundaria= new Posicion((int)this.getPosicionEntradaPrincipal().getCoordenadaX()+largo,(int)this.getPosicionEntradaPrincipal().getCoordenadaY());
 	}
 
+	public int getLargo(){
+		return this.largo;
+	}
+	
 	@Override
 	public boolean puedeAterrizar(AvionSimple avionSimple) {
 		// TODO Auto-generated method stub

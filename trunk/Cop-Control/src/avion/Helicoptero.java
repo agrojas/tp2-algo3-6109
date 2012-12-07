@@ -10,6 +10,15 @@ public class Helicoptero extends Avion{
 
 	
 	private boolean estaDetenido;
+	/**
+	 * @return the estaDetenido
+	 */
+	public boolean estaDetenido() {
+		return estaDetenido;
+	}
+
+
+
 	public Helicoptero(Posicion posIni, Posicion posFin,Mapa mapaDeMovimiento) {
 		super(posIni, posFin,mapaDeMovimiento);
 		esControlable=true;
