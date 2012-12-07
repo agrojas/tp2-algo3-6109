@@ -36,6 +36,15 @@ public class AvionComputarizadoTest extends TestCase {
 		assertFalse(avion.puedeAterrizar(helipuerto));
 	}
 	
+	public void testUnAvionComputarizadoNoEsControlable(){
+		Posicion posicionInicial= new Posicion(1,1);
+		AvionComputarizado avion = new AvionComputarizado(posicionInicial,this.mapaDeMovimiento);
+		
+		assertFalse(avion.esControlable());
+	
+	}
+	
+	
 	public void setUp(){
 		
 		mapaDeMovimiento=new Mapa();

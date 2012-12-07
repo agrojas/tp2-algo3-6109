@@ -45,6 +45,31 @@ public class AvionTest extends TestCase {
 		
 	}
 	
+	public void testUnAvionSeMarcaSiIndicoUnaPosicionQueEsteDentroDeSuRadio(){
+		
+		Posicion posicionInicial= new Posicion(2,2);
+		Posicion posicionFinal= new Posicion(3,3);
+		Posicion posicionQueMarca = new Posicion((int)posicionInicial.getCoordenadaX()+1, (int)posicionInicial.getCoordenadaY());
+		Avion avion = new AvionSimple(posicionInicial, posicionFinal, mapaDeJuego);
+		avion.esPosicionContenida(posicionQueMarca);
+		assertTrue(avion.estaMarcado());
+		
+		
+	}
+	
+	public void testSiUnAvionEstaMarcadoLoPuedoDesmarcar(){
+		
+		Posicion posicionInicial= new Posicion(2,2);
+		Posicion posicionFinal= new Posicion(3,3);
+		Posicion posicionQueMarca = new Posicion((int)posicionInicial.getCoordenadaX()+1, (int)posicionInicial.getCoordenadaY());
+		Avion avion = new AvionSimple(posicionInicial, posicionFinal, mapaDeJuego);
+		avion.esPosicionContenida(posicionQueMarca);
+		avion.desmarcar();
+		assertFalse(avion.estaMarcado());
+		
+		
+	}
+	
 	public void setUp(){
 		mapaDeJuego= new Mapa();
 	}
