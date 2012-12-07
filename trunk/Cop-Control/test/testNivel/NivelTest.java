@@ -100,16 +100,6 @@ public void testNoDeberiaHaberChoqueAlColocarAvionesConPosicionInicialDistinta()
 	}
 	
 
-	
-	
-	public void testUnNivelAterrizaAvionesQuePuedanAterrizar(){
-		
-		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion, mapa);
-		mapa.colocarAvionEnAire(avionSimple);
-		
-		assertFalse(nivel.tieneAvionesVolando());
-	
-	}
 	public void testColocarAvionSimpleEnAire(){
 		
 		avionSimple= new AvionSimple(posicionInicioAvion, posicionFinAvion,mapa);
