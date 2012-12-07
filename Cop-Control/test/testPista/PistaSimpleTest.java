@@ -9,7 +9,7 @@ import pista.PosicionesEntradaVaciaException;
 
 public class PistaSimpleTest extends TestCase {
 
-	private Posicion posicionesDeEntrada;
+
 	
 	public void testCrearPistaSimple() throws PosicionesEntradaVaciaException{
 		Posicion posicionDeEntrada= new Posicion (1,1);
