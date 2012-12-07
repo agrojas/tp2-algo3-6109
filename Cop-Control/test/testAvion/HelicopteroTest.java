@@ -44,6 +44,33 @@ public class HelicopteroTest extends TestCase {
 		assertTrue(helicoptero.puedeAterrizar(helipuerto));
 	}
 	
+	public void testUnHelicopteroEsDetenible() {
+		Posicion posicionInicial= new Posicion(1,1);
+		Posicion posicionFinal= new Posicion(5,5);		
+		Helicoptero helicoptero = new Helicoptero(posicionInicial, posicionFinal,mapaDeJuego);
+		assertTrue(helicoptero.esDetenible());
+		
+	}
+	
+	public void testUnHelicopteroSeDetiene() {
+		Posicion posicionInicial= new Posicion(1,1);
+		Posicion posicionFinal= new Posicion(5,5);		
+		Helicoptero helicoptero = new Helicoptero(posicionInicial, posicionFinal,mapaDeJuego);
+		helicoptero.detener();
+		assertTrue(helicoptero.estaDetenido());
+		
+	}
+	
+	public void testSiUnHelicopteroSeDetienePuedeVolverAArrancar() {
+		Posicion posicionInicial= new Posicion(1,1);
+		Posicion posicionFinal= new Posicion(5,5);		
+		Helicoptero helicoptero = new Helicoptero(posicionInicial, posicionFinal,mapaDeJuego);
+		helicoptero.detener();
+		helicoptero.arrancar();
+		assertFalse(helicoptero.estaDetenido());
+		
+	}
+	
 	public void setUp(){
 	 mapaDeJuego = new Mapa();
 	}
